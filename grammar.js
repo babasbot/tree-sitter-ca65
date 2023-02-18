@@ -105,6 +105,7 @@ module.exports = grammar({
       $.bne_opc,
       $.bpl_opc,
       $.bvc_opc,
+      $.bvs_opc,
     ].map((op) => seq(op, $.num_16))),
 
     /*
@@ -147,7 +148,7 @@ module.exports = grammar({
     bpl_opc: ($) => /[Bb][Pp][Ll]/,
     brk_opc: ($) => /[Bb][Rr][Kk]/,
     bvc_opc: ($) => /[Bb][Vv][Cc]/,
-    bvs_opc: ($) => /BVS/i, // branch on overflow set
+    bvs_opc: ($) => /[Bb][Vv][Ss]/,
     clc_opc: ($) => /CLC/i, // clear carry
     cld_opc: ($) => /CLD/i, // clear decimal
     cli_opc: ($) => /CLI/i, // clear interrupt disable
