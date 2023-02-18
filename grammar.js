@@ -73,6 +73,7 @@ module.exports = grammar({
       $.brk_opc,
       $.clc_opc,
       $.cld_opc,
+      $.cli_opc,
     ),
 
     /*
@@ -153,7 +154,7 @@ module.exports = grammar({
     bvs_opc: ($) => /[Bb][Vv][Ss]/,
     clc_opc: ($) => /[Cc][Ll][Cc]/,
     cld_opc: ($) => /[Cc][Ll][Dd]/,
-    cli_opc: ($) => /CLI/i, // clear interrupt disable
+    cli_opc: ($) => /[Cc][Ll][Ii]/,
     clv_opc: ($) => /CLV/i, // clear overflow
     cmp_opc: ($) => /CMP/i, // compare (with accumulator)
     cpx_opc: ($) => /CPX/i, // compare with X
