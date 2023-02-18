@@ -1,0 +1,27 @@
+==========================
+BVC $BB
+==========================
+
+bvc $084A
+bvc 2122
+bvc %100001001010
+
+---
+
+(asm
+  (inst
+    (rel_opc
+      (bvc_opc)
+      (num_16
+        (hex_num_16))))
+  (inst
+    (rel_opc
+      (bvc_opc)
+      (num_16
+        (dec_num_16))))
+  (inst
+    (rel_opc
+      (bvc_opc)
+      (num_16
+        (bin_num_16)))))
+
