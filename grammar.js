@@ -74,6 +74,7 @@ module.exports = grammar({
       $.clc_opc,
       $.cld_opc,
       $.cli_opc,
+      $.clv_opc,
     ),
 
     /*
@@ -155,7 +156,7 @@ module.exports = grammar({
     clc_opc: ($) => /[Cc][Ll][Cc]/,
     cld_opc: ($) => /[Cc][Ll][Dd]/,
     cli_opc: ($) => /[Cc][Ll][Ii]/,
-    clv_opc: ($) => /CLV/i, // clear overflow
+    clv_opc: ($) => /[Cc][Ll][Vv]/,
     cmp_opc: ($) => /CMP/i, // compare (with accumulator)
     cpx_opc: ($) => /CPX/i, // compare with X
     cpy_opc: ($) => /CPY/i, // compare with Y
