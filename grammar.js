@@ -39,7 +39,8 @@ module.exports = grammar({
 
     zpg_opc: ($) => choice(seq($.adc_opc, $.num_8)),
 
-    zpg_x_opc: ($) => choice(),
+    zpg_x_opc: ($) => choice(seq($.adc_opc, $.num_8, ",", $.x_reg)),
+
     zpg_y_opc: ($) => choice(),
 
     /*
