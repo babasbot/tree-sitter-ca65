@@ -94,7 +94,9 @@ module.exports = grammar({
     /*
      * OPC $BB
      */
-    rel_opc: ($) => choice(),
+    rel_opc: ($) => choice(...[
+      $.bcc_opc,
+    ].map((op) => seq(op, $.num_16))),
 
     /*
      * OPC $LL
@@ -126,7 +128,7 @@ module.exports = grammar({
     adc_opc: ($) => /([Aa][Dd][Cc])/,
     and_opc: ($) => /[Aa][Nn][Dd]/,
     asl_opc: ($) => /[Aa][Ss][Ll]/,
-    bcc_opc: ($) => /BCC/i, // branch on carry clear
+    bcc_opc: ($) => /[Bb][Cc][Cc]/,
     bcs_opc: ($) => /BCS/i, // branch on carry set
     beq_opc: ($) => /BEQ/i, // branch on equal (zero set)
     bit_opc: ($) => /BIT/i, // bit test
