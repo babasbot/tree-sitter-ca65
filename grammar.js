@@ -28,7 +28,9 @@ module.exports = grammar({
     abs_opc: ($) => choice(),
     abs_x_opc: ($) => choice(),
     abs_y_opc: ($) => choice(),
-    imm_opc: ($) => choice(),
+
+    imm_opc: ($) => choice(seq($.adc_opc, $.imm_prefix, $.num_8)),
+
     impl_opc: ($) => choice(),
     ind_opc: ($) => choice(),
     x_ind_opc: ($) => choice(),
@@ -42,7 +44,7 @@ module.exports = grammar({
      * INSTRUCTIONS
      */
 
-    adc_opc: ($) => /ADC/i, // add with carry
+    adc_opc: ($) => /([Aa][Dd][Cc])/,
     and_opc: ($) => /AND/i, // and (with accumulator)
     asl_opc: ($) => /ASL/i, // arithmetic shift left
     bcc_opc: ($) => /BCC/i, // branch on carry clear
@@ -104,5 +106,7 @@ module.exports = grammar({
     hex_num_8: ($) => seq("$", /0*[0-9a-fA-F]{1,2}/),
     dec_num_8: ($) => /0*(25[0-5]|2[0-4][0-9]|[01]?[0-9]{1,2})/,
     bin_num_8: ($) => seq("%", /0*[01]{1,8}/),
+
+    imm_prefix: ($) => "#",
   },
 });
