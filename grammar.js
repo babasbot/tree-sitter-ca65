@@ -117,5 +117,7 @@ module.exports = grammar({
     bin_num_16: ($) => seq("%", /0*[01]{9,16}/),
 
     imm_prefix: ($) => "#",
+
+    x_reg: ($) => /[xX]/,
   },
 });
