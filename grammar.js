@@ -98,5 +98,11 @@ module.exports = grammar({
     txa_opc: ($) => /TXA/i, // transfer X to accumulator
     tcs_opc: ($) => /TSX/i, // transfer X to stack pointer
     tya_opx: ($) => /TYA/i, // transfer Y to accumulator
+
+    num_8: ($) => choice($.hex_num_8, $.dec_num_8, $.bin_num_8),
+
+    hex_num_8: ($) => seq("$", /0*[0-9a-fA-F]{1,2}/),
+    dec_num_8: ($) => /0*(25[0-5]|2[0-4][0-9]|[01]?[0-9]{1,2})/,
+    bin_num_8: ($) => seq("%", /0*[01]{1,8}/),
   },
 });
