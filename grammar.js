@@ -69,7 +69,9 @@ module.exports = grammar({
     /*
      * OPC
      */
-    impl_opc: ($) => choice(),
+    impl_opc: ($) => choice(
+      $.brk_opc,
+    ),
 
     /*
      * OPC ($LLHH)
@@ -142,7 +144,7 @@ module.exports = grammar({
     bmi_opc: ($) => /[Bb][Mm][Ii]/,
     bne_opc: ($) => /[Bb][Nn][Ee]/,
     bpl_opc: ($) => /[Bb][Pp][Ll]/,
-    brk_opc: ($) => /BRK/i, // break / interrupt
+    brk_opc: ($) => /[Bb][Rr][Kk]/,
     bvc_opc: ($) => /BVC/i, // branch on overflow clear
     bvs_opc: ($) => /BVS/i, // branch on overflow set
     clc_opc: ($) => /CLC/i, // clear carry
