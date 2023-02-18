@@ -24,23 +24,85 @@ module.exports = grammar({
      * ADDRESS MODES
      */
 
+    /*
+     * OPC A
+     */
     acc_opc: ($) => choice(),
-    abs_opc: ($) => choice(),
-    abs_x_opc: ($) => choice(),
-    abs_y_opc: ($) => choice(),
 
-    imm_opc: ($) => choice(seq($.adc_opc, $.imm_prefix, $.num_8)),
+    /*
+     * OPC $LLHH
+     */
+    abs_opc: ($) => choice(
+      seq($.adc_opc, $.num_16)
+    ),
 
+    /*
+     * OPC $LLHH,X
+     */
+    abs_x_opc: ($) => choice(
+      seq($.adc_opc, $.num_16, ",", $.x_reg)
+    ),
+
+    /*
+     * OPC $LLHH,Y
+     */
+    abs_y_opc: ($) => choice(
+      seq($.adc_opc, $.num_16, ",", $.y_reg)
+    ),
+
+    /*
+     * OPC #$BB
+     */
+    imm_opc: ($) => choice(
+      seq($.adc_opc, "#", $.num_8)
+    ),
+
+    /*
+     * OPC
+     */
     impl_opc: ($) => choice(),
+
+    /*
+     * OPC ($LLHH)
+     */
     ind_opc: ($) => choice(),
-    x_ind_opc: ($) => choice(),
-    ind_y_opc: ($) => choice(),
+
+    /*
+     * OPC ($LL,X)
+     */
+    x_ind_opc: ($) => choice(
+      seq($.adc_opc, "(", $.num_8, ",", $.x_reg, ")"),
+    ),
+
+    /*
+     * OPC ($LL),Y
+     */
+    ind_y_opc: ($) => choice(
+      seq($.adc_opc, "(", $.num_8, ")", ",", $.y_reg),
+    ),
+
+    /*
+     * OPC $BB
+     */
     rel_opc: ($) => choice(),
 
-    zpg_opc: ($) => choice(seq($.adc_opc, $.num_8)),
+    /*
+     * OPC $LL
+     */
+    zpg_opc: ($) => choice(
+      seq($.adc_opc, $.num_8)
+    ),
 
-    zpg_x_opc: ($) => choice(seq($.adc_opc, $.num_8, ",", $.x_reg)),
+    /*
+     * OPC $LL,X
+     */
+    zpg_x_opc: ($) => choice(
+      seq($.adc_opc, $.num_8, ",", $.x_reg)
+    ),
 
+    /*
+     * OPC $LL,Y
+     */
     zpg_y_opc: ($) => choice(),
 
     /*
@@ -117,8 +179,12 @@ module.exports = grammar({
       /0*(6553[0-5]|655[0-2]\d|65[0-4]\d{2}|6[0-4]\d{3}|[1-5]?\d{1,4})/,
     bin_num_16: ($) => seq("%", /0*[01]{9,16}/),
 
-    imm_prefix: ($) => "#",
+    /*
+     * REGISTERS
+     */
 
+    a_reg: ($) => /[aA]/,
     x_reg: ($) => /[xX]/,
+    y_reg: ($) => /[yY]/,
   },
 });
