@@ -100,6 +100,7 @@ module.exports = grammar({
       $.bcs_opc,
       $.beq_opc,
       $.bmi_opc,
+      $.bne_opc,
     ].map((op) => seq(op, $.num_16))),
 
     /*
@@ -130,7 +131,7 @@ module.exports = grammar({
      * INSTRUCTIONS
      */
 
-    adc_opc: ($) => /([Aa][Dd][Cc])/,
+    adc_opc: ($) => /[Aa][Dd][Cc]/,
     and_opc: ($) => /[Aa][Nn][Dd]/,
     asl_opc: ($) => /[Aa][Ss][Ll]/,
     bcc_opc: ($) => /[Bb][Cc][Cc]/,
@@ -138,7 +139,7 @@ module.exports = grammar({
     beq_opc: ($) => /[Bb][Ee][Qq]/,
     bit_opc: ($) => /[Bb][Ii][Tt]/,
     bmi_opc: ($) => /[Bb][Mm][Ii]/,
-    bne_opc: ($) => /BNE/i, // branch on not equal (zero clear)
+    bne_opc: ($) => /[Bb][Nn][Ee]/,
     bpl_opc: ($) => /BPL/i, // branch on plus (negative clear)
     brk_opc: ($) => /BRK/i, // break / interrupt
     bvc_opc: ($) => /BVC/i, // branch on overflow clear
