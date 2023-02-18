@@ -32,30 +32,34 @@ module.exports = grammar({
     /*
      * OPC $LLHH
      */
-    abs_opc: ($) => choice(
-      seq($.adc_opc, $.num_16)
-    ),
+    abs_opc: ($) => choice(...[
+      $.adc_opc,
+      $.and_opc,
+    ].map((op) => seq(op, $.num_16))),
 
     /*
      * OPC $LLHH,X
      */
-    abs_x_opc: ($) => choice(
-      seq($.adc_opc, $.num_16, ",", $.x_reg)
-    ),
+    abs_x_opc: ($) => choice(...[
+      $.adc_opc,
+      $.and_opc,
+    ].map((op) => seq(op, $.num_16, ",", $.x_reg))),
 
     /*
      * OPC $LLHH,Y
      */
-    abs_y_opc: ($) => choice(
-      seq($.adc_opc, $.num_16, ",", $.y_reg)
-    ),
+    abs_y_opc: ($) => choice(...[
+      $.adc_opc,
+      $.and_opc,
+    ].map((op) => seq(op, $.num_16, ",", $.y_reg))),
 
     /*
      * OPC #$BB
      */
-    imm_opc: ($) => choice(
-      seq($.adc_opc, "#", $.num_8)
-    ),
+    imm_opc: ($) => choice(...[
+      $.adc_opc,
+      $.and_opc,
+    ].map((op) => seq(op, "#", $.num_8))),
 
     /*
      * OPC
@@ -70,16 +74,18 @@ module.exports = grammar({
     /*
      * OPC ($LL,X)
      */
-    x_ind_opc: ($) => choice(
-      seq($.adc_opc, "(", $.num_8, ",", $.x_reg, ")"),
-    ),
+    x_ind_opc: ($) => choice(...[
+      $.adc_opc,
+      $.and_opc,
+    ].map((op) => seq(op, "(", $.num_8, ",", $.x_reg, ")"))),
 
     /*
      * OPC ($LL),Y
      */
-    ind_y_opc: ($) => choice(
-      seq($.adc_opc, "(", $.num_8, ")", ",", $.y_reg),
-    ),
+    ind_y_opc: ($) => choice(...[
+      $.adc_opc,
+      $.and_opc,
+    ].map((op) => seq(op, "(", $.num_8, ")", ",", $.y_reg))),
 
     /*
      * OPC $BB
@@ -89,16 +95,18 @@ module.exports = grammar({
     /*
      * OPC $LL
      */
-    zpg_opc: ($) => choice(
-      seq($.adc_opc, $.num_8)
-    ),
+    zpg_opc: ($) => choice(...[
+      $.adc_opc,
+      $.and_opc,
+    ].map((op) => seq(op, $.num_8))),
 
     /*
      * OPC $LL,X
      */
-    zpg_x_opc: ($) => choice(
-      seq($.adc_opc, $.num_8, ",", $.x_reg)
-    ),
+    zpg_x_opc: ($) => choice(...[
+      $.adc_opc,
+      $.and_opc,
+    ].map((op) => seq(op, $.num_8, ",", $.x_reg))),
 
     /*
      * OPC $LL,Y
@@ -110,7 +118,7 @@ module.exports = grammar({
      */
 
     adc_opc: ($) => /([Aa][Dd][Cc])/,
-    and_opc: ($) => /AND/i, // and (with accumulator)
+    and_opc: ($) => /[Aa][Nn][Dd]/,
     asl_opc: ($) => /ASL/i, // arithmetic shift left
     bcc_opc: ($) => /BCC/i, // branch on carry clear
     bcs_opc: ($) => /BCS/i, // branch on carry set
