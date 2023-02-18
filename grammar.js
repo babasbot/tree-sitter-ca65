@@ -27,7 +27,9 @@ module.exports = grammar({
     /*
      * OPC A
      */
-    acc_opc: ($) => choice(),
+    acc_opc: ($) => choice(...[
+      $.asl_opc,
+    ].map((op) => seq(op, optional($.a_reg)))),
 
     /*
      * OPC $LLHH
@@ -35,6 +37,7 @@ module.exports = grammar({
     abs_opc: ($) => choice(...[
       $.adc_opc,
       $.and_opc,
+      $.asl_opc,
     ].map((op) => seq(op, $.num_16))),
 
     /*
@@ -43,6 +46,7 @@ module.exports = grammar({
     abs_x_opc: ($) => choice(...[
       $.adc_opc,
       $.and_opc,
+      $.asl_opc,
     ].map((op) => seq(op, $.num_16, ",", $.x_reg))),
 
     /*
@@ -98,6 +102,7 @@ module.exports = grammar({
     zpg_opc: ($) => choice(...[
       $.adc_opc,
       $.and_opc,
+      $.asl_opc,
     ].map((op) => seq(op, $.num_8))),
 
     /*
@@ -106,6 +111,7 @@ module.exports = grammar({
     zpg_x_opc: ($) => choice(...[
       $.adc_opc,
       $.and_opc,
+      $.asl_opc,
     ].map((op) => seq(op, $.num_8, ",", $.x_reg))),
 
     /*
@@ -119,7 +125,7 @@ module.exports = grammar({
 
     adc_opc: ($) => /([Aa][Dd][Cc])/,
     and_opc: ($) => /[Aa][Nn][Dd]/,
-    asl_opc: ($) => /ASL/i, // arithmetic shift left
+    asl_opc: ($) => /[Aa][Ss][Ll]/,
     bcc_opc: ($) => /BCC/i, // branch on carry clear
     bcs_opc: ($) => /BCS/i, // branch on carry set
     beq_opc: ($) => /BEQ/i, // branch on equal (zero set)
