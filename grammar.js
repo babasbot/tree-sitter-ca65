@@ -168,7 +168,11 @@ module.exports = grammar({
      * OPC ($LLHH)
      */
     ind_opc: ($) =>
-      choice(...[$.jmp_opc].map((op) => seq(op, "(", $.num_16, ")"))),
+      choice(
+        ...[$.jmp_opc].map((op) =>
+          seq(op, $.l_parentheis, $.num_16, $.r_parentheis)
+        )
+      ),
 
     /*
      * OPC ($LL,X)
@@ -184,7 +188,9 @@ module.exports = grammar({
           $.ora_opc,
           $.sbc_opc,
           $.sta_opc,
-        ].map((op) => seq(op, "(", $.num_8, ",", $.x_reg, ")"))
+        ].map((op) =>
+          seq(op, $.l_parentheis, $.num_8, ",", $.x_reg, $.r_parentheis)
+        )
       ),
 
     /*
@@ -201,7 +207,9 @@ module.exports = grammar({
           $.ora_opc,
           $.sbc_opc,
           $.sta_opc,
-        ].map((op) => seq(op, "(", $.num_8, ")", ",", $.y_reg))
+        ].map((op) =>
+          seq(op, $.l_parentheis, $.num_8, $.r_parentheis, ",", $.y_reg)
+        )
       ),
 
     /*
@@ -367,5 +375,8 @@ module.exports = grammar({
     y_reg: ($) => /[yY]/,
 
     comment: ($) => token(seq(";", /.*/)),
+
+    l_parentheis: ($) => "(",
+    r_parentheis: ($) => ")",
   },
 });
