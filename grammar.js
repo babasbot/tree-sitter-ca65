@@ -94,6 +94,7 @@ module.exports = grammar({
       $.dex_opc,
       $.dey_opc,
       $.inx_opc,
+      $.iny_opc,
     ),
 
     /*
@@ -199,7 +200,7 @@ module.exports = grammar({
     eor_opc: ($) => /[Ee][Oo][Rr]/,
     inc_opc: ($) => /[Ii][Nn][Cc]/,
     inx_opc: ($) => /[Ii][Nn][Xx]/,
-    iny_opc: ($) => /INY/i, // increment Y
+    iny_opc: ($) => /[Ii][Nn][Yy]/,
     jmp_opc: ($) => /JMP/i, // jump
     jsr_opc: ($) => /JSR/i, // jump subroutine
     lda_opc: ($) => /LDA/i, // load accumulator
