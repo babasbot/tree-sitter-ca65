@@ -133,6 +133,7 @@ module.exports = grammar({
       $.rts_opc,
       $.sec_opc,
       $.sed_opc,
+      $.sei_opc,
     ),
 
     /*
@@ -283,7 +284,7 @@ module.exports = grammar({
     sbc_opc: ($) => /[Ss][Bb][Cc]/,
     sec_opc: ($) => /[Ss][Ee][Cc]/,
     sed_opc: ($) => /[Ss][Ee][Dd]/,
-    sei_opc: ($) => /SEI/i, // set interrupt disable
+    sei_opc: ($) => /[Ss][Ee][Ii]/,
     sta_opc: ($) => /STA/i, // store accumulator
     stx_opc: ($) => /STX/i, // store X
     sty_opc: ($) => /STY/i, // store Y
