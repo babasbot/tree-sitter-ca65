@@ -110,6 +110,7 @@ module.exports = grammar({
       $.dey_opc,
       $.inx_opc,
       $.iny_opc,
+      $.nop_opc,
     ),
 
     /*
@@ -235,7 +236,7 @@ module.exports = grammar({
     ldx_opc: ($) => /[Ll][Dd][Xx]/,
     ldy_opc: ($) => /[Ll][Dd][Yy]/,
     lsr_opc: ($) => /[Ll][Ss][Rr]/,
-    nop_opc: ($) => /NOP/i, // no operation
+    nop_opc: ($) => /[Nn][Oo][Pp]/,
     ora_opc: ($) => /ORA/i, // or with accumulator
     pha_opc: ($) => /PHA/i, // push accumulator
     php_opc: ($) => /PHP/i, // push processor status (SR)
