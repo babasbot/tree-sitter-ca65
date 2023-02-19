@@ -45,6 +45,7 @@ module.exports = grammar({
       $.dec_opc,
       $.eor_opc,
       $.inc_opc,
+      $.jmp_opc,
     ].map((op) => seq(op, $.num_16))),
 
     /*
@@ -100,7 +101,9 @@ module.exports = grammar({
     /*
      * OPC ($LLHH)
      */
-    ind_opc: ($) => choice(),
+    ind_opc: ($) => choice(...[
+      $.jmp_opc,
+    ].map((op) => seq(op, "(", $.num_16, ")"))),
 
     /*
      * OPC ($LL,X)
@@ -201,7 +204,7 @@ module.exports = grammar({
     inc_opc: ($) => /[Ii][Nn][Cc]/,
     inx_opc: ($) => /[Ii][Nn][Xx]/,
     iny_opc: ($) => /[Ii][Nn][Yy]/,
-    jmp_opc: ($) => /JMP/i, // jump
+    jmp_opc: ($) => /[Jj][Mm][Pp]/,
     jsr_opc: ($) => /JSR/i, // jump subroutine
     lda_opc: ($) => /LDA/i, // load accumulator
     ldx_opc: ($) => /LDX/i, // load X
