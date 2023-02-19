@@ -90,7 +90,7 @@ module.exports = grammar({
           $.ror_opc,
           $.sbc_opc,
           $.sta_opc,
-        ].map((op) => seq(op, $.num_16, ",", $.x_reg))
+        ].map((op) => seq(op, $.num_16, $.comma, $.x_reg))
       ),
 
     /*
@@ -108,7 +108,7 @@ module.exports = grammar({
           $.ora_opc,
           $.sbc_opc,
           $.sta_opc,
-        ].map((op) => seq(op, $.num_16, ",", $.y_reg))
+        ].map((op) => seq(op, $.num_16, $.comma, $.y_reg))
       ),
 
     /*
@@ -189,7 +189,7 @@ module.exports = grammar({
           $.sbc_opc,
           $.sta_opc,
         ].map((op) =>
-          seq(op, $.l_parentheis, $.num_8, ",", $.x_reg, $.r_parentheis)
+          seq(op, $.l_parentheis, $.num_8, $.comma, $.x_reg, $.r_parentheis)
         )
       ),
 
@@ -208,7 +208,7 @@ module.exports = grammar({
           $.sbc_opc,
           $.sta_opc,
         ].map((op) =>
-          seq(op, $.l_parentheis, $.num_8, $.r_parentheis, ",", $.y_reg)
+          seq(op, $.l_parentheis, $.num_8, $.r_parentheis, $.comma, $.y_reg)
         )
       ),
 
@@ -281,7 +281,7 @@ module.exports = grammar({
           $.sbc_opc,
           $.sta_opc,
           $.sty_opc,
-        ].map((op) => seq(op, $.num_8, ",", $.x_reg))
+        ].map((op) => seq(op, $.num_8, $.comma, $.x_reg))
       ),
 
     /*
@@ -289,7 +289,9 @@ module.exports = grammar({
      */
     zpg_y_opc: ($) =>
       choice(
-        ...[$.ldx_opc, $.stx_opc].map((op) => seq(op, $.num_8, ",", $.y_reg))
+        ...[$.ldx_opc, $.stx_opc].map((op) =>
+          seq(op, $.num_8, $.comma, $.y_reg)
+        )
       ),
 
     /*
@@ -378,5 +380,6 @@ module.exports = grammar({
 
     l_parentheis: ($) => "(",
     r_parentheis: ($) => ")",
+    comma: ($) => ",",
   },
 });
