@@ -58,6 +58,7 @@ module.exports = grammar({
       $.ror_opc,
       $.sbc_opc,
       $.sta_opc,
+      $.stx_opc,
     ].map((op) => seq(op, $.num_16))),
 
     /*
@@ -211,6 +212,7 @@ module.exports = grammar({
       $.ror_opc,
       $.sbc_opc,
       $.sta_opc,
+      $.stx_opc,
     ].map((op) => seq(op, $.num_8))),
 
     /*
@@ -239,6 +241,7 @@ module.exports = grammar({
      */
     zpg_y_opc: ($) => choice(...[
       $.ldx_opc,
+      $.stx_opc,
     ].map((op) => seq(op, $.num_8, ",", $.y_reg))),
 
     /*
@@ -293,7 +296,7 @@ module.exports = grammar({
     sed_opc: ($) => /[Ss][Ee][Dd]/,
     sei_opc: ($) => /[Ss][Ee][Ii]/,
     sta_opc: ($) => /[Ss][Tt][Aa]/,
-    stx_opc: ($) => /STX/i, // store X
+    stx_opc: ($) => /[Ss][Tt][Xx]/,
     sty_opc: ($) => /STY/i, // store Y
     tax_opc: ($) => /TAX/i, // transfer accumulator to X
     tay_opc: ($) => /TAY/i, // transfer accumulator to Y
