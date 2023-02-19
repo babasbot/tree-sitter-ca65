@@ -48,6 +48,7 @@ module.exports = grammar({
       $.jmp_opc,
       $.jsr_opc,
       $.lda_opc,
+      $.ldx_opc,
     ].map((op) => seq(op, $.num_16))),
 
     /*
@@ -73,6 +74,7 @@ module.exports = grammar({
       $.cmp_opc,
       $.eor_opc,
       $.lda_opc,
+      $.ldx_opc,
     ].map((op) => seq(op, $.num_16, ",", $.y_reg))),
 
     /*
@@ -86,6 +88,7 @@ module.exports = grammar({
       $.cpy_opc,
       $.eor_opc,
       $.lda_opc,
+      $.ldx_opc,
     ].map((op) => seq(op, "#", $.num_8))),
 
     /*
@@ -161,6 +164,7 @@ module.exports = grammar({
       $.eor_opc,
       $.inc_opc,
       $.lda_opc,
+      $.ldx_opc,
     ].map((op) => seq(op, $.num_8))),
 
     /*
@@ -180,7 +184,9 @@ module.exports = grammar({
     /*
      * OPC $LL,Y
      */
-    zpg_y_opc: ($) => choice(),
+    zpg_y_opc: ($) => choice(...[
+      $.ldx_opc,
+    ].map((op) => seq(op, $.num_8, ",", $.y_reg))),
 
     /*
      * INSTRUCTIONS
@@ -216,7 +222,7 @@ module.exports = grammar({
     jmp_opc: ($) => /[Jj][Mm][Pp]/,
     jsr_opc: ($) => /[Jj][Ss][Rr]/,
     lda_opc: ($) => /[Ll][Dd][Aa]/,
-    ldx_opc: ($) => /LDX/i, // load X
+    ldx_opc: ($) => /[Ll][Dd][Xx]/,
     ldy_opc: ($) => /LDY/i, // load Y
     lsr_opc: ($) => /LSR/i, // logical shift right
     nop_opc: ($) => /NOP/i, // no operation
