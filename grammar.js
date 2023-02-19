@@ -43,6 +43,7 @@ module.exports = grammar({
       $.cpx_opc,
       $.cpy_opc,
       $.dec_opc,
+      $.eor_opc,
     ].map((op) => seq(op, $.num_16))),
 
     /*
@@ -54,6 +55,7 @@ module.exports = grammar({
       $.asl_opc,
       $.cmp_opc,
       $.dec_opc,
+      $.eor_opc,
     ].map((op) => seq(op, $.num_16, ",", $.x_reg))),
 
     /*
@@ -63,6 +65,7 @@ module.exports = grammar({
       $.adc_opc,
       $.and_opc,
       $.cmp_opc,
+      $.eor_opc,
     ].map((op) => seq(op, $.num_16, ",", $.y_reg))),
 
     /*
@@ -74,6 +77,7 @@ module.exports = grammar({
       $.cmp_opc,
       $.cpx_opc,
       $.cpy_opc,
+      $.eor_opc,
     ].map((op) => seq(op, "#", $.num_8))),
 
     /*
@@ -101,6 +105,7 @@ module.exports = grammar({
       $.adc_opc,
       $.and_opc,
       $.cmp_opc,
+      $.eor_opc,
     ].map((op) => seq(op, "(", $.num_8, ",", $.x_reg, ")"))),
 
     /*
@@ -110,6 +115,7 @@ module.exports = grammar({
       $.adc_opc,
       $.and_opc,
       $.cmp_opc,
+      $.eor_opc,
     ].map((op) => seq(op, "(", $.num_8, ")", ",", $.y_reg))),
 
     /*
@@ -138,6 +144,7 @@ module.exports = grammar({
       $.cpx_opc,
       $.cpy_opc,
       $.dec_opc,
+      $.eor_opc,
     ].map((op) => seq(op, $.num_8))),
 
     /*
@@ -149,6 +156,7 @@ module.exports = grammar({
       $.asl_opc,
       $.cmp_opc,
       $.dec_opc,
+      $.eor_opc,
     ].map((op) => seq(op, $.num_8, ",", $.x_reg))),
 
     /*
@@ -183,7 +191,7 @@ module.exports = grammar({
     dec_opc: ($) => /[Dd][Ee][Cc]/,
     dex_opc: ($) => /[Dd][Ee][Xx]/,
     dey_opc: ($) => /[Dd][Ee][Yy]/,
-    eor_opc: ($) => /EOR/i, // exclusive or (with accumulator)
+    eor_opc: ($) => /[Ee][Oo][Rr]/,
     inc_opc: ($) => /INC/i, // increment
     inx_opc: ($) => /INX/i, // increment X
     iny_opc: ($) => /INY/i, // increment Y
