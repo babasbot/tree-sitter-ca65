@@ -50,6 +50,7 @@ module.exports = grammar({
       $.lda_opc,
       $.ldx_opc,
       $.ldy_opc,
+      $.lsr_opc,
     ].map((op) => seq(op, $.num_16))),
 
     /*
@@ -65,6 +66,7 @@ module.exports = grammar({
       $.inc_opc,
       $.lda_opc,
       $.ldy_opc,
+      $.lsr_opc,
     ].map((op) => seq(op, $.num_16, ",", $.x_reg))),
 
     /*
@@ -92,6 +94,7 @@ module.exports = grammar({
       $.lda_opc,
       $.ldx_opc,
       $.ldy_opc,
+      $.lsr_opc,
     ].map((op) => seq(op, "#", $.num_8))),
 
     /*
@@ -169,6 +172,7 @@ module.exports = grammar({
       $.lda_opc,
       $.ldx_opc,
       $.ldy_opc,
+      $.lsr_opc,
     ].map((op) => seq(op, $.num_8))),
 
     /*
@@ -184,6 +188,7 @@ module.exports = grammar({
       $.inc_opc,
       $.lda_opc,
       $.ldy_opc,
+      $.lsr_opc,
     ].map((op) => seq(op, $.num_8, ",", $.x_reg))),
 
     /*
@@ -229,7 +234,7 @@ module.exports = grammar({
     lda_opc: ($) => /[Ll][Dd][Aa]/,
     ldx_opc: ($) => /[Ll][Dd][Xx]/,
     ldy_opc: ($) => /[Ll][Dd][Yy]/,
-    lsr_opc: ($) => /LSR/i, // logical shift right
+    lsr_opc: ($) => /[Ll][Ss][Rr]/,
     nop_opc: ($) => /NOP/i, // no operation
     ora_opc: ($) => /ORA/i, // or with accumulator
     pha_opc: ($) => /PHA/i, // push accumulator
