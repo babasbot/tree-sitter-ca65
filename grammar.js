@@ -144,6 +144,7 @@ module.exports = grammar({
       $.tsx_opc,
       $.txa_opc,
       $.tcs_opc,
+      $.tya_opc,
     ),
 
     /*
@@ -311,7 +312,7 @@ module.exports = grammar({
     tsx_opc: ($) => /[Tt][Ss][Xx]/,
     txa_opc: ($) => /[Tt][Xx][Aa]/,
     tcs_opc: ($) => /[Tt][Cc][Ss]/,
-    tya_opx: ($) => /TYA/i, // transfer Y to accumulator
+    tya_opc: ($) => /[Tt][Yy][Aa]/,
 
     num_8: ($) => choice($.hex_num_8, $.dec_num_8, $.bin_num_8),
 
