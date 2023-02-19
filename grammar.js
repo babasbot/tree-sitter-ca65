@@ -56,6 +56,7 @@ module.exports = grammar({
       $.ora_opc,
       $.rol_opc,
       $.ror_opc,
+      $.sbc_opc,
     ].map((op) => seq(op, $.num_16))),
 
     /*
@@ -75,6 +76,7 @@ module.exports = grammar({
       $.ora_opc,
       $.rol_opc,
       $.ror_opc,
+      $.sbc_opc,
     ].map((op) => seq(op, $.num_16, ",", $.x_reg))),
 
     /*
@@ -88,6 +90,7 @@ module.exports = grammar({
       $.lda_opc,
       $.ldx_opc,
       $.ora_opc,
+      $.sbc_opc,
     ].map((op) => seq(op, $.num_16, ",", $.y_reg))),
 
     /*
@@ -105,6 +108,7 @@ module.exports = grammar({
       $.ldy_opc,
       $.lsr_opc,
       $.ora_opc,
+      $.sbc_opc,
     ].map((op) => seq(op, "#", $.num_8))),
 
     /*
@@ -146,6 +150,7 @@ module.exports = grammar({
       $.eor_opc,
       $.lda_opc,
       $.ora_opc,
+      $.sbc_opc,
     ].map((op) => seq(op, "(", $.num_8, ",", $.x_reg, ")"))),
 
     /*
@@ -158,6 +163,7 @@ module.exports = grammar({
       $.eor_opc,
       $.lda_opc,
       $.ora_opc,
+      $.sbc_opc,
     ].map((op) => seq(op, "(", $.num_8, ")", ",", $.y_reg))),
 
     /*
@@ -195,6 +201,7 @@ module.exports = grammar({
       $.ora_opc,
       $.rol_opc,
       $.ror_opc,
+      $.sbc_opc,
     ].map((op) => seq(op, $.num_8))),
 
     /*
@@ -214,6 +221,7 @@ module.exports = grammar({
       $.ora_opc,
       $.rol_opc,
       $.ror_opc,
+      $.sbc_opc,
     ].map((op) => seq(op, $.num_8, ",", $.x_reg))),
 
     /*
@@ -270,7 +278,7 @@ module.exports = grammar({
     ror_opc: ($) => /[Rr][Oo][Rr]/,
     rti_opc: ($) => /[Rr][Tt][Ii]/,
     rts_opc: ($) => /[Rr][Tt][Ss]/,
-    sbc_opc: ($) => /SBC/i, // subtract with carry
+    sbc_opc: ($) => /[Ss][Bb][Cc]/,
     sec_opc: ($) => /SEC/i, // set carry
     sed_opc: ($) => /SED/i, // set decimal
     sei_opc: ($) => /SEI/i, // set interrupt disable
