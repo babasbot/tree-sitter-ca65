@@ -44,6 +44,7 @@ module.exports = grammar({
       $.cpy_opc,
       $.dec_opc,
       $.eor_opc,
+      $.inc_opc,
     ].map((op) => seq(op, $.num_16))),
 
     /*
@@ -56,6 +57,7 @@ module.exports = grammar({
       $.cmp_opc,
       $.dec_opc,
       $.eor_opc,
+      $.inc_opc,
     ].map((op) => seq(op, $.num_16, ",", $.x_reg))),
 
     /*
@@ -145,6 +147,7 @@ module.exports = grammar({
       $.cpy_opc,
       $.dec_opc,
       $.eor_opc,
+      $.inc_opc,
     ].map((op) => seq(op, $.num_8))),
 
     /*
@@ -157,6 +160,7 @@ module.exports = grammar({
       $.cmp_opc,
       $.dec_opc,
       $.eor_opc,
+      $.inc_opc,
     ].map((op) => seq(op, $.num_8, ",", $.x_reg))),
 
     /*
@@ -192,7 +196,7 @@ module.exports = grammar({
     dex_opc: ($) => /[Dd][Ee][Xx]/,
     dey_opc: ($) => /[Dd][Ee][Yy]/,
     eor_opc: ($) => /[Ee][Oo][Rr]/,
-    inc_opc: ($) => /INC/i, // increment
+    inc_opc: ($) => /[Ii][Nn][Cc]/,
     inx_opc: ($) => /INX/i, // increment X
     iny_opc: ($) => /INY/i, // increment Y
     jmp_opc: ($) => /JMP/i, // jump
