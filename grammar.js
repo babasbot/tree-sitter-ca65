@@ -118,6 +118,7 @@ module.exports = grammar({
       $.pha_opc,
       $.php_opc,
       $.pla_opc,
+      $.plp_opc,
     ),
 
     /*
@@ -252,7 +253,7 @@ module.exports = grammar({
     pha_opc: ($) => /[Pp][Hh][Aa]/,
     php_opc: ($) => /[Pp][Hh][Pp]/,
     pla_opc: ($) => /[Pp][Ll][Aa]/,
-    plp_opc: ($) => /PLP/i, // pull processor status (SR)
+    plp_opc: ($) => /[Pp][Ll][Pp]/,
     rol_opc: ($) => /ROL/i, // rotate left
     ror_opc: ($) => /ROR/i, // rotate right
     rti_opc: ($) => /RTI/i, // return from interrupt
