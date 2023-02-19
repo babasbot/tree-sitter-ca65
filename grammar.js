@@ -85,6 +85,7 @@ module.exports = grammar({
       $.cld_opc,
       $.cli_opc,
       $.clv_opc,
+      $.dex_opc,
     ),
 
     /*
@@ -179,7 +180,7 @@ module.exports = grammar({
     cpx_opc: ($) => /[Cc][Pp][Xx]/,
     cpy_opc: ($) => /[Cc][Pp][Yy]/,
     dec_opc: ($) => /[Dd][Ee][Cc]/,
-    dex_opc: ($) => /DEX/i, // decrement X
+    dex_opc: ($) => /[Dd][Ee][Xx]/,
     dey_opc: ($) => /DEY/i, // decrement Y
     eor_opc: ($) => /EOR/i, // exclusive or (with accumulator)
     inc_opc: ($) => /INC/i, // increment
