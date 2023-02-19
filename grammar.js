@@ -125,6 +125,7 @@ module.exports = grammar({
       $.php_opc,
       $.pla_opc,
       $.plp_opc,
+      $.rti_opc,
     ),
 
     /*
@@ -266,7 +267,7 @@ module.exports = grammar({
     plp_opc: ($) => /[Pp][Ll][Pp]/,
     rol_opc: ($) => /[Rr][Oo][Ll]/,
     ror_opc: ($) => /[Rr][Oo][Rr]/,
-    rti_opc: ($) => /RTI/i, // return from interrupt
+    rti_opc: ($) => /[Rr][Tt][Ii]/,
     rts_opc: ($) => /RTS/i, // return from subroutine
     sbc_opc: ($) => /SBC/i, // subtract with carry
     sec_opc: ($) => /SEC/i, // set carry
