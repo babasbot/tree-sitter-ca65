@@ -143,6 +143,7 @@ module.exports = grammar({
       $.tay_opc,
       $.tsx_opc,
       $.txa_opc,
+      $.tcs_opc,
     ),
 
     /*
@@ -309,7 +310,7 @@ module.exports = grammar({
     tay_opc: ($) => /[Tt][Aa][Yy]/,
     tsx_opc: ($) => /[Tt][Ss][Xx]/,
     txa_opc: ($) => /[Tt][Xx][Aa]/,
-    tcs_opc: ($) => /TSX/i, // transfer X to stack pointer
+    tcs_opc: ($) => /[Tt][Cc][Ss]/,
     tya_opx: ($) => /TYA/i, // transfer Y to accumulator
 
     num_8: ($) => choice($.hex_num_8, $.dec_num_8, $.bin_num_8),
