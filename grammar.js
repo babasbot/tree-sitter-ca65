@@ -126,6 +126,7 @@ module.exports = grammar({
       $.pla_opc,
       $.plp_opc,
       $.rti_opc,
+      $.rts_opc,
     ),
 
     /*
@@ -268,7 +269,7 @@ module.exports = grammar({
     rol_opc: ($) => /[Rr][Oo][Ll]/,
     ror_opc: ($) => /[Rr][Oo][Rr]/,
     rti_opc: ($) => /[Rr][Tt][Ii]/,
-    rts_opc: ($) => /RTS/i, // return from subroutine
+    rts_opc: ($) => /[Rr][Tt][Ss]/,
     sbc_opc: ($) => /SBC/i, // subtract with carry
     sec_opc: ($) => /SEC/i, // set carry
     sed_opc: ($) => /SED/i, // set decimal
