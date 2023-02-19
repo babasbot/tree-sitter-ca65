@@ -27,231 +27,259 @@ module.exports = grammar({
     /*
      * OPC A
      */
-    acc_opc: ($) => choice(...[
-      $.asl_opc,
-      $.rol_opc,
-      $.ror_opc,
-    ].map((op) => seq(op, optional($.a_reg)))),
+    acc_opc: ($) =>
+      choice(
+        ...[$.asl_opc, $.rol_opc, $.ror_opc].map((op) =>
+          seq(op, optional($.a_reg))
+        )
+      ),
 
     /*
      * OPC $LLHH
      */
-    abs_opc: ($) => choice(...[
-      $.adc_opc,
-      $.and_opc,
-      $.asl_opc,
-      $.bit_opc,
-      $.cmp_opc,
-      $.cpx_opc,
-      $.cpy_opc,
-      $.dec_opc,
-      $.eor_opc,
-      $.inc_opc,
-      $.jmp_opc,
-      $.jsr_opc,
-      $.lda_opc,
-      $.ldx_opc,
-      $.ldy_opc,
-      $.lsr_opc,
-      $.ora_opc,
-      $.rol_opc,
-      $.ror_opc,
-      $.sbc_opc,
-      $.sta_opc,
-      $.stx_opc,
-      $.sty_opc,
-    ].map((op) => seq(op, $.num_16))),
+    abs_opc: ($) =>
+      choice(
+        ...[
+          $.adc_opc,
+          $.and_opc,
+          $.asl_opc,
+          $.bit_opc,
+          $.cmp_opc,
+          $.cpx_opc,
+          $.cpy_opc,
+          $.dec_opc,
+          $.eor_opc,
+          $.inc_opc,
+          $.jmp_opc,
+          $.jsr_opc,
+          $.lda_opc,
+          $.ldx_opc,
+          $.ldy_opc,
+          $.lsr_opc,
+          $.ora_opc,
+          $.rol_opc,
+          $.ror_opc,
+          $.sbc_opc,
+          $.sta_opc,
+          $.stx_opc,
+          $.sty_opc,
+        ].map((op) => seq(op, $.num_16))
+      ),
 
     /*
      * OPC $LLHH,X
      */
-    abs_x_opc: ($) => choice(...[
-      $.adc_opc,
-      $.and_opc,
-      $.asl_opc,
-      $.cmp_opc,
-      $.dec_opc,
-      $.eor_opc,
-      $.inc_opc,
-      $.lda_opc,
-      $.ldy_opc,
-      $.lsr_opc,
-      $.ora_opc,
-      $.rol_opc,
-      $.ror_opc,
-      $.sbc_opc,
-      $.sta_opc,
-    ].map((op) => seq(op, $.num_16, ",", $.x_reg))),
+    abs_x_opc: ($) =>
+      choice(
+        ...[
+          $.adc_opc,
+          $.and_opc,
+          $.asl_opc,
+          $.cmp_opc,
+          $.dec_opc,
+          $.eor_opc,
+          $.inc_opc,
+          $.lda_opc,
+          $.ldy_opc,
+          $.lsr_opc,
+          $.ora_opc,
+          $.rol_opc,
+          $.ror_opc,
+          $.sbc_opc,
+          $.sta_opc,
+        ].map((op) => seq(op, $.num_16, ",", $.x_reg))
+      ),
 
     /*
      * OPC $LLHH,Y
      */
-    abs_y_opc: ($) => choice(...[
-      $.adc_opc,
-      $.and_opc,
-      $.cmp_opc,
-      $.eor_opc,
-      $.lda_opc,
-      $.ldx_opc,
-      $.ora_opc,
-      $.sbc_opc,
-      $.sta_opc,
-    ].map((op) => seq(op, $.num_16, ",", $.y_reg))),
+    abs_y_opc: ($) =>
+      choice(
+        ...[
+          $.adc_opc,
+          $.and_opc,
+          $.cmp_opc,
+          $.eor_opc,
+          $.lda_opc,
+          $.ldx_opc,
+          $.ora_opc,
+          $.sbc_opc,
+          $.sta_opc,
+        ].map((op) => seq(op, $.num_16, ",", $.y_reg))
+      ),
 
     /*
      * OPC #$BB
      */
-    imm_opc: ($) => choice(...[
-      $.adc_opc,
-      $.and_opc,
-      $.cmp_opc,
-      $.cpx_opc,
-      $.cpy_opc,
-      $.eor_opc,
-      $.lda_opc,
-      $.ldx_opc,
-      $.ldy_opc,
-      $.lsr_opc,
-      $.ora_opc,
-      $.sbc_opc,
-    ].map((op) => seq(op, "#", $.num_8))),
+    imm_opc: ($) =>
+      choice(
+        ...[
+          $.adc_opc,
+          $.and_opc,
+          $.cmp_opc,
+          $.cpx_opc,
+          $.cpy_opc,
+          $.eor_opc,
+          $.lda_opc,
+          $.ldx_opc,
+          $.ldy_opc,
+          $.lsr_opc,
+          $.ora_opc,
+          $.sbc_opc,
+        ].map((op) => seq(op, "#", $.num_8))
+      ),
 
     /*
      * OPC
      */
-    impl_opc: ($) => choice(
-      $.brk_opc,
-      $.clc_opc,
-      $.cld_opc,
-      $.cli_opc,
-      $.clv_opc,
-      $.dex_opc,
-      $.dey_opc,
-      $.inx_opc,
-      $.iny_opc,
-      $.nop_opc,
-      $.pha_opc,
-      $.php_opc,
-      $.pla_opc,
-      $.plp_opc,
-      $.rti_opc,
-      $.rts_opc,
-      $.sec_opc,
-      $.sed_opc,
-      $.sei_opc,
-      $.tax_opc,
-      $.tay_opc,
-      $.tsx_opc,
-      $.txa_opc,
-      $.tcs_opc,
-      $.tya_opc,
-    ),
+    impl_opc: ($) =>
+      choice(
+        $.brk_opc,
+        $.clc_opc,
+        $.cld_opc,
+        $.cli_opc,
+        $.clv_opc,
+        $.dex_opc,
+        $.dey_opc,
+        $.inx_opc,
+        $.iny_opc,
+        $.nop_opc,
+        $.pha_opc,
+        $.php_opc,
+        $.pla_opc,
+        $.plp_opc,
+        $.rti_opc,
+        $.rts_opc,
+        $.sec_opc,
+        $.sed_opc,
+        $.sei_opc,
+        $.tax_opc,
+        $.tay_opc,
+        $.tsx_opc,
+        $.txa_opc,
+        $.tcs_opc,
+        $.tya_opc
+      ),
 
     /*
      * OPC ($LLHH)
      */
-    ind_opc: ($) => choice(...[
-      $.jmp_opc,
-    ].map((op) => seq(op, "(", $.num_16, ")"))),
+    ind_opc: ($) =>
+      choice(...[$.jmp_opc].map((op) => seq(op, "(", $.num_16, ")"))),
 
     /*
      * OPC ($LL,X)
      */
-    x_ind_opc: ($) => choice(...[
-      $.adc_opc,
-      $.and_opc,
-      $.cmp_opc,
-      $.eor_opc,
-      $.lda_opc,
-      $.ora_opc,
-      $.sbc_opc,
-      $.sta_opc,
-    ].map((op) => seq(op, "(", $.num_8, ",", $.x_reg, ")"))),
+    x_ind_opc: ($) =>
+      choice(
+        ...[
+          $.adc_opc,
+          $.and_opc,
+          $.cmp_opc,
+          $.eor_opc,
+          $.lda_opc,
+          $.ora_opc,
+          $.sbc_opc,
+          $.sta_opc,
+        ].map((op) => seq(op, "(", $.num_8, ",", $.x_reg, ")"))
+      ),
 
     /*
      * OPC ($LL),Y
      */
-    ind_y_opc: ($) => choice(...[
-      $.adc_opc,
-      $.and_opc,
-      $.cmp_opc,
-      $.eor_opc,
-      $.lda_opc,
-      $.ora_opc,
-      $.sbc_opc,
-      $.sta_opc,
-    ].map((op) => seq(op, "(", $.num_8, ")", ",", $.y_reg))),
+    ind_y_opc: ($) =>
+      choice(
+        ...[
+          $.adc_opc,
+          $.and_opc,
+          $.cmp_opc,
+          $.eor_opc,
+          $.lda_opc,
+          $.ora_opc,
+          $.sbc_opc,
+          $.sta_opc,
+        ].map((op) => seq(op, "(", $.num_8, ")", ",", $.y_reg))
+      ),
 
     /*
      * OPC $BB
      */
-    rel_opc: ($) => choice(...[
-      $.bcc_opc,
-      $.bcs_opc,
-      $.beq_opc,
-      $.bmi_opc,
-      $.bne_opc,
-      $.bpl_opc,
-      $.bvc_opc,
-      $.bvs_opc,
-    ].map((op) => seq(op, $.num_16))),
+    rel_opc: ($) =>
+      choice(
+        ...[
+          $.bcc_opc,
+          $.bcs_opc,
+          $.beq_opc,
+          $.bmi_opc,
+          $.bne_opc,
+          $.bpl_opc,
+          $.bvc_opc,
+          $.bvs_opc,
+        ].map((op) => seq(op, $.num_16))
+      ),
 
     /*
      * OPC $LL
      */
-    zpg_opc: ($) => choice(...[
-      $.adc_opc,
-      $.and_opc,
-      $.asl_opc,
-      $.bit_opc,
-      $.cmp_opc,
-      $.cpx_opc,
-      $.cpy_opc,
-      $.dec_opc,
-      $.eor_opc,
-      $.inc_opc,
-      $.lda_opc,
-      $.ldx_opc,
-      $.ldy_opc,
-      $.lsr_opc,
-      $.ora_opc,
-      $.rol_opc,
-      $.ror_opc,
-      $.sbc_opc,
-      $.sta_opc,
-      $.stx_opc,
-      $.sty_opc,
-    ].map((op) => seq(op, $.num_8))),
+    zpg_opc: ($) =>
+      choice(
+        ...[
+          $.adc_opc,
+          $.and_opc,
+          $.asl_opc,
+          $.bit_opc,
+          $.cmp_opc,
+          $.cpx_opc,
+          $.cpy_opc,
+          $.dec_opc,
+          $.eor_opc,
+          $.inc_opc,
+          $.lda_opc,
+          $.ldx_opc,
+          $.ldy_opc,
+          $.lsr_opc,
+          $.ora_opc,
+          $.rol_opc,
+          $.ror_opc,
+          $.sbc_opc,
+          $.sta_opc,
+          $.stx_opc,
+          $.sty_opc,
+        ].map((op) => seq(op, $.num_8))
+      ),
 
     /*
      * OPC $LL,X
      */
-    zpg_x_opc: ($) => choice(...[
-      $.adc_opc,
-      $.and_opc,
-      $.asl_opc,
-      $.cmp_opc,
-      $.dec_opc,
-      $.eor_opc,
-      $.inc_opc,
-      $.lda_opc,
-      $.ldy_opc,
-      $.lsr_opc,
-      $.ora_opc,
-      $.rol_opc,
-      $.ror_opc,
-      $.sbc_opc,
-      $.sta_opc,
-      $.sty_opc,
-    ].map((op) => seq(op, $.num_8, ",", $.x_reg))),
+    zpg_x_opc: ($) =>
+      choice(
+        ...[
+          $.adc_opc,
+          $.and_opc,
+          $.asl_opc,
+          $.cmp_opc,
+          $.dec_opc,
+          $.eor_opc,
+          $.inc_opc,
+          $.lda_opc,
+          $.ldy_opc,
+          $.lsr_opc,
+          $.ora_opc,
+          $.rol_opc,
+          $.ror_opc,
+          $.sbc_opc,
+          $.sta_opc,
+          $.sty_opc,
+        ].map((op) => seq(op, $.num_8, ",", $.x_reg))
+      ),
 
     /*
      * OPC $LL,Y
      */
-    zpg_y_opc: ($) => choice(...[
-      $.ldx_opc,
-      $.stx_opc,
-    ].map((op) => seq(op, $.num_8, ",", $.y_reg))),
+    zpg_y_opc: ($) =>
+      choice(
+        ...[$.ldx_opc, $.stx_opc].map((op) => seq(op, $.num_8, ",", $.y_reg))
+      ),
 
     /*
      * INSTRUCTIONS
