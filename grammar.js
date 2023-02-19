@@ -93,6 +93,7 @@ module.exports = grammar({
       $.clv_opc,
       $.dex_opc,
       $.dey_opc,
+      $.inx_opc,
     ),
 
     /*
@@ -197,7 +198,7 @@ module.exports = grammar({
     dey_opc: ($) => /[Dd][Ee][Yy]/,
     eor_opc: ($) => /[Ee][Oo][Rr]/,
     inc_opc: ($) => /[Ii][Nn][Cc]/,
-    inx_opc: ($) => /INX/i, // increment X
+    inx_opc: ($) => /[Ii][Nn][Xx]/,
     iny_opc: ($) => /INY/i, // increment Y
     jmp_opc: ($) => /JMP/i, // jump
     jsr_opc: ($) => /JSR/i, // jump subroutine
