@@ -131,6 +131,7 @@ module.exports = grammar({
       $.plp_opc,
       $.rti_opc,
       $.rts_opc,
+      $.sec_opc,
     ),
 
     /*
@@ -279,7 +280,7 @@ module.exports = grammar({
     rti_opc: ($) => /[Rr][Tt][Ii]/,
     rts_opc: ($) => /[Rr][Tt][Ss]/,
     sbc_opc: ($) => /[Ss][Bb][Cc]/,
-    sec_opc: ($) => /SEC/i, // set carry
+    sec_opc: ($) => /[Ss][Ee][Cc]/,
     sed_opc: ($) => /SED/i, // set decimal
     sei_opc: ($) => /SEI/i, // set interrupt disable
     sta_opc: ($) => /STA/i, // store accumulator
