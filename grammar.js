@@ -51,6 +51,7 @@ module.exports = grammar({
       $.ldx_opc,
       $.ldy_opc,
       $.lsr_opc,
+      $.ora_opc,
     ].map((op) => seq(op, $.num_16))),
 
     /*
@@ -67,6 +68,7 @@ module.exports = grammar({
       $.lda_opc,
       $.ldy_opc,
       $.lsr_opc,
+      $.ora_opc,
     ].map((op) => seq(op, $.num_16, ",", $.x_reg))),
 
     /*
@@ -79,6 +81,7 @@ module.exports = grammar({
       $.eor_opc,
       $.lda_opc,
       $.ldx_opc,
+      $.ora_opc,
     ].map((op) => seq(op, $.num_16, ",", $.y_reg))),
 
     /*
@@ -95,6 +98,7 @@ module.exports = grammar({
       $.ldx_opc,
       $.ldy_opc,
       $.lsr_opc,
+      $.ora_opc,
     ].map((op) => seq(op, "#", $.num_8))),
 
     /*
@@ -129,6 +133,7 @@ module.exports = grammar({
       $.cmp_opc,
       $.eor_opc,
       $.lda_opc,
+      $.ora_opc,
     ].map((op) => seq(op, "(", $.num_8, ",", $.x_reg, ")"))),
 
     /*
@@ -140,6 +145,7 @@ module.exports = grammar({
       $.cmp_opc,
       $.eor_opc,
       $.lda_opc,
+      $.ora_opc,
     ].map((op) => seq(op, "(", $.num_8, ")", ",", $.y_reg))),
 
     /*
@@ -174,6 +180,7 @@ module.exports = grammar({
       $.ldx_opc,
       $.ldy_opc,
       $.lsr_opc,
+      $.ora_opc,
     ].map((op) => seq(op, $.num_8))),
 
     /*
@@ -190,6 +197,7 @@ module.exports = grammar({
       $.lda_opc,
       $.ldy_opc,
       $.lsr_opc,
+      $.ora_opc,
     ].map((op) => seq(op, $.num_8, ",", $.x_reg))),
 
     /*
@@ -237,7 +245,7 @@ module.exports = grammar({
     ldy_opc: ($) => /[Ll][Dd][Yy]/,
     lsr_opc: ($) => /[Ll][Ss][Rr]/,
     nop_opc: ($) => /[Nn][Oo][Pp]/,
-    ora_opc: ($) => /ORA/i, // or with accumulator
+    ora_opc: ($) => /[Oo][Rr][Aa]/,
     pha_opc: ($) => /PHA/i, // push accumulator
     php_opc: ($) => /PHP/i, // push processor status (SR)
     pla_opc: ($) => /PLA/i, // pull accumulator
