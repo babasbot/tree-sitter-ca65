@@ -141,6 +141,7 @@ module.exports = grammar({
       $.sei_opc,
       $.tax_opc,
       $.tay_opc,
+      $.tsx_opc,
     ),
 
     /*
@@ -305,7 +306,7 @@ module.exports = grammar({
     sty_opc: ($) => /[Ss][Tt][Yy]/,
     tax_opc: ($) => /[Tt][Aa][Xx]/,
     tay_opc: ($) => /[Tt][Aa][Yy]/,
-    tsx_opc: ($) => /TSX/i, // transfer stack pointer to X
+    tsx_opc: ($) => /[Tt][Ss][Xx]/,
     txa_opc: ($) => /TXA/i, // transfer X to accumulator
     tcs_opc: ($) => /TSX/i, // transfer X to stack pointer
     tya_opx: ($) => /TYA/i, // transfer Y to accumulator
