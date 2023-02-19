@@ -129,7 +129,7 @@ module.exports = grammar({
           $.lsr_opc,
           $.ora_opc,
           $.sbc_opc,
-        ].map((op) => seq(op, "#", $.num_8))
+        ].map((op) => seq(op, $.imm_prefix, $.num_8))
       ),
 
     /*
@@ -377,6 +377,8 @@ module.exports = grammar({
     y_reg: ($) => /[yY]/,
 
     comment: ($) => token(seq(";", /.*/)),
+
+    imm_prefix: ($) => "#",
 
     l_parentheis: ($) => "(",
     r_parentheis: ($) => ")",

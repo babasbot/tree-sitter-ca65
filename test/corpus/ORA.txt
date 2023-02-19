@@ -12,16 +12,19 @@ ora #%1101110
   (inst
     (imm_opc
       (ora_opc)
+      (imm_prefix)
       (num_8
         (hex_num_8))))
   (inst
     (imm_opc
       (ora_opc)
+      (imm_prefix)
       (num_8
         (dec_num_8))))
   (inst
     (imm_opc
       (ora_opc)
+      (imm_prefix)
       (num_8
         (bin_num_8)))))
 
