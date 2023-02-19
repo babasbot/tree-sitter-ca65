@@ -1,5 +1,8 @@
 module.exports = grammar({
   name: "a6502",
+
+  extras: ($) => [$.comment, /\s/],
+
   rules: {
     asm: ($) => repeat($.inst),
 
@@ -362,5 +365,7 @@ module.exports = grammar({
     a_reg: ($) => /[aA]/,
     x_reg: ($) => /[xX]/,
     y_reg: ($) => /[yY]/,
+
+    comment: ($) => token(seq(";", /.*/)),
   },
 });
