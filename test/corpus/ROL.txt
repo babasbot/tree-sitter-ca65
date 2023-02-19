@@ -1,0 +1,132 @@
+==========================
+ROL A
+==========================
+
+rol
+rol a
+
+---
+
+(asm
+  (inst
+    (acc_opc
+      (rol_opc)))
+  (inst
+    (acc_opc
+      (rol_opc)
+      (a_reg))))
+
+==========================
+ROL $LL
+==========================
+
+rol $02
+rol 005
+rol %11011001
+
+---
+
+(asm
+  (inst
+    (zpg_opc
+      (rol_opc)
+      (num_8
+        (hex_num_8))))
+  (inst
+    (zpg_opc
+      (rol_opc)
+      (num_8
+        (dec_num_8))))
+  (inst
+    (zpg_opc
+      (rol_opc)
+      (num_8
+        (bin_num_8)))))
+
+==========================
+ROL $LL,X
+==========================
+
+rol $60, x
+rol 199, x
+rol %1001100, x
+
+---
+
+(asm
+  (inst
+    (zpg_x_opc
+      (rol_opc)
+      (num_8
+        (hex_num_8))
+      (x_reg)))
+  (inst
+    (zpg_x_opc
+      (rol_opc)
+      (num_8
+        (dec_num_8))
+      (x_reg)))
+  (inst
+    (zpg_x_opc
+      (rol_opc)
+      (num_8
+        (bin_num_8))
+      (x_reg))))
+
+==========================
+ROL $LLHH
+==========================
+
+rol $b891
+rol 47249
+rol %1011100010010001
+
+---
+
+(asm
+  (inst
+    (abs_opc
+      (rol_opc)
+      (num_16
+        (hex_num_16))))
+  (inst
+    (abs_opc
+      (rol_opc)
+      (num_16
+        (dec_num_16))))
+  (inst
+    (abs_opc
+      (rol_opc)
+      (num_16
+        (bin_num_16)))))
+
+==========================
+ROL $LLHH,X
+==========================
+
+rol $85fc,x
+rol 1843,x
+rol %11011100111000,x
+
+---
+
+(asm
+  (inst
+    (abs_x_opc
+      (rol_opc)
+      (num_16
+        (hex_num_16))
+      (x_reg)))
+  (inst
+    (abs_x_opc
+      (rol_opc)
+      (num_16
+        (dec_num_16))
+      (x_reg)))
+  (inst
+    (abs_x_opc
+      (rol_opc)
+      (num_16
+        (bin_num_16))
+      (x_reg))))
+
