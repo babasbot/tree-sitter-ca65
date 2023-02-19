@@ -30,6 +30,7 @@ module.exports = grammar({
     acc_opc: ($) => choice(...[
       $.asl_opc,
       $.rol_opc,
+      $.ror_opc,
     ].map((op) => seq(op, optional($.a_reg)))),
 
     /*
@@ -54,6 +55,7 @@ module.exports = grammar({
       $.lsr_opc,
       $.ora_opc,
       $.rol_opc,
+      $.ror_opc,
     ].map((op) => seq(op, $.num_16))),
 
     /*
@@ -72,6 +74,7 @@ module.exports = grammar({
       $.lsr_opc,
       $.ora_opc,
       $.rol_opc,
+      $.ror_opc,
     ].map((op) => seq(op, $.num_16, ",", $.x_reg))),
 
     /*
@@ -189,6 +192,7 @@ module.exports = grammar({
       $.lsr_opc,
       $.ora_opc,
       $.rol_opc,
+      $.ror_opc,
     ].map((op) => seq(op, $.num_8))),
 
     /*
@@ -207,6 +211,7 @@ module.exports = grammar({
       $.lsr_opc,
       $.ora_opc,
       $.rol_opc,
+      $.ror_opc,
     ].map((op) => seq(op, $.num_8, ",", $.x_reg))),
 
     /*
@@ -260,7 +265,7 @@ module.exports = grammar({
     pla_opc: ($) => /[Pp][Ll][Aa]/,
     plp_opc: ($) => /[Pp][Ll][Pp]/,
     rol_opc: ($) => /[Rr][Oo][Ll]/,
-    ror_opc: ($) => /ROR/i, // rotate right
+    ror_opc: ($) => /[Rr][Oo][Rr]/,
     rti_opc: ($) => /RTI/i, // return from interrupt
     rts_opc: ($) => /RTS/i, // return from subroutine
     sbc_opc: ($) => /SBC/i, // subtract with carry
