@@ -1,0 +1,74 @@
+===================
+constant assignment
+===================
+
+zeropage = $00
+
+---
+
+(asm
+  (macro
+    (constant_assignment
+      (label)
+      (num_8
+        (hex_num_8)))))
+
+===================
+label assignment
+===================
+
+loop := $0000
+
+---
+
+(asm
+  (macro
+    (label_assignment
+      (label)
+      (num_8
+        (hex_num_8)))))
+
+===================
+standard labels
+===================
+
+loop:
+  NOP
+  JMP loop
+
+---
+
+(asm
+  (macro
+    (label_assignment
+      (label)))
+  (inst
+    (impl_opc
+      (nop_opc)))
+  (inst
+    (abs_opc
+      (jmp_opc)
+      (label))))
+
+===================
+cheap labels
+===================
+
+@loop:
+  NOP
+  JMP @loop
+
+---
+
+(asm
+  (macro
+    (label_assignment
+      (label)))
+  (inst
+    (impl_opc
+      (nop_opc)))
+  (inst
+    (abs_opc
+      (jmp_opc)
+      (label))))
+
