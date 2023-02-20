@@ -383,7 +383,7 @@ module.exports = grammar({
     /*
      * LABELS
      */
-    label: ($) => seq(/[a-zA-z]/, /[a-zA-z0-9]*/),
+    label: ($) => seq(optional("@"), /[a-zA-z]/, /[a-zA-z0-9]*/),
 
     constant_assignment: ($) =>
       seq($.label, "=", choice($.num_8, $.num_16, $.label)),
