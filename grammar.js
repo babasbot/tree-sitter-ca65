@@ -4,7 +4,9 @@ module.exports = grammar({
   extras: ($) => [$.comment, /\s/],
 
   rules: {
-    asm: ($) => repeat($.inst),
+    asm: ($) => repeat(choice($.inst, $.macro)),
+
+    macro: ($) => choice($.constant_assignment, $.label_assignment),
 
     inst: ($) =>
       choice(
@@ -68,7 +70,7 @@ module.exports = grammar({
           $.sta_opc,
           $.stx_opc,
           $.sty_opc,
-        ].map((op) => seq(op, $.num_16))
+        ].map((op) => seq(op, choice($.num_16, $.label)))
       ),
 
     /*
@@ -377,6 +379,20 @@ module.exports = grammar({
     a_reg: ($) => /[aA]/,
     x_reg: ($) => /[xX]/,
     y_reg: ($) => /[yY]/,
+
+    /*
+     * LABELS
+     */
+    label: ($) => seq(/[a-zA-z]/, /[a-zA-z0-9]*/),
+
+    constant_assignment: ($) =>
+      seq($.label, "=", choice($.num_8, $.num_16, $.label)),
+
+    label_assignment: ($) =>
+      choice(
+        seq($.label, ":=", choice($.num_8, $.num_16, $.label)),
+        seq($.label, ":")
+      ),
 
     comment: ($) => token(seq(";", /.*/)),
 
