@@ -31,9 +31,11 @@ module.exports = grammar({
      * OPC A
      */
     acc_opc: ($) =>
-      choice(
-        ...[$.asl_opc, $.rol_opc, $.ror_opc].map((op) =>
-          seq(op, optional($.a_reg))
+      prec.left(
+        choice(
+          ...[$.asl_opc, $.rol_opc, $.ror_opc].map((op) =>
+            seq(op, optional($.a_reg))
+          )
         )
       ),
 
