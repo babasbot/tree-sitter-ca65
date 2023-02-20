@@ -73,10 +73,15 @@
 (l_parentheis) @punctuation.bracket
 (r_parentheis) @punctuation.bracket
 (comma)        @punctuation.delimiter
-(imm_prefix)   @punctuation.special
+(imm_prefix)   @symbol
 
 ; registers
 
 (a_reg) @constant.builtin
 (x_reg) @constant.builtin
 (y_reg) @constant.builtin
+
+(label) @property
+
+(constant_assignment) @constant
+(label_assignment)    @constant
