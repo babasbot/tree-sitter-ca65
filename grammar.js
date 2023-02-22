@@ -409,6 +409,7 @@ module.exports = grammar({
     cpu_pseudovar: ($) => "CPU",
     isize_pseudovar: ($) => "ISIZE",
     paramcount_pseudovar: ($) => "PARAMCOUNT",
+    time_pseudovar: ($) => "TIME",
 
     pseudovar: ($) =>
       choice(
@@ -417,6 +418,7 @@ module.exports = grammar({
           $.cpu_pseudovar,
           $.isize_pseudovar,
           $.paramcount_pseudovar,
+          $.time_pseudovar,
         ].map((pseudovar) => seq(".", pseudovar))
       ),
   },

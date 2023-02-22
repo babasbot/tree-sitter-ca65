@@ -46,3 +46,15 @@
   (pseudovar
     (paramcount_pseudovar)))
 
+============
+.TIME
+============
+
+.TIME
+
+---
+
+(asm
+  (pseudovar
+    (time_pseudovar)))
+
