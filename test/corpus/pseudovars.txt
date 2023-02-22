@@ -34,3 +34,15 @@
   (pseudovar
     (isize_pseudovar)))
 
+============
+.PARAMCOUNT
+============
+
+.PARAMCOUNT
+
+---
+
+(asm
+  (pseudovar
+    (paramcount_pseudovar)))
+
