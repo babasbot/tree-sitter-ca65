@@ -406,8 +406,13 @@ module.exports = grammar({
      * PSEUDOVARS
      */
     asize_pseudovar: ($) => "ASIZE",
+    cpu_pseudovar: ($) => "CPU",
 
     pseudovar: ($) =>
-      choice(...[$.asize_pseudovar].map((pseudovar) => seq(".", pseudovar))),
+      choice(
+        ...[$.asize_pseudovar, $.cpu_pseudovar].map((pseudovar) =>
+          seq(".", pseudovar)
+        )
+      ),
   },
 });

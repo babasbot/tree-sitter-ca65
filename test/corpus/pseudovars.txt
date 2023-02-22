@@ -10,3 +10,15 @@
   (pseudovar
     (asize_pseudovar)))
 
+=======
+.CPU
+=======
+
+.CPU
+
+---
+
+(asm
+  (pseudovar
+    (cpu_pseudovar)))
+
