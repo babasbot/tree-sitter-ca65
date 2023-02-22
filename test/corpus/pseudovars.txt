@@ -22,3 +22,15 @@
   (pseudovar
     (cpu_pseudovar)))
 
+=======
+.ISIZE
+=======
+
+.ISIZE
+
+---
+
+(asm
+  (pseudovar
+    (isize_pseudovar)))
+
