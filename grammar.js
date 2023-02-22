@@ -4,7 +4,7 @@ module.exports = grammar({
   extras: ($) => [$.comment, /\s/],
 
   rules: {
-    asm: ($) => repeat(choice($.inst, $.macro)),
+    asm: ($) => repeat(choice($.inst, $.macro, $.pseudovar)),
 
     macro: ($) => choice($.constant_assignment, $.label_assignment),
 
@@ -401,5 +401,13 @@ module.exports = grammar({
     l_parentheis: ($) => "(",
     r_parentheis: ($) => ")",
     comma: ($) => ",",
+
+    /*
+     * PSEUDOVARS
+     */
+    asize_pseudovar: ($) => "ASIZE",
+
+    pseudovar: ($) =>
+      choice(...[$.asize_pseudovar].map((pseudovar) => seq(".", pseudovar))),
   },
 });

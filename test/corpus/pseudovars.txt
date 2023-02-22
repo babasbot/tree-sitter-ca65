@@ -1,0 +1,12 @@
+=======
+.ASIZE
+=======
+
+.ASIZE
+
+---
+
+(asm
+  (pseudovar
+    (asize_pseudovar)))
+
