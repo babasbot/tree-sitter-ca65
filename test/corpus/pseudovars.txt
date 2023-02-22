@@ -58,3 +58,15 @@
   (pseudovar
     (time_pseudovar)))
 
+============
+.VERSION
+============
+
+.VERSION
+
+---
+
+(asm
+  (pseudovar
+    (version_pseudovar)))
+
