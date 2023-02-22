@@ -27,7 +27,7 @@
   "tree-sitter": [
     {
       "scope": "source.asm6502",
-      "file-types": ["asm", "s", "inc"]
+      "file-types": ["asm", "inc"]
     }
   ]
 }
