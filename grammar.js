@@ -4,7 +4,7 @@ module.exports = grammar({
   extras: ($) => [$.comment, /\s/],
 
   rules: {
-    asm: ($) => repeat(choice($.inst, $.macro, $.pseudo_var)),
+    asm: ($) => repeat(choice($.inst, $.macro, $.pseudo_var, $.ctrl_cmd)),
 
     macro: ($) => choice($.constant_assignment, $.label_assignment),
 
@@ -425,5 +425,33 @@ module.exports = grammar({
         $.time_pseudo_var,
         $.version_pseudo_var
       ),
+
+    /*
+     * CONTROL COMMANDS
+     */
+    a16_ctrl_cmd: ($) => seq(".", "A16"),
+    a8_ctrl_cmd: ($) => seq(".", "A8"),
+    addr_ctrl_cmd: ($) =>
+      seq(".", "ADDR", $.param, optional(repeat1(seq(",", $.param)))),
+    align_ctrl_cmd: ($) =>
+      seq(".", "ALIGN", $.param, optional(seq(",", $.param))),
+    asciiz_ctrl_cmd: ($) =>
+      seq(".", "ASCIIZ", $.str, optional(repeat1(seq(",", $.str)))),
+
+    ctrl_cmd: ($) =>
+      choice(
+        $.a16_ctrl_cmd,
+        $.a8_ctrl_cmd,
+        $.addr_ctrl_cmd,
+        $.align_ctrl_cmd,
+        $.asciiz_ctrl_cmd
+      ),
+
+    param: ($) => choice($.num_8, $.num_16, $.label),
+
+    /*
+     * CONSTANTS
+     */
+    str: ($) => /\"(?:\\.|[^\\"])*\"/,
   },
 });

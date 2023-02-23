@@ -1,0 +1,90 @@
+====
+.A16
+====
+
+.A16
+
+----
+
+(asm
+  (ctrl_cmd
+    (a16_ctrl_cmd)))
+
+====
+.A8
+====
+
+.A8
+
+----
+
+(asm
+  (ctrl_cmd
+    (a8_ctrl_cmd)))
+
+=====
+.ADDR
+=====
+
+.ADDR $ff
+.ADDR $ff, $ff
+
+----
+
+(asm
+  (ctrl_cmd
+    (addr_ctrl_cmd
+      (param
+        (num_8
+          (hex_num_8)))))
+  (ctrl_cmd
+    (addr_ctrl_cmd
+      (param
+        (num_8
+          (hex_num_8)))
+      (param
+        (num_8
+          (hex_num_8))))))
+
+======
+.ALIGN
+======
+
+.ALIGN $ff
+.ALIGN $ff, $ff
+
+----
+
+(asm
+  (ctrl_cmd
+    (align_ctrl_cmd
+      (param
+        (num_8
+          (hex_num_8)))))
+  (ctrl_cmd
+    (align_ctrl_cmd
+      (param
+        (num_8
+          (hex_num_8)))
+      (param
+        (num_8
+          (hex_num_8))))))
+
+======
+.ASCIIZ
+======
+
+.ASCIIZ "foo", "bar"
+.ASCIIZ "foo"
+
+----
+
+(asm
+  (ctrl_cmd
+    (asciiz_ctrl_cmd
+      (str)
+      (str)))
+  (ctrl_cmd
+    (asciiz_ctrl_cmd
+      (str))))
+
