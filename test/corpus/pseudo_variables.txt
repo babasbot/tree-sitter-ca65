@@ -1,0 +1,84 @@
+=======
+*
+=======
+
+*
+
+---
+
+(asm
+  (pseudo_var
+    (star_pseudo_var)))
+
+=======
+.ASIZE
+=======
+
+.ASIZE
+
+---
+
+(asm
+  (pseudo_var
+    (asize_pseudo_var)))
+
+=======
+.CPU
+=======
+
+.CPU
+
+---
+
+(asm
+  (pseudo_var
+    (cpu_pseudo_var)))
+
+=======
+.ISIZE
+=======
+
+.ISIZE
+
+---
+
+(asm
+  (pseudo_var
+    (isize_pseudo_var)))
+
+============
+.PARAMCOUNT
+============
+
+.PARAMCOUNT
+
+---
+
+(asm
+  (pseudo_var
+    (paramcount_pseudo_var)))
+
+============
+.TIME
+============
+
+.TIME
+
+---
+
+(asm
+  (pseudo_var
+    (time_pseudo_var)))
+
+============
+.VERSION
+============
+
+.VERSION
+
+---
+
+(asm
+  (pseudo_var
+    (version_pseudo_var)))
+

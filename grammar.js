@@ -4,7 +4,7 @@ module.exports = grammar({
   extras: ($) => [$.comment, /\s/],
 
   rules: {
-    asm: ($) => repeat(choice($.inst, $.macro, $.pseudovar)),
+    asm: ($) => repeat(choice($.inst, $.macro, $.pseudo_var)),
 
     macro: ($) => choice($.constant_assignment, $.label_assignment),
 
@@ -405,25 +405,25 @@ module.exports = grammar({
     comma: ($) => ",",
 
     /*
-     * PSEUDOVARS
+     * PSEUDO VARIABLES
      */
-    asize_pseudovar: ($) => "ASIZE",
-    cpu_pseudovar: ($) => "CPU",
-    isize_pseudovar: ($) => "ISIZE",
-    paramcount_pseudovar: ($) => "PARAMCOUNT",
-    time_pseudovar: ($) => "TIME",
-    version_pseudovar: ($) => "VERSION",
+    star_pseudo_var: ($) => seq("*"),
+    asize_pseudo_var: ($) => seq(".", "ASIZE"),
+    cpu_pseudo_var: ($) => seq(".", "CPU"),
+    isize_pseudo_var: ($) => seq(".", "ISIZE"),
+    paramcount_pseudo_var: ($) => seq(".", "PARAMCOUNT"),
+    time_pseudo_var: ($) => seq(".", "TIME"),
+    version_pseudo_var: ($) => seq(".", "VERSION"),
 
-    pseudovar: ($) =>
+    pseudo_var: ($) =>
       choice(
-        ...[
-          $.asize_pseudovar,
-          $.cpu_pseudovar,
-          $.isize_pseudovar,
-          $.paramcount_pseudovar,
-          $.time_pseudovar,
-          $.version_pseudovar,
-        ].map((pseudovar) => seq(".", pseudovar))
+        $.star_pseudo_var,
+        $.asize_pseudo_var,
+        $.cpu_pseudo_var,
+        $.isize_pseudo_var,
+        $.paramcount_pseudo_var,
+        $.time_pseudo_var,
+        $.version_pseudo_var
       ),
   },
 });
