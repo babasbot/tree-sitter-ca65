@@ -405,6 +405,102 @@ module.exports = grammar({
     comma: ($) => ",",
 
     /*
+     * EXPRESSIONS
+     */
+
+    exp: ($) =>
+      choice(
+        $.num_32,
+        $.label,
+        $.pseudo_var,
+        $.unary_pos_op,
+        $.unary_neg_op,
+        $.bitnot_op,
+        $.lobyte_op,
+        $.hibyte_op,
+        $.bankbyte_op,
+        $.mult_op,
+        $.mod_op,
+        $.bit_xor_op,
+        $.shift_left_op,
+        $.shift_right_op,
+        $.add_op,
+        $.sub_op,
+        $.bit_or_op,
+        $.eql_op,
+        $.not_eql_op,
+        $.lt_op,
+        $.gt_op,
+        $.lte_op,
+        $.gte_op,
+        $.bool_and_op,
+        $.bool_xor_op,
+        $.bool_or_op,
+        $.bool_not_op,
+        seq("(", $.exp, ")")
+      ),
+
+    unary_pos_op: ($) => prec(1, seq("+", $.exp)),
+
+    unary_neg_op: ($) => prec(1, seq("-", $.exp)),
+
+    bitnot_op: ($) => prec(1, seq(choice(".BITNOT", "~"), $.exp)),
+
+    lobyte_op: ($) => prec(1, seq(choice(".LOBYTE", "<"), $.exp)),
+
+    hibyte_op: ($) => prec(1, seq(choice(".HIBYTE", ">"), $.exp)),
+
+    bankbyte_op: ($) => prec(1, seq(choice(".BANKBYTE", "^"), $.exp)),
+
+    mult_op: ($) => prec(2, seq($.exp, "*", $.exp)),
+
+    div_op: ($) => prec(2, seq($.exp, "/", $.exp)),
+
+    mod_op: ($) => prec(2, seq($.exp, ".MOD", $.exp)),
+
+    bit_and_op: ($) => prec(2, seq($.exp, choice(".BITAND", "&"), $.exp)),
+
+    bit_xor_op: ($) => prec(2, seq($.exp, choice(".BITXOR", "^"), $.exp)),
+
+    shift_left_op: ($) => prec(2, seq($.exp, choice(".SHL", "<<"), $.exp)),
+
+    shift_right_op: ($) => prec(2, seq($.exp, choice(".SHR", ">>"), $.exp)),
+
+    add_op: ($) => prec(3, seq($.exp, "+", $.exp)),
+
+    sub_op: ($) => prec(3, seq($.exp, "-", $.exp)),
+
+    bit_or_op: ($) => prec(3, seq($.exp, choice(".BITOR", "|"), $.exp)),
+
+    eql_op: ($) => prec(4, seq($.exp, "=", $.exp)),
+
+    not_eql_op: ($) => prec(4, seq($.exp, "<>", $.exp)),
+
+    lt_op: ($) => prec(4, seq($.exp, "<", $.exp)),
+
+    gt_op: ($) => prec(4, seq($.exp, ">", $.exp)),
+
+    lte_op: ($) => prec(4, seq($.exp, "<=", $.exp)),
+
+    gte_op: ($) => prec(4, seq($.exp, ">=", $.exp)),
+
+    bool_and_op: ($) => prec(5, seq($.exp, choice(".AND", "&&"), $.exp)),
+
+    bool_xor_op: ($) => prec(5, seq($.exp, ".XOR", $.exp)),
+
+    bool_or_op: ($) => prec(6, seq($.exp, choice(".OR", "||"), $.exp)),
+
+    bool_not_op: ($) => prec(7, seq($.exp, choice(".NOT", "!"), $.exp)),
+
+    num_32: ($) =>
+      choice(
+        /\d+/, // decimal
+        seq("$", /[0-9a-fA-F]+/), // hex $ notation
+        seq(/[0-9a-fA-F]+/, "h"), // hex h notation
+        seq("%", /[0-1]+/) // binary
+      ),
+
+    /*
      * PSEUDO VARIABLES
      */
     star_pseudo_var: ($) => seq("*"),
@@ -416,14 +512,17 @@ module.exports = grammar({
     version_pseudo_var: ($) => seq(".", "VERSION"),
 
     pseudo_var: ($) =>
-      choice(
-        $.star_pseudo_var,
-        $.asize_pseudo_var,
-        $.cpu_pseudo_var,
-        $.isize_pseudo_var,
-        $.paramcount_pseudo_var,
-        $.time_pseudo_var,
-        $.version_pseudo_var
+      prec(
+        1,
+        choice(
+          $.star_pseudo_var,
+          $.asize_pseudo_var,
+          $.cpu_pseudo_var,
+          $.isize_pseudo_var,
+          $.paramcount_pseudo_var,
+          $.time_pseudo_var,
+          $.version_pseudo_var
+        )
       ),
 
     /*
