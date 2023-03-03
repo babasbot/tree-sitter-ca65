@@ -553,6 +553,13 @@ module.exports = grammar({
 
     bss_ctrl_cmd: ($) => /\.[Bb][Ss][Ss]/,
 
+    byte_ctrl_cmd: ($) =>
+      seq(
+        /\.[Bb][Yy][Tt][Ee]?/,
+        choice($.exp, $.str),
+        optional(repeat1(seq(",", choice($.exp, $.str))))
+      ),
+
     ctrl_cmd: ($) =>
       choice(
         $.a16_ctrl_cmd,
@@ -563,7 +570,8 @@ module.exports = grammar({
         $.assert_ctrl_cmd,
         $.autoimport_ctrl_cmd,
         $.bankbytes_ctrl_cmd,
-        $.bss_ctrl_cmd
+        $.bss_ctrl_cmd,
+        $.byte_ctrl_cmd
       ),
 
     /*
