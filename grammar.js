@@ -491,13 +491,14 @@ module.exports = grammar({
     /*
      * PSEUDO VARIABLES
      */
-    star_pseudo_var: ($) => seq("*"),
-    asize_pseudo_var: ($) => seq(".", "ASIZE"),
-    cpu_pseudo_var: ($) => seq(".", "CPU"),
-    isize_pseudo_var: ($) => seq(".", "ISIZE"),
-    paramcount_pseudo_var: ($) => seq(".", "PARAMCOUNT"),
-    time_pseudo_var: ($) => seq(".", "TIME"),
-    version_pseudo_var: ($) => seq(".", "VERSION"),
+
+    star_pseudo_var: ($) => "*",
+    asize_pseudo_var: ($) => /\.[Aa][Ss][Ii][Zz][Ee]/,
+    cpu_pseudo_var: ($) => /\.[Cc][Pp][Uu]/,
+    isize_pseudo_var: ($) => /\.[Ii][Ss][Ii][Zz][Ee]/,
+    paramcount_pseudo_var: ($) => /\.[Pp][Aa][Rr][Aa][Mm][Cc][Oo][Uu][Nn][Tt]/,
+    time_pseudo_var: ($) => /\.[Tt][Ii][Mm][Ee]/,
+    version_pseudo_var: ($) => /\.[Vv][Ee][Rr][Ss][Ii][Oo][Nn]/,
 
     pseudo_var: ($) =>
       prec(

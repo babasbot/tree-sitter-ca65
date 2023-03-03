@@ -117,4 +117,14 @@
  "~"
 ] @operator
 
+[
+ (star_pseudo_var)
+ (asize_pseudo_var)
+ (cpu_pseudo_var)
+ (isize_pseudo_var)
+ (paramcount_pseudo_var)
+ (time_pseudo_var)
+ (version_pseudo_var)
+] @constant.builtin
+
 (str) @string
