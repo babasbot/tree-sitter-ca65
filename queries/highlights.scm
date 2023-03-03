@@ -60,13 +60,14 @@
 ] @keyword
 
 ; numbers
-
-(hex_num_8)  @keyword
-(dec_num_8)  @keyword
-(bin_num_8)  @keyword
-(hex_num_16) @keyword
-(dec_num_16) @keyword
-(bin_num_16) @keyword
+[
+  (hex_num_8)
+  (dec_num_8)
+  (bin_num_8)
+  (hex_num_16)
+  (dec_num_16)
+  (bin_num_16)
+] @number
 
 (comment) @comment
 
