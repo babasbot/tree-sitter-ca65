@@ -94,7 +94,7 @@ module.exports = grammar({
           $.ror_opc,
           $.sbc_opc,
           $.sta_opc,
-        ].map((op) => seq(op, $.num_16, $.comma, $.x_reg))
+        ].map((op) => seq(op, $.num_16, ",", $.x_reg))
       ),
 
     /*
@@ -112,7 +112,7 @@ module.exports = grammar({
           $.ora_opc,
           $.sbc_opc,
           $.sta_opc,
-        ].map((op) => seq(op, $.num_16, $.comma, $.y_reg))
+        ].map((op) => seq(op, $.num_16, ",", $.y_reg))
       ),
 
     /*
@@ -188,7 +188,7 @@ module.exports = grammar({
           $.ora_opc,
           $.sbc_opc,
           $.sta_opc,
-        ].map((op) => seq(op, "(", $.num_8, $.comma, $.x_reg, ")"))
+        ].map((op) => seq(op, "(", $.num_8, ",", $.x_reg, ")"))
       ),
 
     /*
@@ -205,7 +205,7 @@ module.exports = grammar({
           $.ora_opc,
           $.sbc_opc,
           $.sta_opc,
-        ].map((op) => seq(op, "(", $.num_8, ")", $.comma, $.y_reg))
+        ].map((op) => seq(op, "(", $.num_8, ")", ",", $.y_reg))
       ),
 
     /*
@@ -277,7 +277,7 @@ module.exports = grammar({
           $.sbc_opc,
           $.sta_opc,
           $.sty_opc,
-        ].map((op) => seq(op, $.num_8, $.comma, $.x_reg))
+        ].map((op) => seq(op, $.num_8, ",", $.x_reg))
       ),
 
     /*
@@ -286,7 +286,7 @@ module.exports = grammar({
     zpg_y_opc: ($) =>
       choice(
         ...[$.ldx_opc, $.stx_opc].map((op) =>
-          seq(op, $.num_8, $.comma, $.y_reg)
+          seq(op, $.num_8, ",", $.y_reg)
         )
       ),
 
@@ -390,8 +390,6 @@ module.exports = grammar({
     comment: ($) => token(seq(";", /.*/)),
 
     imm_prefix: ($) => "#",
-
-    comma: ($) => ",",
 
     /*
      * EXPRESSIONS

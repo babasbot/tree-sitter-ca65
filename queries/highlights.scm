@@ -76,7 +76,10 @@
  ")"
 ] @punctuation.bracket
 
-(comma)        @punctuation.delimiter
+[
+  ","
+] @punctuation.delimiter
+
 (imm_prefix)   @symbol
 
 ; registers

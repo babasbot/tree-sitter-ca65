@@ -71,21 +71,18 @@ lsr %1001100,x
       (lsr_opc)
       (num_8
         (hex_num_8))
-      (comma)
       (x_reg)))
   (inst
     (zpg_x_opc
       (lsr_opc)
       (num_8
         (dec_num_8))
-      (comma)
       (x_reg)))
   (inst
     (zpg_x_opc
       (lsr_opc)
       (num_8
         (bin_num_8))
-      (comma)
       (x_reg))))
 
 ==========================
@@ -131,20 +128,17 @@ lsr %1101110001001001,x
       (lsr_opc)
       (num_16
         (hex_num_16))
-      (comma)
       (x_reg)))
   (inst
     (abs_x_opc
       (lsr_opc)
       (num_16
         (dec_num_16))
-      (comma)
       (x_reg)))
   (inst
     (abs_x_opc
       (lsr_opc)
       (num_16
         (bin_num_16))
-      (comma)
       (x_reg))))
 
