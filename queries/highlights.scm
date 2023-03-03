@@ -59,6 +59,13 @@
  (tya_opc)
 ] @keyword
 
+[
+ "warning"
+ "error"
+ "ldwarning"
+ "lderror"
+] @keyword
+
 ; numbers
 [
   (num_8)
@@ -124,6 +131,7 @@
  (addr_ctrl_cmd)
  (align_ctrl_cmd)
  (asciiz_ctrl_cmd)
+ (assert_ctrl_cmd)
 ] @function.macro
 
 [

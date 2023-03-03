@@ -533,13 +533,23 @@ module.exports = grammar({
         optional(repeat1(seq(",", $.str)))
       ),
 
+    assert_ctrl_cmd: ($) =>
+      seq(
+        /\.[Aa][Ss][Ss][Ee][Rr][Tt]/,
+        $.exp,
+        ",",
+        choice("warning", "error", "ldwarning", "lderror"),
+        optional(seq(",", $.str))
+      ),
+
     ctrl_cmd: ($) =>
       choice(
         $.a16_ctrl_cmd,
         $.a8_ctrl_cmd,
         $.addr_ctrl_cmd,
         $.align_ctrl_cmd,
-        $.asciiz_ctrl_cmd
+        $.asciiz_ctrl_cmd,
+        $.assert_ctrl_cmd
       ),
 
     /*
