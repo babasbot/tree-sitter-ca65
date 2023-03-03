@@ -126,23 +126,11 @@
 ] @operator
 
 [
- (a8_ctrl_cmd)
- (a16_ctrl_cmd)
- (addr_ctrl_cmd)
- (align_ctrl_cmd)
- (asciiz_ctrl_cmd)
- (assert_ctrl_cmd)
- (autoimport_ctrl_cmd)
+ (ctrl_cmd)
 ] @function.macro
 
 [
- (star_pseudo_var)
- (asize_pseudo_var)
- (cpu_pseudo_var)
- (isize_pseudo_var)
- (paramcount_pseudo_var)
- (time_pseudo_var)
- (version_pseudo_var)
+ (pseudo_var)
 ] @constant.macro
 
 (str) @string
