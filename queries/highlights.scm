@@ -122,6 +122,10 @@
 ] @operator
 
 [
+ (a8_ctrl_cmd)
+ (a16_ctrl_cmd)
+ (addr_ctrl_cmd)
+ (align_ctrl_cmd)
  (asciiz_ctrl_cmd)
 ] @function.macro
 
