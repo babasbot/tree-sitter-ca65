@@ -172,11 +172,7 @@ module.exports = grammar({
      * OPC ($LLHH)
      */
     ind_opc: ($) =>
-      choice(
-        ...[$.jmp_opc].map((op) =>
-          seq(op, $.l_parentheis, $.num_16, $.r_parentheis)
-        )
-      ),
+      choice(...[$.jmp_opc].map((op) => seq(op, "(", $.num_16, ")"))),
 
     /*
      * OPC ($LL,X)
@@ -192,9 +188,7 @@ module.exports = grammar({
           $.ora_opc,
           $.sbc_opc,
           $.sta_opc,
-        ].map((op) =>
-          seq(op, $.l_parentheis, $.num_8, $.comma, $.x_reg, $.r_parentheis)
-        )
+        ].map((op) => seq(op, "(", $.num_8, $.comma, $.x_reg, ")"))
       ),
 
     /*
@@ -211,9 +205,7 @@ module.exports = grammar({
           $.ora_opc,
           $.sbc_opc,
           $.sta_opc,
-        ].map((op) =>
-          seq(op, $.l_parentheis, $.num_8, $.r_parentheis, $.comma, $.y_reg)
-        )
+        ].map((op) => seq(op, "(", $.num_8, ")", $.comma, $.y_reg))
       ),
 
     /*
@@ -387,8 +379,7 @@ module.exports = grammar({
      */
     label: ($) => seq(optional("@"), /[a-zA-z]/, /[a-zA-z0-9]*/),
 
-    constant_assignment: ($) =>
-      seq($.label, "=", choice($.num_8, $.num_16, $.label)),
+    constant_assignment: ($) => seq($.label, "=", $.exp),
 
     label_assignment: ($) =>
       choice(
@@ -400,8 +391,6 @@ module.exports = grammar({
 
     imm_prefix: ($) => "#",
 
-    l_parentheis: ($) => "(",
-    r_parentheis: ($) => ")",
     comma: ($) => ",",
 
     /*
@@ -440,57 +429,58 @@ module.exports = grammar({
         seq("(", $.exp, ")")
       ),
 
-    unary_pos_op: ($) => prec(1, seq("+", $.exp)),
+    unary_pos_op: ($) => prec.right(1, seq("+", $.exp)),
 
-    unary_neg_op: ($) => prec(1, seq("-", $.exp)),
+    unary_neg_op: ($) => prec.right(1, seq("-", $.exp)),
 
-    bitnot_op: ($) => prec(1, seq(choice(".BITNOT", "~"), $.exp)),
+    bitnot_op: ($) => prec.left(1, seq(choice(".BITNOT", "~"), $.exp)),
 
-    lobyte_op: ($) => prec(1, seq(choice(".LOBYTE", "<"), $.exp)),
+    lobyte_op: ($) => prec.left(2, seq(choice(".LOBYTE", "<"), $.exp)),
 
-    hibyte_op: ($) => prec(1, seq(choice(".HIBYTE", ">"), $.exp)),
+    hibyte_op: ($) => prec.left(1, seq(choice(".HIBYTE", ">"), $.exp)),
 
-    bankbyte_op: ($) => prec(1, seq(choice(".BANKBYTE", "^"), $.exp)),
+    bankbyte_op: ($) => prec.right(1, seq(choice(".BANKBYTE", "^"), $.exp)),
 
-    mult_op: ($) => prec(2, seq($.exp, "*", $.exp)),
+    mult_op: ($) => prec.left(2, seq($.exp, "*", $.exp)),
 
-    div_op: ($) => prec(2, seq($.exp, "/", $.exp)),
+    div_op: ($) => prec.left(2, seq($.exp, "/", $.exp)),
 
-    mod_op: ($) => prec(2, seq($.exp, ".MOD", $.exp)),
+    mod_op: ($) => prec.left(2, seq($.exp, ".MOD", $.exp)),
 
-    bit_and_op: ($) => prec(2, seq($.exp, choice(".BITAND", "&"), $.exp)),
+    bit_and_op: ($) => prec.left(2, seq($.exp, choice(".BITAND", "&"), $.exp)),
 
-    bit_xor_op: ($) => prec(2, seq($.exp, choice(".BITXOR", "^"), $.exp)),
+    bit_xor_op: ($) => prec.left(2, seq($.exp, choice(".BITXOR", "^"), $.exp)),
 
-    shift_left_op: ($) => prec(2, seq($.exp, choice(".SHL", "<<"), $.exp)),
+    shift_left_op: ($) => prec.left(2, seq($.exp, choice(".SHL", "<<"), $.exp)),
 
-    shift_right_op: ($) => prec(2, seq($.exp, choice(".SHR", ">>"), $.exp)),
+    shift_right_op: ($) =>
+      prec.left(2, seq($.exp, choice(".SHR", ">>"), $.exp)),
 
-    add_op: ($) => prec(3, seq($.exp, "+", $.exp)),
+    add_op: ($) => prec.left(3, seq($.exp, "+", $.exp)),
 
-    sub_op: ($) => prec(3, seq($.exp, "-", $.exp)),
+    sub_op: ($) => prec.left(3, seq($.exp, "-", $.exp)),
 
-    bit_or_op: ($) => prec(3, seq($.exp, choice(".BITOR", "|"), $.exp)),
+    bit_or_op: ($) => prec.left(3, seq($.exp, choice(".BITOR", "|"), $.exp)),
 
-    eql_op: ($) => prec(4, seq($.exp, "=", $.exp)),
+    eql_op: ($) => prec.left(4, seq($.exp, "=", $.exp)),
 
-    not_eql_op: ($) => prec(4, seq($.exp, "<>", $.exp)),
+    not_eql_op: ($) => prec.left(4, seq($.exp, "<>", $.exp)),
 
-    lt_op: ($) => prec(4, seq($.exp, "<", $.exp)),
+    lt_op: ($) => prec.left(4, seq($.exp, "<", $.exp)),
 
-    gt_op: ($) => prec(4, seq($.exp, ">", $.exp)),
+    gt_op: ($) => prec.left(4, seq($.exp, ">", $.exp)),
 
-    lte_op: ($) => prec(4, seq($.exp, "<=", $.exp)),
+    lte_op: ($) => prec.left(4, seq($.exp, "<=", $.exp)),
 
-    gte_op: ($) => prec(4, seq($.exp, ">=", $.exp)),
+    gte_op: ($) => prec.left(4, seq($.exp, ">=", $.exp)),
 
-    bool_and_op: ($) => prec(5, seq($.exp, choice(".AND", "&&"), $.exp)),
+    bool_and_op: ($) => prec.left(5, seq($.exp, choice(".AND", "&&"), $.exp)),
 
-    bool_xor_op: ($) => prec(5, seq($.exp, ".XOR", $.exp)),
+    bool_xor_op: ($) => prec.left(5, seq($.exp, ".XOR", $.exp)),
 
-    bool_or_op: ($) => prec(6, seq($.exp, choice(".OR", "||"), $.exp)),
+    bool_or_op: ($) => prec.left(6, seq($.exp, choice(".OR", "||"), $.exp)),
 
-    bool_not_op: ($) => prec(7, seq($.exp, choice(".NOT", "!"), $.exp)),
+    bool_not_op: ($) => prec.right(7, seq(choice(".NOT", "!"), $.exp)),
 
     num_32: ($) =>
       choice(

@@ -165,30 +165,24 @@ sta (%11011011,x)
   (inst
     (x_ind_opc
       (sta_opc)
-      (l_parentheis)
       (num_8
         (hex_num_8))
       (comma)
-      (x_reg)
-      (r_parentheis)))
+      (x_reg)))
   (inst
     (x_ind_opc
       (sta_opc)
-      (l_parentheis)
       (num_8
         (dec_num_8))
       (comma)
-      (x_reg)
-      (r_parentheis)))
+      (x_reg)))
   (inst
     (x_ind_opc
       (sta_opc)
-      (l_parentheis)
       (num_8
         (bin_num_8))
       (comma)
-      (x_reg)
-      (r_parentheis))))
+      (x_reg))))
 
 ==========================
 STA ($LL),Y
@@ -204,28 +198,22 @@ sta (%10101001),y
   (inst
     (ind_y_opc
       (sta_opc)
-      (l_parentheis)
       (num_8
         (hex_num_8))
-      (r_parentheis)
       (comma)
       (y_reg)))
   (inst
     (ind_y_opc
       (sta_opc)
-      (l_parentheis)
       (num_8
         (dec_num_8))
-      (r_parentheis)
       (comma)
       (y_reg)))
   (inst
     (ind_y_opc
       (sta_opc)
-      (l_parentheis)
       (num_8
         (bin_num_8))
-      (r_parentheis)
       (comma)
       (y_reg))))
 

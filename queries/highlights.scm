@@ -70,8 +70,11 @@
 
 ; punctuation
 
-(l_parentheis) @punctuation.bracket
-(r_parentheis) @punctuation.bracket
+[
+ "("
+ ")"
+] @punctuation.bracket
+
 (comma)        @punctuation.delimiter
 (imm_prefix)   @symbol
 
@@ -85,3 +88,27 @@
 
 (constant_assignment) @constant
 (label_assignment)    @constant
+
+; operators
+
+[
+ "!"
+ "&"
+ "&&"
+ "*"
+ "+"
+ "-"
+ "/"
+ "<"
+ "<<"
+ "<="
+ "<>"
+ "="
+ ">"
+ ">="
+ ">>"
+ "^"
+ "|"
+ "||"
+ "~"
+] @operator
