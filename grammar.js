@@ -521,10 +521,10 @@ module.exports = grammar({
     a8_ctrl_cmd: ($) => /\.[Aa]8/,
 
     addr_ctrl_cmd: ($) =>
-      seq(/\.[Aa][Dd][Dd][Rr]/, $.param, optional(repeat1(seq(",", $.param)))),
+      seq(/\.[Aa][Dd][Dd][Rr]/, $.exp, optional(repeat1(seq(",", $.exp)))),
 
     align_ctrl_cmd: ($) =>
-      seq(/\.[Aa][Ll][Ii][Gg][Nn]/, $.param, optional(seq(",", $.param))),
+      seq(/\.[Aa][Ll][Ii][Gg][Nn]/, $.exp, optional(seq(",", $.exp))),
 
     asciiz_ctrl_cmd: ($) =>
       seq(
@@ -541,8 +541,6 @@ module.exports = grammar({
         $.align_ctrl_cmd,
         $.asciiz_ctrl_cmd
       ),
-
-    param: ($) => choice($.num_8, $.num_16, $.label),
 
     /*
      * CONSTANTS
