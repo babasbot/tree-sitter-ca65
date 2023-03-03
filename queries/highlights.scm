@@ -1,4 +1,5 @@
 ; opc
+
 [
  (adc_opc)
  (and_opc)
@@ -118,6 +119,10 @@
 ] @operator
 
 [
+ (asciiz_ctrl_cmd)
+] @function.macro
+
+[
  (star_pseudo_var)
  (asize_pseudo_var)
  (cpu_pseudo_var)
@@ -125,6 +130,6 @@
  (paramcount_pseudo_var)
  (time_pseudo_var)
  (version_pseudo_var)
-] @constant.builtin
+] @constant.macro
 
 (str) @string

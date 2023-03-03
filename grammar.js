@@ -515,14 +515,23 @@ module.exports = grammar({
     /*
      * CONTROL COMMANDS
      */
-    a16_ctrl_cmd: ($) => seq(".", "A16"),
-    a8_ctrl_cmd: ($) => seq(".", "A8"),
+
+    a16_ctrl_cmd: ($) => /\.[Aa]16/,
+
+    a8_ctrl_cmd: ($) => /\.[Aa]8/,
+
     addr_ctrl_cmd: ($) =>
-      seq(".", "ADDR", $.param, optional(repeat1(seq(",", $.param)))),
+      seq(/\.[Aa][Dd][Dd][Rr]/, $.param, optional(repeat1(seq(",", $.param)))),
+
     align_ctrl_cmd: ($) =>
-      seq(".", "ALIGN", $.param, optional(seq(",", $.param))),
+      seq(/\.[Aa][Ll][Ii][Gg][Nn]/, $.param, optional(seq(",", $.param))),
+
     asciiz_ctrl_cmd: ($) =>
-      seq(".", "ASCIIZ", $.str, optional(repeat1(seq(",", $.str)))),
+      seq(
+        /\.[Aa][Ss][Cc][Ii][Ii][Zz]/,
+        $.str,
+        optional(repeat1(seq(",", $.str)))
+      ),
 
     ctrl_cmd: ($) =>
       choice(
