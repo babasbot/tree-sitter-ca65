@@ -545,6 +545,12 @@ module.exports = grammar({
     autoimport_ctrl_cmd: ($) =>
       seq(/\.[Aa][Uu][Tt][Oo][Ii][Mm][Pp][Oo][Rr][Tt]/, choice("+", "-")),
 
+    bankbytes_ctrl_cmd: ($) =>
+      seq(
+        /\.[Bb][Aa][Nn][Kk][Bb][Yy][Tt][Ee][Ss]/,
+        seq($.exp, optional(repeat1(seq(",", $.exp))))
+      ),
+
     ctrl_cmd: ($) =>
       choice(
         $.a16_ctrl_cmd,
@@ -553,7 +559,8 @@ module.exports = grammar({
         $.align_ctrl_cmd,
         $.asciiz_ctrl_cmd,
         $.assert_ctrl_cmd,
-        $.autoimport_ctrl_cmd
+        $.autoimport_ctrl_cmd,
+        $.bankbytes_ctrl_cmd
       ),
 
     /*
