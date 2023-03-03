@@ -86,9 +86,11 @@
 
 ; registers
 
-(a_reg) @constant.builtin
-(x_reg) @constant.builtin
-(y_reg) @constant.builtin
+[
+  (a_reg)
+  (x_reg)
+  (y_reg)
+] @symbol
 
 (label) @property
 
