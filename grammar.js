@@ -551,6 +551,8 @@ module.exports = grammar({
         seq($.exp, optional(repeat1(seq(",", $.exp))))
       ),
 
+    bss_ctrl_cmd: ($) => /\.[Bb][Ss][Ss]/,
+
     ctrl_cmd: ($) =>
       choice(
         $.a16_ctrl_cmd,
@@ -560,7 +562,8 @@ module.exports = grammar({
         $.asciiz_ctrl_cmd,
         $.assert_ctrl_cmd,
         $.autoimport_ctrl_cmd,
-        $.bankbytes_ctrl_cmd
+        $.bankbytes_ctrl_cmd,
+        $.bss_ctrl_cmd
       ),
 
     /*
