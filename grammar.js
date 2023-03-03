@@ -285,9 +285,7 @@ module.exports = grammar({
      */
     zpg_y_opc: ($) =>
       choice(
-        ...[$.ldx_opc, $.stx_opc].map((op) =>
-          seq(op, $.num_8, ",", $.y_reg)
-        )
+        ...[$.ldx_opc, $.stx_opc].map((op) => seq(op, $.num_8, ",", $.y_reg))
       ),
 
     /*
