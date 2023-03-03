@@ -542,6 +542,9 @@ module.exports = grammar({
         optional(seq(",", $.str))
       ),
 
+    autoimport_ctrl_cmd: ($) =>
+      seq(/\.[Aa][Uu][Tt][Oo][Ii][Mm][Pp][Oo][Rr][Tt]/, choice("+", "-")),
+
     ctrl_cmd: ($) =>
       choice(
         $.a16_ctrl_cmd,
@@ -549,7 +552,8 @@ module.exports = grammar({
         $.addr_ctrl_cmd,
         $.align_ctrl_cmd,
         $.asciiz_ctrl_cmd,
-        $.assert_ctrl_cmd
+        $.assert_ctrl_cmd,
+        $.autoimport_ctrl_cmd
       ),
 
     /*

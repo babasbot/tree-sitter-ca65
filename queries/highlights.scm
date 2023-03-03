@@ -132,6 +132,7 @@
  (align_ctrl_cmd)
  (asciiz_ctrl_cmd)
  (assert_ctrl_cmd)
+ (autoimport_ctrl_cmd)
 ] @function.macro
 
 [
