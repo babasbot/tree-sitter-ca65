@@ -116,3 +116,5 @@
  "||"
  "~"
 ] @operator
+
+(str) @string
