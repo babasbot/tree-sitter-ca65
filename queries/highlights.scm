@@ -61,12 +61,9 @@
 
 ; numbers
 [
-  (hex_num_8)
-  (dec_num_8)
-  (bin_num_8)
-  (hex_num_16)
-  (dec_num_16)
-  (bin_num_16)
+  (num_8)
+  (num_16)
+  (num_32)
 ] @number
 
 (comment) @comment
