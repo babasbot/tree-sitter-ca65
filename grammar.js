@@ -636,6 +636,8 @@ module.exports = grammar({
 
     endstruct_ctrl_cmd: ($) => /\.[Ee][Nn][Dd][Ss][Tt][Rr][Uu][Cc][Tt]/,
 
+    endunion_ctrl_cmd: ($) => /\.[Ee][Nn][Dd][Uu][Nn][Ii][Oo][Nn]/,
+
     ctrl_cmd: ($) =>
       choice(
         $.a16_ctrl_cmd,
@@ -670,6 +672,7 @@ module.exports = grammar({
         $.endrepeat_ctrl_cmd,
         $.endscope_ctrl_cmd,
         $.endstruct_ctrl_cmd,
+        $.endunion_ctrl_cmd,
         $.if_ctrl_cmd
       ),
 
