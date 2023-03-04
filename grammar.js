@@ -6,6 +6,8 @@ module.exports = grammar({
   rules: {
     asm: ($) => repeat(choice($.inst, $.macro, $.pseudo_var, $.ctrl_cmd)),
 
+    symbol: ($) => token(/@?[a-zA-Z_][a-zA-Z0-9_]*/),
+
     macro: ($) => choice($.constant_assignment, $.symbol_assignment),
 
     inst: ($) =>
@@ -371,8 +373,6 @@ module.exports = grammar({
     a_reg: ($) => /[aA]/,
     x_reg: ($) => /[xX]/,
     y_reg: ($) => /[yY]/,
-
-    symbol: ($) => token(/@?[a-zA-Z][a-zA-Z0-9]*/),
 
     constant_assignment: ($) => seq($.symbol, "=", $.exp),
 
