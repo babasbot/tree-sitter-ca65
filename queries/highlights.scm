@@ -134,5 +134,12 @@
   (pseudo_var)
 ] @constant.macro
 
+[
+ (if_ctrl_cmd)
+ (elseif_ctrl_cmd)
+ (else_ctrl_cmd)
+ (end_ctrl_cmd)
+] @conditional
+
 (str) @string
 
