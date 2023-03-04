@@ -593,6 +593,14 @@ module.exports = grammar({
     debuginfo_ctrl_cmd: ($) =>
       seq(/\.[Dd][Ee][Bb][Uu][Gg][Ii][Nn][Ff][Oo]/, choice("+", "-")),
 
+    define_ctrl_cmd: ($) =>
+      seq(
+        /\.[Dd][Ee][Ff][Ii][Nn][Ee]/,
+        $.label,
+        choice($.exp, $.str),
+        optional(repeat1(seq(",", choice($.exp, $.str))))
+      ),
+
     ctrl_cmd: ($) =>
       choice(
         $.a16_ctrl_cmd,
@@ -612,7 +620,8 @@ module.exports = grammar({
         $.constructor_ctrl_cmd,
         $.data_ctrl_cmd,
         $.dbyt_ctrl_cmd,
-        $.debuginfo_ctrl_cmd
+        $.debuginfo_ctrl_cmd,
+        $.define_ctrl_cmd
       ),
 
     /*
