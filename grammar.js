@@ -616,6 +616,8 @@ module.exports = grammar({
 
     else_ctrl_cmd: ($) => /\.[Ee][Ll][Ss][Ee]/,
 
+    elseif_ctrl_cmd: ($) => seq(/\.[Ee][Ll][Ss][Ee][Ii][Ff]/, $.exp),
+
     ctrl_cmd: ($) =>
       choice(
         $.a16_ctrl_cmd,
@@ -640,7 +642,8 @@ module.exports = grammar({
         $.delmacro_ctrl_cmd,
         $.destructor_ctrl_cmd,
         $.dword_ctrl_cmd,
-        $.else_ctrl_cmd
+        $.else_ctrl_cmd,
+        $.elseif_ctrl_cmd
       ),
 
     /*
