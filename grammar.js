@@ -587,6 +587,9 @@ module.exports = grammar({
 
     data_ctrl_cmd: ($) => /\.[Dd][Aa][Tt][Aa]/,
 
+    dbyt_ctrl_cmd: ($) =>
+      seq(/\.[Dd][Bb][Yy][Tt]/, $.exp, optional(repeat1(seq(",", $.exp)))),
+
     ctrl_cmd: ($) =>
       choice(
         $.a16_ctrl_cmd,
@@ -604,7 +607,8 @@ module.exports = grammar({
         $.code_ctrl_cmd,
         $.condes_ctrl_cmd,
         $.constructor_ctrl_cmd,
-        $.data_ctrl_cmd
+        $.data_ctrl_cmd,
+        $.dbyt_ctrl_cmd
       ),
 
     /*
