@@ -622,6 +622,8 @@ module.exports = grammar({
 
     if_ctrl_cmd: ($) => seq(/\.[Ii][Ff]/, $.exp),
 
+    endenum_ctrl_cmd: ($) => /\.[Ee][Nn][Dd][Ee][Nn][Uu][Mm]/,
+
     ctrl_cmd: ($) =>
       choice(
         $.a16_ctrl_cmd,
@@ -649,6 +651,7 @@ module.exports = grammar({
         $.else_ctrl_cmd,
         $.elseif_ctrl_cmd,
         $.end_ctrl_cmd,
+        $.endenum_ctrl_cmd,
         $.if_ctrl_cmd
       ),
 
