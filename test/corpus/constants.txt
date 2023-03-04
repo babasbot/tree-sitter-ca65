@@ -9,7 +9,7 @@ zeropage = $00
 (asm
   (macro
     (constant_assignment
-      (label)
+      (symbol)
       (exp
         (num_32)))))
 
@@ -23,8 +23,8 @@ loop := $0000
 
 (asm
   (macro
-    (label_assignment
-      (label)
+    (symbol_assignment
+      (symbol)
       (num_8
         (hex_num_8)))))
 
@@ -40,15 +40,15 @@ loop:
 
 (asm
   (macro
-    (label_assignment
-      (label)))
+    (symbol_assignment
+      (symbol)))
   (inst
     (impl_opc
       (nop_opc)))
   (inst
     (abs_opc
       (jmp_opc)
-      (label))))
+      (symbol))))
 
 ===================
 cheap labels
@@ -62,13 +62,13 @@ cheap labels
 
 (asm
   (macro
-    (label_assignment
-      (label)))
+    (symbol_assignment
+      (symbol)))
   (inst
     (impl_opc
       (nop_opc)))
   (inst
     (abs_opc
       (jmp_opc)
-      (label))))
+      (symbol))))
 

@@ -98,10 +98,10 @@
   (y_reg)
 ] @symbol
 
-(label) @property
+(symbol) @property
 
 (constant_assignment) @constant
-(label_assignment) @constant
+(symbol_assignment) @constant
 ; operators
 
 [
@@ -112,6 +112,8 @@
   "+"
   "-"
   "/"
+  ":"
+  ":="
   "<"
   "<<"
   "<="

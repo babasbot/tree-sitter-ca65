@@ -6,7 +6,7 @@ module.exports = grammar({
   rules: {
     asm: ($) => repeat(choice($.inst, $.macro, $.pseudo_var, $.ctrl_cmd)),
 
-    macro: ($) => choice($.constant_assignment, $.label_assignment),
+    macro: ($) => choice($.constant_assignment, $.symbol_assignment),
 
     inst: ($) =>
       choice(
@@ -70,7 +70,7 @@ module.exports = grammar({
           $.sta_opc,
           $.stx_opc,
           $.sty_opc,
-        ].map((op) => seq(op, choice($.num_16, $.label)))
+        ].map((op) => seq(op, choice($.num_16, $.symbol)))
       ),
 
     /*
@@ -372,17 +372,14 @@ module.exports = grammar({
     x_reg: ($) => /[xX]/,
     y_reg: ($) => /[yY]/,
 
-    /*
-     * LABELS
-     */
-    label: ($) => seq(optional("@"), /[a-zA-z]/, /[a-zA-z0-9]*/),
+    symbol: ($) => token(/@?[a-zA-Z][a-zA-Z0-9]*/),
 
-    constant_assignment: ($) => seq($.label, "=", $.exp),
+    constant_assignment: ($) => seq($.symbol, "=", $.exp),
 
-    label_assignment: ($) =>
+    symbol_assignment: ($) =>
       choice(
-        seq($.label, ":=", choice($.num_8, $.num_16, $.label)),
-        seq($.label, ":")
+        seq($.symbol, ":=", choice($.num_8, $.num_16, $.symbol)),
+        seq($.symbol, ":")
       ),
 
     comment: ($) => token(seq(";", /.*/)),
@@ -410,7 +407,7 @@ module.exports = grammar({
         $.gt_op,
         $.gte_op,
         $.hibyte_op,
-        $.label,
+        $.symbol,
         $.lobyte_op,
         $.lt_op,
         $.lte_op,
@@ -572,7 +569,7 @@ module.exports = grammar({
     condes_ctrl_cmd: ($) =>
       seq(
         /\.[Cc][Oo][Nn][Dd][Ee][Ss]/,
-        $.label,
+        $.symbol,
         ",",
         choice("constructor", "destructor", $.exp),
         optional(seq(",", $.exp))
@@ -581,7 +578,7 @@ module.exports = grammar({
     constructor_ctrl_cmd: ($) =>
       seq(
         /\.[Cc][Oo][Nn][Ss][Tt][Rr][Uu][Cc][Tt][Oo][Rr]/,
-        $.label,
+        $.symbol,
         optional(seq(",", $.exp))
       ),
 
@@ -596,18 +593,18 @@ module.exports = grammar({
     define_ctrl_cmd: ($) =>
       seq(
         /\.[Dd][Ee][Ff][Ii][Nn][Ee]/,
-        $.label,
+        $.symbol,
         choice($.exp, $.str),
         optional(repeat1(seq(",", choice($.exp, $.str))))
       ),
 
     delmacro_ctrl_cmd: ($) =>
-      seq(/\.[Dd][Ee][Ll][Mm][Aa][Cc]([Rr][Oo])?/, $.label),
+      seq(/\.[Dd][Ee][Ll][Mm][Aa][Cc]([Rr][Oo])?/, $.symbol),
 
     destructor_ctrl_cmd: ($) =>
       seq(
         /\.[Dd][Ee][Ss][Tr][Rr][Uu][Cc][Tt][Oo][Rr]/,
-        $.label,
+        $.symbol,
         optional(seq(",", $.exp))
       ),
 
@@ -639,6 +636,8 @@ module.exports = grammar({
     endunion_ctrl_cmd: ($) => /\.[Ee][Nn][Dd][Uu][Nn][Ii][Oo][Nn]/,
 
     enum_ctrl_cmd: ($) => seq(/\.[Ee][Nn][Uu][Mm]/, optional($.label)),
+
+    error_ctrl_cmd: ($) => seq(/\.[Ee][Rr][Rr][Oo][Rr]/, $.str),
 
     ctrl_cmd: ($) =>
       choice(
@@ -676,6 +675,7 @@ module.exports = grammar({
         $.endstruct_ctrl_cmd,
         $.endunion_ctrl_cmd,
         $.enum_ctrl_cmd,
+        $.error_ctrl_cmd,
         $.if_ctrl_cmd
       ),
 
