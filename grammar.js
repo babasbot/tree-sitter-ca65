@@ -578,6 +578,13 @@ module.exports = grammar({
         optional(seq(",", $.exp))
       ),
 
+    constructor_ctrl_cmd: ($) =>
+      seq(
+        /\.[Cc][Oo][Nn][Ss][Tt][Rr][Uu][Cc][Tt][Oo][Rr]/,
+        $.label,
+        optional(seq(",", $.exp))
+      ),
+
     ctrl_cmd: ($) =>
       choice(
         $.a16_ctrl_cmd,
@@ -593,7 +600,8 @@ module.exports = grammar({
         $.case_ctrl_cmd,
         $.charmap_ctrl_cmd,
         $.code_ctrl_cmd,
-        $.condes_ctrl_cmd
+        $.condes_ctrl_cmd,
+        $.constructor_ctrl_cmd
       ),
 
     /*
