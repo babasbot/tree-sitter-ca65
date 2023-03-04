@@ -611,6 +611,9 @@ module.exports = grammar({
         optional(seq(",", $.exp))
       ),
 
+    dword_ctrl_cmd: ($) =>
+      seq(/\.[Dd][Ww][Oo][Rr][Dd]/, $.exp, optional(repeat1(seq(",", $.exp)))),
+
     ctrl_cmd: ($) =>
       choice(
         $.a16_ctrl_cmd,
@@ -633,7 +636,8 @@ module.exports = grammar({
         $.debuginfo_ctrl_cmd,
         $.define_ctrl_cmd,
         $.delmacro_ctrl_cmd,
-        $.destructor_ctrl_cmd
+        $.destructor_ctrl_cmd,
+        $.dword_ctrl_cmd,
       ),
 
     /*
