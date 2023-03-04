@@ -60,10 +60,12 @@
 ] @keyword
 
 [
-  "warning"
+  "constructor"
+  "destructor"
   "error"
-  "ldwarning"
   "lderror"
+  "ldwarning"
+  "warning"
 ] @keyword
 
 ; numbers

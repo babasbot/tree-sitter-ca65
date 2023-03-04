@@ -567,6 +567,17 @@ module.exports = grammar({
     charmap_ctrl_cmd: ($) =>
       seq(/\.[Cc][Hh][Aa][Rr][Mm][Aa][Pp]/, $.exp, ",", $.exp),
 
+    code_ctrl_cmd: ($) => /\.[Cc][Oo][Dd][Ee]/,
+
+    condes_ctrl_cmd: ($) =>
+      seq(
+        /\.[Cc][Oo][Nn][Dd][Ee][Ss]/,
+        $.label,
+        ",",
+        choice("constructor", "destructor", $.exp),
+        optional(seq(",", $.exp))
+      ),
+
     ctrl_cmd: ($) =>
       choice(
         $.a16_ctrl_cmd,
@@ -580,7 +591,9 @@ module.exports = grammar({
         $.bss_ctrl_cmd,
         $.byte_ctrl_cmd,
         $.case_ctrl_cmd,
-        $.charmap_ctrl_cmd
+        $.charmap_ctrl_cmd,
+        $.code_ctrl_cmd,
+        $.condes_ctrl_cmd
       ),
 
     /*
