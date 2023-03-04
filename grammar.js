@@ -564,6 +564,9 @@ module.exports = grammar({
 
     case_ctrl_cmd: ($) => seq(/\.[Cc][Aa][Ss][Ee]/, choice("+", "-")),
 
+    charmap_ctrl_cmd: ($) =>
+      seq(/\.[Cc][Hh][Aa][Rr][Mm][Aa][Pp]/, $.exp, ",", $.exp),
+
     ctrl_cmd: ($) =>
       choice(
         $.a16_ctrl_cmd,
@@ -576,7 +579,8 @@ module.exports = grammar({
         $.bankbytes_ctrl_cmd,
         $.bss_ctrl_cmd,
         $.byte_ctrl_cmd,
-        $.case_ctrl_cmd
+        $.case_ctrl_cmd,
+        $.charmap_ctrl_cmd
       ),
 
     /*
