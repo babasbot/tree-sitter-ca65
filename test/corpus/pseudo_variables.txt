@@ -2,83 +2,111 @@
 *
 =======
 
-*
+var = *
 
 ---
 
 (asm
-  (pseudo_var
-    (star_pseudo_var)))
+  (symbol_def
+    (const_assignment
+      (symbol)
+      (exp
+        (pseudo_var
+          (star_pseudo_var))))))
 
 =======
 .ASIZE
 =======
 
-.ASIZE
+var = .ASIZE
 
 ---
 
 (asm
-  (pseudo_var
-    (asize_pseudo_var)))
+  (symbol_def
+    (const_assignment
+      (symbol)
+      (exp
+        (pseudo_var
+          (asize_pseudo_var))))))
 
 =======
 .CPU
 =======
 
-.CPU
+var = .CPU
 
 ---
 
 (asm
-  (pseudo_var
-    (cpu_pseudo_var)))
+  (symbol_def
+    (const_assignment
+      (symbol)
+      (exp
+        (pseudo_var
+          (cpu_pseudo_var))))))
 
 =======
 .ISIZE
 =======
 
-.ISIZE
+var = .ISIZE
 
 ---
 
 (asm
-  (pseudo_var
-    (isize_pseudo_var)))
+  (symbol_def
+    (const_assignment
+      (symbol)
+      (exp
+        (pseudo_var
+          (isize_pseudo_var))))))
 
 ============
 .PARAMCOUNT
 ============
 
-.PARAMCOUNT
+var = .PARAMCOUNT
 
 ---
 
 (asm
-  (pseudo_var
-    (paramcount_pseudo_var)))
+  (symbol_def
+    (const_assignment
+      (symbol)
+      (exp
+        (pseudo_var
+          (paramcount_pseudo_var))))))
 
 ============
 .TIME
 ============
 
-.TIME
+var = .TIME
 
 ---
 
 (asm
-  (pseudo_var
-    (time_pseudo_var)))
+  (symbol_def
+    (const_assignment
+      (symbol)
+      (exp
+        (pseudo_var
+          (time_pseudo_var))))))
 
 ============
 .VERSION
 ============
 
-.VERSION
+var = .VERSION
 
 ---
 
 (asm
-  (pseudo_var
-    (version_pseudo_var)))
+  (symbol_def
+    (const_assignment
+      (symbol)
+      (exp
+        (pseudo_var
+          (version_pseudo_var))))))
 

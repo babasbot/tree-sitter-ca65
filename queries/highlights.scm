@@ -100,8 +100,8 @@
 
 (symbol) @property
 
-(constant_assignment) @constant
-(symbol_assignment) @constant
+(symbol_def) @constant
+
 ; operators
 
 [
@@ -112,7 +112,7 @@
   "+"
   "-"
   "/"
-  ":"
+  ; ":"
   ":="
   "<"
   "<<"

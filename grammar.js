@@ -3,12 +3,18 @@ module.exports = grammar({
 
   extras: ($) => [$.comment, /\s/],
 
+  word: ($) => $.symbol,
+
   rules: {
-    asm: ($) => repeat(choice($.inst, $.macro, $.pseudo_var, $.ctrl_cmd)),
+    asm: ($) => repeat($._factor),
 
-    symbol: ($) => token(/@?[a-zA-Z_][a-zA-Z0-9_]*/),
+    _factor: ($) => choice($.inst, $.symbol_def, $.ctrl_cmd),
 
-    macro: ($) => choice($.constant_assignment, $.symbol_assignment),
+    comment: ($) => token(seq(";", /.*/)),
+
+    /*
+     * INSTRUCTIONS
+     */
 
     inst: ($) =>
       choice(
@@ -374,16 +380,6 @@ module.exports = grammar({
     x_reg: ($) => /[xX]/,
     y_reg: ($) => /[yY]/,
 
-    constant_assignment: ($) => seq($.symbol, "=", $.exp),
-
-    symbol_assignment: ($) =>
-      choice(
-        seq($.symbol, ":=", choice($.num_8, $.num_16, $.symbol)),
-        seq($.symbol, ":")
-      ),
-
-    comment: ($) => token(seq(";", /.*/)),
-
     imm_prefix: ($) => "#",
 
     /*
@@ -683,5 +679,17 @@ module.exports = grammar({
      * CONSTANTS
      */
     str: ($) => /\"(?:\\.|[^\\"])*\"/,
+
+    /*
+     * SYMBOLS AND LABELS
+     */
+
+    symbol: ($) => token(/@?[a-zA-Z_][a-zA-Z0-9_]*/),
+
+    symbol_def: ($) => choice($.label_def, $.const_assignment),
+
+    const_assignment: ($) => seq($.symbol, choice(":=", "="), $.exp),
+
+    label_def: ($) => seq(/@?[a-zA-Z_][a-zA-Z0-9_]*:/),
   },
 });
