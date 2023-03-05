@@ -631,7 +631,17 @@ module.exports = grammar({
 
     endunion_ctrl_cmd: ($) => /\.[Ee][Nn][Dd][Uu][Nn][Ii][Oo][Nn]/,
 
-    enum_ctrl_cmd: ($) => seq(/\.[Ee][Nn][Uu][Mm]/, optional($.label)),
+    enum_ctrl_cmd: ($) =>
+      seq(
+        /\.[Ee][Nn][Uu][Mm]/,
+        optional(field("enum_name", $.symbol)),
+        "\n",
+        optional(repeat1($.enum_def)),
+        /\.[Ee][Nn][Dd][Ee][Nn][Uu][Mm]/
+      ),
+
+    enum_def: ($) =>
+      seq(field("enum_symbol", $.symbol), optional(seq("=", $.exp))),
 
     error_ctrl_cmd: ($) => seq(/\.[Ee][Rr][Rr][Oo][Rr]/, $.str),
 
@@ -662,7 +672,6 @@ module.exports = grammar({
         $.else_ctrl_cmd,
         $.elseif_ctrl_cmd,
         $.end_ctrl_cmd,
-        $.endenum_ctrl_cmd,
         $.endif_ctrl_cmd,
         $.endmacro_ctrl_cmd,
         $.endproc_ctrl_cmd,
