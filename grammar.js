@@ -645,6 +645,16 @@ module.exports = grammar({
 
     error_ctrl_cmd: ($) => seq(/\.[Ee][Rr][Rr][Oo][Rr]/, $.str),
 
+    export_ctrl_cmd: ($) =>
+      seq(
+        /\.[Ee][Xx][Pp][Oo][Rr][Tt]/,
+        $._export_ctrl_cmd_factor,
+        optional(repeat1(seq(",", $._export_ctrl_cmd_factor)))
+      ),
+
+    _export_ctrl_cmd_factor: ($) =>
+      choice($.symbol, seq($.label, choice($.num_assignment, $.symbol))),
+
     ctrl_cmd: ($) =>
       choice(
         $.a16_ctrl_cmd,
@@ -681,6 +691,7 @@ module.exports = grammar({
         $.endunion_ctrl_cmd,
         $.enum_ctrl_cmd,
         $.error_ctrl_cmd,
+        $.export_ctrl_cmd,
         $.if_ctrl_cmd
       ),
 
