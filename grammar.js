@@ -674,6 +674,8 @@ module.exports = grammar({
 
     _faraddr_ctrl_cmd_factor: ($) => choice($.symbol, $.num_32),
 
+    fatal_ctrl_cmd: ($) => seq(/\.[Ff][Aa][Tt][Aa][Ll]/, $.str),
+
     ctrl_cmd: ($) =>
       choice(
         $.a16_ctrl_cmd,
@@ -713,6 +715,7 @@ module.exports = grammar({
         $.export_ctrl_cmd,
         $.exportzp_ctrl_cmd,
         $.faraddr_ctrl_cmd,
+        $.fatal_ctrl_cmd,
         $.if_ctrl_cmd
       ),
 
