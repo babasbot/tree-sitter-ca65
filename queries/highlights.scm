@@ -66,6 +66,23 @@
   "lderror"
   "ldwarning"
   "warning"
+  "addrsize"
+  "at_in_identifiers"
+  "bracket_as_indirect"
+  "c_comments"
+  "dollar_in_identifiers"
+  "dollar_is_pc"
+  "force_range"
+  "labels_without_colons"
+  "leading_dot_in_identifiers"
+  "loose_char_term"
+  "loose_string_term"
+  "missing_char_term"
+  "org_per_seg"
+  "pc_assignment"
+  "string_escapes"
+  "ubiquitous_idents"
+  "underline_in_numbers"
 ] @keyword
 
 ; numbers
