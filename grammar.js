@@ -8,7 +8,7 @@ module.exports = grammar({
   rules: {
     asm: ($) => repeat($._factor),
 
-    _factor: ($) => choice($.inst, $.symbol_def, $.ctrl_cmd),
+    _factor: ($) => choice($.inst, $.const_assignment, $.ctrl_cmd),
 
     comment: ($) => token(seq(";", /.*/)),
 
@@ -706,10 +706,11 @@ module.exports = grammar({
 
     symbol: ($) => token(/@?[a-zA-Z_][a-zA-Z0-9_]*/),
 
-    symbol_def: ($) => choice($.label_def, $.const_assignment),
+    const_assignment: ($) =>
+      choice($.label_assignment, $.num_assignment, $.label),
 
-    const_assignment: ($) => seq($.symbol, choice(":=", "="), $.exp),
-
-    label_def: ($) => seq(/@?[a-zA-Z_][a-zA-Z0-9_]*:/),
+    label_assignment: ($) => seq($.symbol, ":=", $.exp),
+    num_assignment: ($) => seq($.symbol, "=", $.exp),
+    label: ($) => seq(/@?[a-zA-Z_][a-zA-Z0-9_]*:/),
   },
 });

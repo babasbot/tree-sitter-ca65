@@ -100,8 +100,6 @@
 
 (symbol) @property
 
-(symbol_def) @constant
-
 ; operators
 
 [
