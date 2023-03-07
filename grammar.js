@@ -665,6 +665,15 @@ module.exports = grammar({
     _exportzp_ctrl_cmd_factor: ($) =>
       choice($.symbol, seq($.label, choice($.num_assignment, $.symbol))),
 
+    faraddr_ctrl_cmd: ($) =>
+      seq(
+        /\.[Ff][Aa][Rr][Aa][Dd][Dd][Rr]/,
+        $._faraddr_ctrl_cmd_factor,
+        optional(repeat1(seq(",", $._faraddr_ctrl_cmd_factor)))
+      ),
+
+    _faraddr_ctrl_cmd_factor: ($) => choice($.symbol, $.num_32),
+
     ctrl_cmd: ($) =>
       choice(
         $.a16_ctrl_cmd,
@@ -703,6 +712,7 @@ module.exports = grammar({
         $.error_ctrl_cmd,
         $.export_ctrl_cmd,
         $.exportzp_ctrl_cmd,
+        $.faraddr_ctrl_cmd,
         $.if_ctrl_cmd
       ),
 
