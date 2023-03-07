@@ -7,8 +7,8 @@ var = *
 ---
 
 (asm
-  (symbol_def
-    (const_assignment
+  (const_assignment
+    (num_assignment
       (symbol)
       (exp
         (pseudo_var
@@ -23,8 +23,8 @@ var = .ASIZE
 ---
 
 (asm
-  (symbol_def
-    (const_assignment
+  (const_assignment
+    (num_assignment
       (symbol)
       (exp
         (pseudo_var
@@ -39,8 +39,8 @@ var = .CPU
 ---
 
 (asm
-  (symbol_def
-    (const_assignment
+  (const_assignment
+    (num_assignment
       (symbol)
       (exp
         (pseudo_var
@@ -55,8 +55,8 @@ var = .ISIZE
 ---
 
 (asm
-  (symbol_def
-    (const_assignment
+  (const_assignment
+    (num_assignment
       (symbol)
       (exp
         (pseudo_var
@@ -71,8 +71,8 @@ var = .PARAMCOUNT
 ---
 
 (asm
-  (symbol_def
-    (const_assignment
+  (const_assignment
+    (num_assignment
       (symbol)
       (exp
         (pseudo_var
@@ -87,8 +87,8 @@ var = .TIME
 ---
 
 (asm
-  (symbol_def
-    (const_assignment
+  (const_assignment
+    (num_assignment
       (symbol)
       (exp
         (pseudo_var
@@ -103,8 +103,8 @@ var = .VERSION
 ---
 
 (asm
-  (symbol_def
-    (const_assignment
+  (const_assignment
+    (num_assignment
       (symbol)
       (exp
         (pseudo_var

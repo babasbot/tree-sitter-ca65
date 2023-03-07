@@ -7,8 +7,8 @@ zeropage = $00
 ---
 
 (asm
-  (symbol_def
-    (const_assignment
+  (const_assignment
+    (num_assignment
       (symbol)
       (exp
         (num_32)))))
@@ -22,8 +22,8 @@ loop := $0000
 ---
 
 (asm
-    (symbol_def
-      (const_assignment
+  (const_assignment
+    (label_assignment
         (symbol)
         (exp
           (num_32)))))
@@ -39,8 +39,8 @@ loop:
 ---
 
 (asm
-  (symbol_def
-    (label_def))
+  (const_assignment
+    (label))
   (inst
     (impl_opc
       (nop_opc)))
@@ -60,8 +60,8 @@ cheap labels
 ---
 
 (asm
-  (symbol_def
-    (label_def))
+  (const_assignment
+    (label))
   (inst
     (impl_opc
       (nop_opc)))
