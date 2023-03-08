@@ -82,6 +82,92 @@
     (asciiz_ctrl_cmd
       (str))))
 
+=======
+.ASSERT
+=======
+
+.assert foo = $0a, warning
+.assert foo = $0b, error
+.assert foo = $0c, ldwarning
+.assert foo = $0d, lderror
+
+.assert foo = $0a, warning,   "omg!"
+.assert foo = $0b, error,     "lol"
+.assert foo = $0c, ldwarning, "brb"
+.assert foo = $0d, lderror,   ":/"
+
+---
+
+(asm
+  (ctrl_cmd
+    (assert_ctrl_cmd
+      (exp
+        (eql_op
+          (exp
+            (symbol))
+          (exp
+            (num_32))))))
+  (ctrl_cmd
+    (assert_ctrl_cmd
+      (exp
+        (eql_op
+          (exp
+            (symbol))
+          (exp
+            (num_32))))))
+  (ctrl_cmd
+    (assert_ctrl_cmd
+      (exp
+        (eql_op
+          (exp
+            (symbol))
+          (exp
+            (num_32))))))
+  (ctrl_cmd
+    (assert_ctrl_cmd
+      (exp
+        (eql_op
+          (exp
+            (symbol))
+          (exp
+            (num_32))))))
+  (ctrl_cmd
+    (assert_ctrl_cmd
+      (exp
+        (eql_op
+          (exp
+            (symbol))
+          (exp
+            (num_32))))
+      (str)))
+  (ctrl_cmd
+    (assert_ctrl_cmd
+      (exp
+        (eql_op
+          (exp
+            (symbol))
+          (exp
+            (num_32))))
+      (str)))
+  (ctrl_cmd
+    (assert_ctrl_cmd
+      (exp
+        (eql_op
+          (exp
+            (symbol))
+          (exp
+            (num_32))))
+      (str)))
+  (ctrl_cmd
+    (assert_ctrl_cmd
+      (exp
+        (eql_op
+          (exp
+            (symbol))
+          (exp
+            (num_32))))
+      (str))))
+
 ========
 .FILEOPT
 ========

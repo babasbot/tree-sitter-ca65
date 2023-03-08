@@ -7,7 +7,7 @@
 - [x] `.ADDR`
 - [x] `.ALIGN`
 - [x] `.ASCIIZ`
-- [ ] `.ASSERT`
+- [x] `.ASSERT`
 - [ ] `.AUTOIMPORT`
 - [ ] `.BANKBYTES`
 - [ ] `.BSS`
