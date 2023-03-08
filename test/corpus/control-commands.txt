@@ -103,3 +103,21 @@
     (fileopt_ctrl_cmd
       (str))))
 
+============
+.FORCEIMPORT
+============
+
+.forceimport foo
+.forceimport foo, bar
+
+---
+
+(asm
+  (ctrl_cmd
+    (forceimport_ctrl_cmd
+      (symbol)))
+  (ctrl_cmd
+    (forceimport_ctrl_cmd
+      (symbol)
+      (symbol))))
+

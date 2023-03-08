@@ -711,6 +711,13 @@ module.exports = grammar({
         $.str
       ),
 
+    forceimport_ctrl_cmd: ($) =>
+      seq(
+        /\.[Ff][Oo][Rr][Cc][Ee][Ii][Mm][Pp][Oo][Rr][Tt]/,
+        $.symbol,
+        optional(repeat1(seq(",", $.symbol)))
+      ),
+
     ctrl_cmd: ($) =>
       choice(
         $.a16_ctrl_cmd,
@@ -753,6 +760,7 @@ module.exports = grammar({
         $.fatal_ctrl_cmd,
         $.feature_ctrl_cmd,
         $.fileopt_ctrl_cmd,
+        $.forceimport_ctrl_cmd,
         $.if_ctrl_cmd
       ),
 
