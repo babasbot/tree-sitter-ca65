@@ -192,3 +192,15 @@
   (ctrl_cmd
     (i16_ctrl_cmd)))
 
+========
+.I8
+========
+
+.i8
+
+---
+
+(asm
+  (ctrl_cmd
+    (i8_ctrl_cmd)))
+

@@ -49,7 +49,7 @@
 - [x] `.GLOBALZP`
 - [x] `.HIBYTES`
 - [x] `.I16`
-- [ ] `.I8`
+- [x] `.I8`
 - [ ] `.IF`
 - [ ] `.IFBLANK`
 - [ ] `.IFCONST`

@@ -741,6 +741,8 @@ module.exports = grammar({
 
     i16_ctrl_cmd: ($) => /\.[Ii]16/,
 
+    i8_ctrl_cmd: ($) => /\.[Ii]8/,
+
     ctrl_cmd: ($) =>
       choice(
         $.a16_ctrl_cmd,
@@ -788,6 +790,7 @@ module.exports = grammar({
         $.globalzp_ctrl_cmd,
         $.hibytes_ctrl_cmd,
         $.i16_ctrl_cmd,
+        $.i8_ctrl_cmd,
         $.if_ctrl_cmd
       ),
 
