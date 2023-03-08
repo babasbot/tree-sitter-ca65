@@ -139,3 +139,21 @@
       (symbol)
       (symbol))))
 
+=========
+.GLOBALZP
+=========
+
+.globalzp foo
+.globalzp foo, bar
+
+---
+
+(asm
+  (ctrl_cmd
+    (globalzp_ctrl_cmd
+      (symbol)))
+  (ctrl_cmd
+    (globalzp_ctrl_cmd
+      (symbol)
+      (symbol))))
+

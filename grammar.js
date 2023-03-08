@@ -725,6 +725,13 @@ module.exports = grammar({
         optional(repeat1(seq(",", $.symbol)))
       ),
 
+    globalzp_ctrl_cmd: ($) =>
+      seq(
+        /\.[Gg][Ll][Oo][Bb][Aa][Ll][Zz][Pp]/,
+        $.symbol,
+        optional(repeat1(seq(",", $.symbol)))
+      ),
+
     ctrl_cmd: ($) =>
       choice(
         $.a16_ctrl_cmd,
@@ -769,6 +776,7 @@ module.exports = grammar({
         $.fileopt_ctrl_cmd,
         $.forceimport_ctrl_cmd,
         $.global_ctrl_cmd,
+        $.globalzp_ctrl_cmd,
         $.if_ctrl_cmd
       ),
 

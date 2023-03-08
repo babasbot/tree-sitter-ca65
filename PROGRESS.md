@@ -46,7 +46,7 @@
 - [x] `.FILEOPT`, `.FOPT`
 - [x] `.FORCEIMPORT`
 - [x] `.GLOBAL`
-- [ ] `.GLOBALZP`
+- [x] `.GLOBALZP`
 - [ ] `.HIBYTES`
 - [ ] `.I16`
 - [ ] `.I8`
