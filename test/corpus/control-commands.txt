@@ -157,3 +157,26 @@
       (symbol)
       (symbol))))
 
+========
+.HIBYTES
+========
+
+.hibytes $ffaa
+.hibytes $aaff, $abcd, omg
+
+---
+
+(asm
+  (ctrl_cmd
+    (hibytes_ctrl_cmd
+      (exp
+        (num_32))))
+  (ctrl_cmd
+    (hibytes_ctrl_cmd
+      (exp
+        (num_32))
+      (exp
+        (num_32))
+      (exp
+        (symbol)))))
+

@@ -732,6 +732,13 @@ module.exports = grammar({
         optional(repeat1(seq(",", $.symbol)))
       ),
 
+    hibytes_ctrl_cmd: ($) =>
+      seq(
+        /\.[Hh][Ii][Bb][Yy][Tt][Ee][Ss]/,
+        $.exp,
+        optional(repeat1(seq(",", $.exp)))
+      ),
+
     ctrl_cmd: ($) =>
       choice(
         $.a16_ctrl_cmd,
@@ -777,6 +784,7 @@ module.exports = grammar({
         $.forceimport_ctrl_cmd,
         $.global_ctrl_cmd,
         $.globalzp_ctrl_cmd,
+        $.hibytes_ctrl_cmd,
         $.if_ctrl_cmd
       ),
 

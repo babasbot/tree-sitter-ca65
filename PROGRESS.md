@@ -47,8 +47,8 @@
 - [x] `.FORCEIMPORT`
 - [x] `.GLOBAL`
 - [x] `.GLOBALZP`
-- [ ] `.HIBYTES`
-- [ ] `.I16`
+- [x] `.HIBYTES`
+- [x] `.I16`
 - [ ] `.I8`
 - [ ] `.IF`
 - [ ] `.IFBLANK`
