@@ -43,8 +43,8 @@
 - [ ] `.FARADDR`
 - [ ] `.FATAL`
 - [ ] `.FEATURE`
-- [ ] `.FILEOPT`, `.FOPT`
-- [ ] `.FORCEIMPORT`
+- [x] `.FILEOPT`, `.FOPT`
+- [x] `.FORCEIMPORT`
 - [ ] `.GLOBAL`
 - [ ] `.GLOBALZP`
 - [ ] `.HIBYTES`

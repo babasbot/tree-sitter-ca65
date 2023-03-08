@@ -700,6 +700,17 @@ module.exports = grammar({
         )
       ),
 
+    fileopt_ctrl_cmd: ($) =>
+      seq(
+        choice(/\.[Ff][Ii][Ll][Ee][Oo][Pp][Tt]/, /\.[Ff][Oo][Pp][Tt]/),
+        field(
+          "keyword",
+          choice(choice("author", "comment", "compiler"), $.exp)
+        ),
+        ",",
+        $.str
+      ),
+
     ctrl_cmd: ($) =>
       choice(
         $.a16_ctrl_cmd,
@@ -741,6 +752,7 @@ module.exports = grammar({
         $.faraddr_ctrl_cmd,
         $.fatal_ctrl_cmd,
         $.feature_ctrl_cmd,
+        $.fileopt_ctrl_cmd,
         $.if_ctrl_cmd
       ),
 

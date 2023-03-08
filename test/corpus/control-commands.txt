@@ -82,3 +82,24 @@
     (asciiz_ctrl_cmd
       (str))))
 
+========
+.FILEOPT
+========
+
+.fileopt author,   "babasbot"
+.fileopt comment,  "Code stolen from my brother."
+.fileopt compiler, "ca65."
+
+---
+
+(asm
+  (ctrl_cmd
+    (fileopt_ctrl_cmd
+      (str)))
+  (ctrl_cmd
+    (fileopt_ctrl_cmd
+      (str)))
+  (ctrl_cmd
+    (fileopt_ctrl_cmd
+      (str))))
+
