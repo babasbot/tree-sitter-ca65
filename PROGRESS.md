@@ -45,7 +45,7 @@
 - [ ] `.FEATURE`
 - [x] `.FILEOPT`, `.FOPT`
 - [x] `.FORCEIMPORT`
-- [ ] `.GLOBAL`
+- [x] `.GLOBAL`
 - [ ] `.GLOBALZP`
 - [ ] `.HIBYTES`
 - [ ] `.I16`
