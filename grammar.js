@@ -6,9 +6,9 @@ module.exports = grammar({
   word: ($) => $.symbol,
 
   rules: {
-    asm: ($) => repeat($._factor),
+    asm: ($) => repeat($._asm_factor),
 
-    _factor: ($) => choice($.inst, $.const_assignment, $.ctrl_cmd),
+    _asm_factor: ($) => choice($.inst, $.const_assignment, $.ctrl_cmd),
 
     comment: ($) => token(seq(";", /.*/)),
 
@@ -607,17 +607,9 @@ module.exports = grammar({
     dword_ctrl_cmd: ($) =>
       seq(/\.[Dd][Ww][Oo][Rr][Dd]/, $.exp, optional(repeat1(seq(",", $.exp)))),
 
-    else_ctrl_cmd: ($) => /\.[Ee][Ll][Ss][Ee]/,
-
-    elseif_ctrl_cmd: ($) => seq(/\.[Ee][Ll][Ss][Ee][Ii][Ff]/, $.exp),
-
     end_ctrl_cmd: ($) => /\.[Ee][Nn][Dd]/,
 
-    if_ctrl_cmd: ($) => seq(/\.[Ii][Ff]/, $.exp),
-
     endenum_ctrl_cmd: ($) => /\.[Ee][Nn][Dd][Ee][Nn][Uu][Mm]/,
-
-    endif_ctrl_cmd: ($) => /\.[Ee][Nn][Dd][Ii][Ff]/,
 
     endmacro_ctrl_cmd: ($) => /\.[Ee][Nn][Dd][Mm][Aa][Cc]([Rr][Oo])?/,
 
@@ -743,6 +735,23 @@ module.exports = grammar({
 
     i8_ctrl_cmd: ($) => /\.[Ii]8/,
 
+    if_ctrl_cmd: ($) =>
+      seq(
+        $._if,
+        optional($._if_true_branch),
+        optional(seq($._else, optional($._if_false_branch))),
+        $._endif
+      ),
+
+    elseif_ctrl_cmd: ($) => seq(/\.[Ee][Ll][Ss][Ee][Ii][Ff]/, $.exp),
+    else_ctrl_cmd: ($) => /\.[Ee][Ll][Ss][Ee]/,
+
+    _if: ($) => seq(/\.[Ii][Ff]/, $.exp, "\n"),
+    _if_true_branch: ($) => repeat1(choice($._asm_factor, $.elseif_ctrl_cmd)),
+    _else: ($) => seq($.else_ctrl_cmd, "\n"),
+    _if_false_branch: ($) => repeat1($._asm_factor),
+    _endif: ($) => seq(/\.[Ee][Nn][Dd][Ii][Ff]/, "\n"),
+
     ctrl_cmd: ($) =>
       choice(
         $.a16_ctrl_cmd,
@@ -767,10 +776,7 @@ module.exports = grammar({
         $.delmacro_ctrl_cmd,
         $.destructor_ctrl_cmd,
         $.dword_ctrl_cmd,
-        $.else_ctrl_cmd,
-        $.elseif_ctrl_cmd,
         $.end_ctrl_cmd,
-        $.endif_ctrl_cmd,
         $.endmacro_ctrl_cmd,
         $.endproc_ctrl_cmd,
         $.endrepeat_ctrl_cmd,

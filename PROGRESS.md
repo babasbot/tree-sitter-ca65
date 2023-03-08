@@ -24,11 +24,11 @@
 - [ ] `.DELMAC`, `.DELMACRO`
 - [ ] `.DESTRUCTOR`
 - [ ] `.DWORD`
-- [ ] `.ELSE`
-- [ ] `.ELSEIF`
+- [x] `.ELSE`
+- [x] `.ELSEIF`
 - [ ] `.END`
 - [ ] `.ENDENUM`
-- [ ] `.ENDIF`
+- [x] `.ENDIF`
 - [ ] `.ENDMAC`, `.ENDMACRO`
 - [ ] `.ENDPROC`
 - [ ] `.ENDREP`, `.ENDREPEAT`
@@ -50,7 +50,7 @@
 - [x] `.HIBYTES`
 - [x] `.I16`
 - [x] `.I8`
-- [ ] `.IF`
+- [x] `.IF`
 - [ ] `.IFBLANK`
 - [ ] `.IFCONST`
 - [ ] `.IFDEF`
