@@ -52,7 +52,7 @@
 - [x] `.I8`
 - [x] `.IF`
 - [x] `.IFBLANK`
-- [ ] `.IFCONST`
+- [x] `.IFCONST`
 - [ ] `.IFDEF`
 - [ ] `.IFNBLANK`
 - [ ] `.IFNDEF`
