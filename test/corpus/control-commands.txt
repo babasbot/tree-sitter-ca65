@@ -382,3 +382,28 @@
         (impl_opc
           (nop_opc))))))
 
+======
+.IFDEF
+======
+
+.ifdef DEBUG
+  nop
+.else
+  nop
+.endif
+
+---
+
+(asm
+  (ctrl_cmd
+    (ifdef_ctrl_cmd
+      (exp
+        (symbol))
+      (inst
+        (impl_opc
+          (nop_opc)))
+      (else_ctrl_cmd)
+      (inst
+        (impl_opc
+          (nop_opc))))))
+

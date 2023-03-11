@@ -772,6 +772,17 @@ module.exports = grammar({
 
     _ifconst: ($) => seq(/\.[Ii][Ff][Cc][Oo][Nn][Ss][Tt]/, $.exp, "\n"),
 
+
+    ifdef_ctrl_cmd: ($) =>
+      seq(
+        $._ifdef,
+        optional($._if_true_branch),
+        optional(seq($._else, optional($._if_false_branch))),
+        $._endif
+      ),
+
+    _ifdef: ($) => seq(/\.[Ii][Ff][Dd][Ee][Ff]/, $.exp, "\n"),
+
     ctrl_cmd: ($) =>
       choice(
         $.a16_ctrl_cmd,
@@ -819,7 +830,8 @@ module.exports = grammar({
         $.i8_ctrl_cmd,
         $.if_ctrl_cmd,
         $.ifblank_ctrl_cmd,
-        $.ifconst_ctrl_cmd
+        $.ifconst_ctrl_cmd,
+        $.ifdef_ctrl_cmd
       ),
 
     /*

@@ -53,7 +53,7 @@
 - [x] `.IF`
 - [x] `.IFBLANK`
 - [x] `.IFCONST`
-- [ ] `.IFDEF`
+- [x] `.IFDEF`
 - [ ] `.IFNBLANK`
 - [ ] `.IFNDEF`
 - [ ] `.IFNREF`
