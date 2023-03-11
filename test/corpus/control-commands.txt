@@ -323,3 +323,37 @@
         (impl_opc
           (nop_opc))))))
 
+
+========
+.IFBLANK
+========
+
+.ifblank foo
+  nop
+.elseif bar
+  nop
+.else
+  nop
+.endif
+
+---
+
+(asm
+  (ctrl_cmd
+    (ifblank_ctrl_cmd
+      (exp
+        (symbol))
+      (inst
+        (impl_opc
+          (nop_opc)))
+      (elseif_ctrl_cmd
+        (exp
+          (symbol)))
+      (inst
+        (impl_opc
+          (nop_opc)))
+      (else_ctrl_cmd)
+      (inst
+        (impl_opc
+          (nop_opc))))))
+

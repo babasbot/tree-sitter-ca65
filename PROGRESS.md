@@ -51,7 +51,7 @@
 - [x] `.I16`
 - [x] `.I8`
 - [x] `.IF`
-- [ ] `.IFBLANK`
+- [x] `.IFBLANK`
 - [ ] `.IFCONST`
 - [ ] `.IFDEF`
 - [ ] `.IFNBLANK`

@@ -752,6 +752,16 @@ module.exports = grammar({
     _if_false_branch: ($) => repeat1($._asm_factor),
     _endif: ($) => seq(/\.[Ee][Nn][Dd][Ii][Ff]/, "\n"),
 
+    ifblank_ctrl_cmd: ($) =>
+      seq(
+        $._ifblank,
+        optional($._if_true_branch),
+        optional(seq($._else, optional($._if_false_branch))),
+        $._endif
+      ),
+
+    _ifblank: ($) => seq(/\.[Ii][Ff][Bb][Ll][Aa][Nn][Kk]/, $.exp, "\n"),
+
     ctrl_cmd: ($) =>
       choice(
         $.a16_ctrl_cmd,
@@ -797,7 +807,8 @@ module.exports = grammar({
         $.hibytes_ctrl_cmd,
         $.i16_ctrl_cmd,
         $.i8_ctrl_cmd,
-        $.if_ctrl_cmd
+        $.if_ctrl_cmd,
+        $.ifblank_ctrl_cmd
       ),
 
     /*
