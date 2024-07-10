@@ -30,7 +30,7 @@ module.exports = grammar({
         $.rel_opc,
         $.zpg_opc,
         $.zpg_x_opc,
-        $.zpg_y_opc
+        $.zpg_y_opc,
       ),
 
     /*
@@ -44,9 +44,9 @@ module.exports = grammar({
       prec.left(
         choice(
           ...[$.asl_opc, $.rol_opc, $.ror_opc].map((op) =>
-            seq(op, optional($.a_reg))
-          )
-        )
+            seq(op, optional($.a_reg)),
+          ),
+        ),
       ),
 
     /*
@@ -78,7 +78,7 @@ module.exports = grammar({
           $.sta_opc,
           $.stx_opc,
           $.sty_opc,
-        ].map((op) => seq(op, choice($.num_16, $.symbol)))
+        ].map((op) => seq(op, choice($.num_16, $.symbol))),
       ),
 
     /*
@@ -102,7 +102,7 @@ module.exports = grammar({
           $.ror_opc,
           $.sbc_opc,
           $.sta_opc,
-        ].map((op) => seq(op, $.num_16, ",", $.x_reg))
+        ].map((op) => seq(op, $.num_16, ",", $.x_reg)),
       ),
 
     /*
@@ -120,7 +120,7 @@ module.exports = grammar({
           $.ora_opc,
           $.sbc_opc,
           $.sta_opc,
-        ].map((op) => seq(op, $.num_16, ",", $.y_reg))
+        ].map((op) => seq(op, $.num_16, ",", $.y_reg)),
       ),
 
     /*
@@ -141,7 +141,7 @@ module.exports = grammar({
           $.lsr_opc,
           $.ora_opc,
           $.sbc_opc,
-        ].map((op) => seq(op, $.imm_prefix, $.num_8))
+        ].map((op) => seq(op, $.imm_prefix, $.num_8)),
       ),
 
     /*
@@ -173,7 +173,7 @@ module.exports = grammar({
         $.tsx_opc,
         $.txa_opc,
         $.tcs_opc,
-        $.tya_opc
+        $.tya_opc,
       ),
 
     /*
@@ -196,7 +196,7 @@ module.exports = grammar({
           $.ora_opc,
           $.sbc_opc,
           $.sta_opc,
-        ].map((op) => seq(op, "(", $.num_8, ",", $.x_reg, ")"))
+        ].map((op) => seq(op, "(", $.num_8, ",", $.x_reg, ")")),
       ),
 
     /*
@@ -213,7 +213,7 @@ module.exports = grammar({
           $.ora_opc,
           $.sbc_opc,
           $.sta_opc,
-        ].map((op) => seq(op, "(", $.num_8, ")", ",", $.y_reg))
+        ].map((op) => seq(op, "(", $.num_8, ")", ",", $.y_reg)),
       ),
 
     /*
@@ -230,7 +230,7 @@ module.exports = grammar({
           $.bpl_opc,
           $.bvc_opc,
           $.bvs_opc,
-        ].map((op) => seq(op, $.num_16))
+        ].map((op) => seq(op, $.num_16)),
       ),
 
     /*
@@ -260,7 +260,7 @@ module.exports = grammar({
           $.sta_opc,
           $.stx_opc,
           $.sty_opc,
-        ].map((op) => seq(op, $.num_8))
+        ].map((op) => seq(op, $.num_8)),
       ),
 
     /*
@@ -285,7 +285,7 @@ module.exports = grammar({
           $.sbc_opc,
           $.sta_opc,
           $.sty_opc,
-        ].map((op) => seq(op, $.num_8, ",", $.x_reg))
+        ].map((op) => seq(op, $.num_8, ",", $.x_reg)),
       ),
 
     /*
@@ -293,7 +293,7 @@ module.exports = grammar({
      */
     zpg_y_opc: ($) =>
       choice(
-        ...[$.ldx_opc, $.stx_opc].map((op) => seq(op, $.num_8, ",", $.y_reg))
+        ...[$.ldx_opc, $.stx_opc].map((op) => seq(op, $.num_8, ",", $.y_reg)),
       ),
 
     /*
@@ -417,7 +417,7 @@ module.exports = grammar({
         $.sub_op,
         $.unary_neg_op,
         $.unary_pos_op,
-        seq("(", $.exp, ")")
+        seq("(", $.exp, ")"),
       ),
 
     unary_pos_op: ($) => prec.right(1, seq("+", $.exp)),
@@ -478,7 +478,7 @@ module.exports = grammar({
         /\d+/, // decimal
         seq("$", /[0-9a-fA-F]+/), // hex $ notation
         seq(/[0-9a-fA-F]+/, "h"), // hex h notation
-        seq("%", /[0-1]+/) // binary
+        seq("%", /[0-1]+/), // binary
       ),
 
     /*
@@ -503,8 +503,8 @@ module.exports = grammar({
           $.isize_pseudo_var,
           $.paramcount_pseudo_var,
           $.time_pseudo_var,
-          $.version_pseudo_var
-        )
+          $.version_pseudo_var,
+        ),
       ),
 
     /*
@@ -525,7 +525,7 @@ module.exports = grammar({
       seq(
         /\.[Aa][Ss][Cc][Ii][Ii][Zz]/,
         $.str,
-        optional(repeat1(seq(",", $.str)))
+        optional(repeat1(seq(",", $.str))),
       ),
 
     assert_ctrl_cmd: ($) =>
@@ -534,7 +534,7 @@ module.exports = grammar({
         $.exp,
         ",",
         choice("warning", "error", "ldwarning", "lderror"),
-        optional(seq(",", $.str))
+        optional(seq(",", $.str)),
       ),
 
     autoimport_ctrl_cmd: ($) =>
@@ -543,7 +543,7 @@ module.exports = grammar({
     bankbytes_ctrl_cmd: ($) =>
       seq(
         /\.[Bb][Aa][Nn][Kk][Bb][Yy][Tt][Ee][Ss]/,
-        seq($.exp, optional(repeat1(seq(",", $.exp))))
+        seq($.exp, optional(repeat1(seq(",", $.exp)))),
       ),
 
     bss_ctrl_cmd: ($) => /\.[Bb][Ss][Ss]/,
@@ -552,7 +552,7 @@ module.exports = grammar({
       seq(
         /\.[Bb][Yy][Tt][Ee]?/,
         choice($.exp, $.str),
-        optional(repeat1(seq(",", choice($.exp, $.str))))
+        optional(repeat1(seq(",", choice($.exp, $.str)))),
       ),
 
     case_ctrl_cmd: ($) => seq(/\.[Cc][Aa][Ss][Ee]/, choice("+", "-")),
@@ -568,14 +568,14 @@ module.exports = grammar({
         $.symbol,
         ",",
         choice("constructor", "destructor", $.exp),
-        optional(seq(",", $.exp))
+        optional(seq(",", $.exp)),
       ),
 
     constructor_ctrl_cmd: ($) =>
       seq(
         /\.[Cc][Oo][Nn][Ss][Tt][Rr][Uu][Cc][Tt][Oo][Rr]/,
         $.symbol,
-        optional(seq(",", $.exp))
+        optional(seq(",", $.exp)),
       ),
 
     data_ctrl_cmd: ($) => /\.[Dd][Aa][Tt][Aa]/,
@@ -591,7 +591,7 @@ module.exports = grammar({
         /\.[Dd][Ee][Ff][Ii][Nn][Ee]/,
         $.symbol,
         choice($.exp, $.str),
-        optional(repeat1(seq(",", choice($.exp, $.str))))
+        optional(repeat1(seq(",", choice($.exp, $.str)))),
       ),
 
     delmacro_ctrl_cmd: ($) =>
@@ -601,7 +601,7 @@ module.exports = grammar({
       seq(
         /\.[Dd][Ee][Ss][Tr][Rr][Uu][Cc][Tt][Oo][Rr]/,
         $.symbol,
-        optional(seq(",", $.exp))
+        optional(seq(",", $.exp)),
       ),
 
     dword_ctrl_cmd: ($) =>
@@ -629,7 +629,7 @@ module.exports = grammar({
         optional(field("enum_name", $.symbol)),
         "\n",
         optional(repeat1($.enum_def)),
-        /\.[Ee][Nn][Dd][Ee][Nn][Uu][Mm]/
+        /\.[Ee][Nn][Dd][Ee][Nn][Uu][Mm]/,
       ),
 
     enum_def: ($) =>
@@ -641,7 +641,7 @@ module.exports = grammar({
       seq(
         /\.[Ee][Xx][Pp][Oo][Rr][Tt]/,
         $._export_ctrl_cmd_factor,
-        optional(repeat1(seq(",", $._export_ctrl_cmd_factor)))
+        optional(repeat1(seq(",", $._export_ctrl_cmd_factor))),
       ),
 
     _export_ctrl_cmd_factor: ($) =>
@@ -651,7 +651,7 @@ module.exports = grammar({
       seq(
         /\.[Ee][Xx][Pp][Oo][Rr][Tt][Zz][Pp]/,
         $._exportzp_ctrl_cmd_factor,
-        optional(repeat1(seq(",", $._exportzp_ctrl_cmd_factor)))
+        optional(repeat1(seq(",", $._exportzp_ctrl_cmd_factor))),
       ),
 
     _exportzp_ctrl_cmd_factor: ($) =>
@@ -661,7 +661,7 @@ module.exports = grammar({
       seq(
         /\.[Ff][Aa][Rr][Aa][Dd][Dd][Rr]/,
         $._faraddr_ctrl_cmd_factor,
-        optional(repeat1(seq(",", $._faraddr_ctrl_cmd_factor)))
+        optional(repeat1(seq(",", $._faraddr_ctrl_cmd_factor))),
       ),
 
     _faraddr_ctrl_cmd_factor: ($) => choice($.symbol, $.num_32),
@@ -688,8 +688,8 @@ module.exports = grammar({
           "pc_assignment",
           "string_escapes",
           "ubiquitous_idents",
-          "underline_in_numbers"
-        )
+          "underline_in_numbers",
+        ),
       ),
 
     fileopt_ctrl_cmd: ($) =>
@@ -697,38 +697,38 @@ module.exports = grammar({
         choice(/\.[Ff][Ii][Ll][Ee][Oo][Pp][Tt]/, /\.[Ff][Oo][Pp][Tt]/),
         field(
           "keyword",
-          choice(choice("author", "comment", "compiler"), $.exp)
+          choice(choice("author", "comment", "compiler"), $.exp),
         ),
         ",",
-        $.str
+        $.str,
       ),
 
     forceimport_ctrl_cmd: ($) =>
       seq(
         /\.[Ff][Oo][Rr][Cc][Ee][Ii][Mm][Pp][Oo][Rr][Tt]/,
         $.symbol,
-        optional(repeat1(seq(",", $.symbol)))
+        optional(repeat1(seq(",", $.symbol))),
       ),
 
     global_ctrl_cmd: ($) =>
       seq(
         /\.[Gg][Ll][Oo][Bb][Aa][Ll]/,
         $.symbol,
-        optional(repeat1(seq(",", $.symbol)))
+        optional(repeat1(seq(",", $.symbol))),
       ),
 
     globalzp_ctrl_cmd: ($) =>
       seq(
         /\.[Gg][Ll][Oo][Bb][Aa][Ll][Zz][Pp]/,
         $.symbol,
-        optional(repeat1(seq(",", $.symbol)))
+        optional(repeat1(seq(",", $.symbol))),
       ),
 
     hibytes_ctrl_cmd: ($) =>
       seq(
         /\.[Hh][Ii][Bb][Yy][Tt][Ee][Ss]/,
         $.exp,
-        optional(repeat1(seq(",", $.exp)))
+        optional(repeat1(seq(",", $.exp))),
       ),
 
     i16_ctrl_cmd: ($) => /\.[Ii]16/,
@@ -740,7 +740,7 @@ module.exports = grammar({
         $._if,
         optional($._if_true_branch),
         optional(seq($._else, optional($._if_false_branch))),
-        $._endif
+        $._endif,
       ),
 
     elseif_ctrl_cmd: ($) => seq(/\.[Ee][Ll][Ss][Ee][Ii][Ff]/, $.exp),
@@ -757,7 +757,7 @@ module.exports = grammar({
         $._ifblank,
         optional($._if_true_branch),
         optional(seq($._else, optional($._if_false_branch))),
-        $._endif
+        $._endif,
       ),
 
     _ifblank: ($) => seq(/\.[Ii][Ff][Bb][Ll][Aa][Nn][Kk]/, $.exp, "\n"),
@@ -767,7 +767,7 @@ module.exports = grammar({
         $._ifconst,
         optional($._if_true_branch),
         optional(seq($._else, optional($._if_false_branch))),
-        $._endif
+        $._endif,
       ),
 
     _ifconst: ($) => seq(/\.[Ii][Ff][Cc][Oo][Nn][Ss][Tt]/, $.exp, "\n"),
@@ -777,7 +777,7 @@ module.exports = grammar({
         $._ifdef,
         optional($._if_true_branch),
         optional(seq($._else, optional($._if_false_branch))),
-        $._endif
+        $._endif,
       ),
 
     _ifdef: ($) => seq(/\.[Ii][Ff][Dd][Ee][Ff]/, $.exp, "\n"),
@@ -787,7 +787,7 @@ module.exports = grammar({
         $._ifnblank,
         optional($._if_true_branch),
         optional(seq($._else, optional($._if_false_branch))),
-        $._endif
+        $._endif,
       ),
 
     _ifnblank: ($) => seq(/\.[Ii][Ff][Nn][Bb][Ll][Aa][Nn][Kk]/, $.exp, "\n"),
@@ -841,7 +841,7 @@ module.exports = grammar({
         $.ifblank_ctrl_cmd,
         $.ifconst_ctrl_cmd,
         $.ifdef_ctrl_cmd,
-        $.ifnblank_ctrl_cmd
+        $.ifnblank_ctrl_cmd,
       ),
 
     /*
