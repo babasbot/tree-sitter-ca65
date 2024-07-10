@@ -13,215 +13,92 @@ module.exports = grammar({
     comment: ($) => token(seq(";", /.*/)),
 
     /**
-     * Instructions
+     * Instruction
      */
     inst: ($) =>
       choice(
         /**
          * Implied Addressing Instruction.
-         *
          * Example: CLC
          */
         $.impl_addr_inst,
 
         /**
          * Accumulator Addressing Instruction.
-         *
          * Example: ROL A
          */
         $.acc_addr_inst,
 
         /**
          * Immediate Addressing Instruction.
-         *
          * Example: LDA #$07
          */
         $.imm_addr_inst,
 
         /**
          * Absolute Addressing Instruction.
-         *
          * Example: LDA $3010
          */
         $.abs_addr_inst,
 
         /**
          * Zero-Page Addressing Instruction.
-         *
          * Example: LDA $3010
          */
         $.zp_addr_inst,
 
         /**
          * Indexed Addressing Instruction: Absolute,X.
-         *
          * Example: LDA $3120,X
          */
         $.abs_x_addr_inst,
 
         /**
          * Indexed Addressing Instruction: Absolute,Y.
-         *
          * Example: LDX $8240,Y
          */
         $.abs_y_addr_inst,
 
         /**
          * Indexed Addressing Instruction: Zero-Page,X.
-         *
          * Example: LDA $80,X
          */
         $.zp_x_addr_inst,
 
         /**
          * Indexed Addressing Instruction: Zero-Page,Y.
-         *
          * Example: LDX $60,Y
          */
         $.zp_y_addr_inst,
 
         /**
          * Indirect Addressing Instruction.
-         *
          * Example: JMP ($FF82)
          */
         $.ind_addr_inst,
 
         /**
          * Pre-Indexed Indirect Addressing Instruction.
-         *
          * Example: LDA ($70,X)
          */
         $.ind_x_addr_inst,
 
         /**
          * Post-Indexed Indirect Addressing Instruction.
-         *
          * Example: LDA ($70),Y
          */
         $.ind_y_addr_inst,
 
         /**
          * Relative Addressing Instruction.
-         *
          * Example: BEQ $1005
          */
         $.rel_addr_inst,
       ),
 
-    /*
-     * ADDRESS MODES
-     */
-
-    /*
-     * OPC A
-     */
-    acc_addr_inst: ($) =>
-      prec.left(
-        choice(
-          ...[$.asl_opc, $.rol_opc, $.ror_opc].map((op) =>
-            seq(op, optional($.a_reg)),
-          ),
-        ),
-      ),
-
-    /*
-     * OPC $LLHH
-     */
-    abs_addr_inst: ($) =>
-      choice(
-        ...[
-          $.adc_opc,
-          $.and_opc,
-          $.asl_opc,
-          $.bit_opc,
-          $.cmp_opc,
-          $.cpx_opc,
-          $.cpy_opc,
-          $.dec_opc,
-          $.eor_opc,
-          $.inc_opc,
-          $.jmp_opc,
-          $.jsr_opc,
-          $.lda_opc,
-          $.ldx_opc,
-          $.ldy_opc,
-          $.lsr_opc,
-          $.ora_opc,
-          $.rol_opc,
-          $.ror_opc,
-          $.sbc_opc,
-          $.sta_opc,
-          $.stx_opc,
-          $.sty_opc,
-        ].map((op) => seq(op, choice($.num_16, $.symbol))),
-      ),
-
-    /*
-     * OPC $LLHH,X
-     */
-    abs_x_addr_inst: ($) =>
-      choice(
-        ...[
-          $.adc_opc,
-          $.and_opc,
-          $.asl_opc,
-          $.cmp_opc,
-          $.dec_opc,
-          $.eor_opc,
-          $.inc_opc,
-          $.lda_opc,
-          $.ldy_opc,
-          $.lsr_opc,
-          $.ora_opc,
-          $.rol_opc,
-          $.ror_opc,
-          $.sbc_opc,
-          $.sta_opc,
-        ].map((op) => seq(op, $.num_16, ",", $.x_reg)),
-      ),
-
-    /*
-     * OPC $LLHH,Y
-     */
-    abs_y_addr_inst: ($) =>
-      choice(
-        ...[
-          $.adc_opc,
-          $.and_opc,
-          $.cmp_opc,
-          $.eor_opc,
-          $.lda_opc,
-          $.ldx_opc,
-          $.ora_opc,
-          $.sbc_opc,
-          $.sta_opc,
-        ].map((op) => seq(op, $.num_16, ",", $.y_reg)),
-      ),
-
-    /*
-     * OPC #$BB
-     */
-    imm_addr_inst: ($) =>
-      choice(
-        ...[
-          $.adc_opc,
-          $.and_opc,
-          $.cmp_opc,
-          $.cpx_opc,
-          $.cpy_opc,
-          $.eor_opc,
-          $.lda_opc,
-          $.ldx_opc,
-          $.ldy_opc,
-          $.lsr_opc,
-          $.ora_opc,
-          $.sbc_opc,
-        ].map((op) => seq(op, $.imm_prefix, $.num_8)),
-      ),
-
-    /*
-     * OPC
+    /**
+     * Implied Addressing Instructions.
+     * Example: OPC
      */
     impl_addr_inst: ($) =>
       choice(
@@ -252,65 +129,77 @@ module.exports = grammar({
         $.tya_opc,
       ),
 
-    /*
-     * OPC ($LLHH)
+    /**
+     * Accumulator Addressing Instructions.
+     * Example: OPC A
      */
-    ind_addr_inst: ($) =>
-      choice(...[$.jmp_opc].map((op) => seq(op, "(", $.num_16, ")"))),
+    acc_addr_inst: ($) =>
+      prec.left(
+        choice(
+          ...[$.asl_opc, $.rol_opc, $.ror_opc].map((opcode) =>
+            seq(opcode, $.a_reg),
+          ),
+        ),
+      ),
 
-    /*
-     * OPC ($LL,X)
+    /**
+     * Immediate Addressing Instructions.
+     * Example: OPC #$BB
      */
-    ind_x_addr_inst: ($) =>
+    imm_addr_inst: ($) =>
       choice(
         ...[
           $.adc_opc,
           $.and_opc,
           $.cmp_opc,
+          $.cpx_opc,
+          $.cpy_opc,
           $.eor_opc,
           $.lda_opc,
+          $.ldx_opc,
+          $.ldy_opc,
+          $.lsr_opc,
           $.ora_opc,
           $.sbc_opc,
-          $.sta_opc,
-        ].map((op) => seq(op, "(", $.num_8, ",", $.x_reg, ")")),
+        ].map((opcode) => seq(opcode, $.imm_prefix, $.num_8)),
       ),
 
-    /*
-     * OPC ($LL),Y
+    /**
+     * Absolute Addressing Instructions.
+     * Example: OPC $LLHH
      */
-    ind_y_addr_inst: ($) =>
+    abs_addr_inst: ($) =>
       choice(
         ...[
           $.adc_opc,
           $.and_opc,
+          $.asl_opc,
+          $.bit_opc,
           $.cmp_opc,
+          $.cpx_opc,
+          $.cpy_opc,
+          $.dec_opc,
           $.eor_opc,
+          $.inc_opc,
+          $.jmp_opc,
+          $.jsr_opc,
           $.lda_opc,
+          $.ldx_opc,
+          $.ldy_opc,
+          $.lsr_opc,
           $.ora_opc,
+          $.rol_opc,
+          $.ror_opc,
           $.sbc_opc,
           $.sta_opc,
-        ].map((op) => seq(op, "(", $.num_8, ")", ",", $.y_reg)),
+          $.stx_opc,
+          $.sty_opc,
+        ].map((opcode) => seq(opcode, choice($.num_16, $.symbol))),
       ),
 
-    /*
-     * OPC $BB
-     */
-    rel_addr_inst: ($) =>
-      choice(
-        ...[
-          $.bcc_opc,
-          $.bcs_opc,
-          $.beq_opc,
-          $.bmi_opc,
-          $.bne_opc,
-          $.bpl_opc,
-          $.bvc_opc,
-          $.bvs_opc,
-        ].map((op) => seq(op, $.num_16)),
-      ),
-
-    /*
-     * OPC $LL
+    /**
+     * Zero-Page Addressing Instructions.
+     * Example: OPC $LL
      */
     zp_addr_inst: ($) =>
       choice(
@@ -336,11 +225,56 @@ module.exports = grammar({
           $.sta_opc,
           $.stx_opc,
           $.sty_opc,
-        ].map((op) => seq(op, $.num_8)),
+        ].map((opcode) => seq(opcode, $.num_8)),
       ),
 
-    /*
-     * OPC $LL,X
+    /**
+     * Indexed Addressing Instructions: Absolute,X.
+     * Example: OPC $LLHH,X
+     */
+    abs_x_addr_inst: ($) =>
+      choice(
+        ...[
+          $.adc_opc,
+          $.and_opc,
+          $.asl_opc,
+          $.cmp_opc,
+          $.dec_opc,
+          $.eor_opc,
+          $.inc_opc,
+          $.lda_opc,
+          $.ldy_opc,
+          $.lsr_opc,
+          $.ora_opc,
+          $.rol_opc,
+          $.ror_opc,
+          $.sbc_opc,
+          $.sta_opc,
+        ].map((opcode) => seq(opcode, $.num_16, ",", $.x_reg)),
+      ),
+
+    /**
+     * Indexed Addressing Instructions: Absolute,Y.
+     * Example: OPC $LLHH,Y
+     */
+    abs_y_addr_inst: ($) =>
+      choice(
+        ...[
+          $.adc_opc,
+          $.and_opc,
+          $.cmp_opc,
+          $.eor_opc,
+          $.lda_opc,
+          $.ldx_opc,
+          $.ora_opc,
+          $.sbc_opc,
+          $.sta_opc,
+        ].map((opcode) => seq(opcode, $.num_16, ",", $.y_reg)),
+      ),
+
+    /**
+     * Indexed Addressing Instructions: Zero-Page,X.
+     * Example: OPC $LL,X
      */
     zp_x_addr_inst: ($) =>
       choice(
@@ -361,15 +295,79 @@ module.exports = grammar({
           $.sbc_opc,
           $.sta_opc,
           $.sty_opc,
-        ].map((op) => seq(op, $.num_8, ",", $.x_reg)),
+        ].map((opcode) => seq(opcode, $.num_8, ",", $.x_reg)),
       ),
 
-    /*
-     * OPC $LL,Y
+    /**
+     * Indexed Addressing Instructions: Zero-Page,Y.
+     * Example: OPC $LL,Y
      */
     zp_y_addr_inst: ($) =>
       choice(
-        ...[$.ldx_opc, $.stx_opc].map((op) => seq(op, $.num_8, ",", $.y_reg)),
+        ...[$.ldx_opc, $.stx_opc].map((opcode) =>
+          seq(opcode, $.num_8, ",", $.y_reg),
+        ),
+      ),
+
+    /**
+     * Indirect Addressing Instructions.
+     * Example: OPC ($LLHH)
+     */
+    ind_addr_inst: ($) =>
+      choice(...[$.jmp_opc].map((opcode) => seq(opcode, "(", $.num_16, ")"))),
+
+    /**
+     * Pre-Indexed Indirect Addressing Instruction.
+     * OPC ($LL,X)
+     */
+    ind_x_addr_inst: ($) =>
+      choice(
+        ...[
+          $.adc_opc,
+          $.and_opc,
+          $.cmp_opc,
+          $.eor_opc,
+          $.lda_opc,
+          $.ora_opc,
+          $.sbc_opc,
+          $.sta_opc,
+        ].map((opcode) => seq(opcode, "(", $.num_8, ",", $.x_reg, ")")),
+      ),
+
+    /**
+     * Post-Indexed Indirect Addressing Instructions.
+     * Example: OPC ($LL),Y
+     */
+    ind_y_addr_inst: ($) =>
+      choice(
+        ...[
+          $.adc_opc,
+          $.and_opc,
+          $.cmp_opc,
+          $.eor_opc,
+          $.lda_opc,
+          $.ora_opc,
+          $.sbc_opc,
+          $.sta_opc,
+        ].map((opcode) => seq(opcode, "(", $.num_8, ")", ",", $.y_reg)),
+      ),
+
+    /**
+     * Relative Addressing Instruction.
+     * Example: OPC $BB
+     */
+    rel_addr_inst: ($) =>
+      choice(
+        ...[
+          $.bcc_opc,
+          $.bcs_opc,
+          $.beq_opc,
+          $.bmi_opc,
+          $.bne_opc,
+          $.bpl_opc,
+          $.bvc_opc,
+          $.bvs_opc,
+        ].map((opcode) => seq(opcode, $.num_16)),
       ),
 
     /*
