@@ -6,7 +6,8 @@
   "scripts": {
     "generate": "npx tree-sitter generate",
     "test": "npx tree-sitter test",
-    "prepare": "husky"
+    "prepare": "husky",
+    "lint": "npx eslint"
   },
   "repository": {
     "type": "git",
