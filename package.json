@@ -5,7 +5,8 @@
   "main": "bindings/node",
   "scripts": {
     "generate": "npx tree-sitter generate",
-    "test": "npx tree-sitter test"
+    "test": "npx tree-sitter test",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
