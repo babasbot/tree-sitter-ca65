@@ -12,25 +12,101 @@ module.exports = grammar({
 
     comment: ($) => token(seq(";", /.*/)),
 
-    /*
-     * INSTRUCTIONS
+    /**
+     * Instructions
      */
-
     inst: ($) =>
       choice(
-        $.acc_opc,
-        $.abs_opc,
-        $.abs_x_opc,
-        $.abs_y_opc,
-        $.imm_opc,
-        $.impl_opc,
-        $.ind_opc,
-        $.x_ind_opc,
-        $.ind_y_opc,
-        $.rel_opc,
-        $.zpg_opc,
-        $.zpg_x_opc,
-        $.zpg_y_opc,
+        /**
+         * Implied Addressing Instruction.
+         *
+         * Example: CLC
+         */
+        $.impl_addr_inst,
+
+        /**
+         * Accumulator Addressing Instruction.
+         *
+         * Example: ROL A
+         */
+        $.acc_addr_inst,
+
+        /**
+         * Immediate Addressing Instruction.
+         *
+         * Example: LDA #$07
+         */
+        $.imm_addr_inst,
+
+        /**
+         * Absolute Addressing Instruction.
+         *
+         * Example: LDA $3010
+         */
+        $.abs_addr_inst,
+
+        /**
+         * Zero-Page Addressing Instruction.
+         *
+         * Example: LDA $3010
+         */
+        $.zp_addr_inst,
+
+        /**
+         * Indexed Addressing Instruction: Absolute,X.
+         *
+         * Example: LDA $3120,X
+         */
+        $.abs_x_addr_inst,
+
+        /**
+         * Indexed Addressing Instruction: Absolute,Y.
+         *
+         * Example: LDX $8240,Y
+         */
+        $.abs_y_addr_inst,
+
+        /**
+         * Indexed Addressing Instruction: Zero-Page,X.
+         *
+         * Example: LDA $80,X
+         */
+        $.zp_x_addr_inst,
+
+        /**
+         * Indexed Addressing Instruction: Zero-Page,Y.
+         *
+         * Example: LDX $60,Y
+         */
+        $.zp_y_addr_inst,
+
+        /**
+         * Indirect Addressing Instruction.
+         *
+         * Example: JMP ($FF82)
+         */
+        $.ind_addr_inst,
+
+        /**
+         * Pre-Indexed Indirect Addressing Instruction.
+         *
+         * Example: LDA ($70,X)
+         */
+        $.ind_x_addr_inst,
+
+        /**
+         * Post-Indexed Indirect Addressing Instruction.
+         *
+         * Example: LDA ($70),Y
+         */
+        $.ind_y_addr_inst,
+
+        /**
+         * Relative Addressing Instruction.
+         *
+         * Example: BEQ $1005
+         */
+        $.rel_addr_inst,
       ),
 
     /*
@@ -40,7 +116,7 @@ module.exports = grammar({
     /*
      * OPC A
      */
-    acc_opc: ($) =>
+    acc_addr_inst: ($) =>
       prec.left(
         choice(
           ...[$.asl_opc, $.rol_opc, $.ror_opc].map((op) =>
@@ -52,7 +128,7 @@ module.exports = grammar({
     /*
      * OPC $LLHH
      */
-    abs_opc: ($) =>
+    abs_addr_inst: ($) =>
       choice(
         ...[
           $.adc_opc,
@@ -84,7 +160,7 @@ module.exports = grammar({
     /*
      * OPC $LLHH,X
      */
-    abs_x_opc: ($) =>
+    abs_x_addr_inst: ($) =>
       choice(
         ...[
           $.adc_opc,
@@ -108,7 +184,7 @@ module.exports = grammar({
     /*
      * OPC $LLHH,Y
      */
-    abs_y_opc: ($) =>
+    abs_y_addr_inst: ($) =>
       choice(
         ...[
           $.adc_opc,
@@ -126,7 +202,7 @@ module.exports = grammar({
     /*
      * OPC #$BB
      */
-    imm_opc: ($) =>
+    imm_addr_inst: ($) =>
       choice(
         ...[
           $.adc_opc,
@@ -147,7 +223,7 @@ module.exports = grammar({
     /*
      * OPC
      */
-    impl_opc: ($) =>
+    impl_addr_inst: ($) =>
       choice(
         $.brk_opc,
         $.clc_opc,
@@ -179,13 +255,13 @@ module.exports = grammar({
     /*
      * OPC ($LLHH)
      */
-    ind_opc: ($) =>
+    ind_addr_inst: ($) =>
       choice(...[$.jmp_opc].map((op) => seq(op, "(", $.num_16, ")"))),
 
     /*
      * OPC ($LL,X)
      */
-    x_ind_opc: ($) =>
+    ind_x_addr_inst: ($) =>
       choice(
         ...[
           $.adc_opc,
@@ -202,7 +278,7 @@ module.exports = grammar({
     /*
      * OPC ($LL),Y
      */
-    ind_y_opc: ($) =>
+    ind_y_addr_inst: ($) =>
       choice(
         ...[
           $.adc_opc,
@@ -219,7 +295,7 @@ module.exports = grammar({
     /*
      * OPC $BB
      */
-    rel_opc: ($) =>
+    rel_addr_inst: ($) =>
       choice(
         ...[
           $.bcc_opc,
@@ -236,7 +312,7 @@ module.exports = grammar({
     /*
      * OPC $LL
      */
-    zpg_opc: ($) =>
+    zp_addr_inst: ($) =>
       choice(
         ...[
           $.adc_opc,
@@ -266,7 +342,7 @@ module.exports = grammar({
     /*
      * OPC $LL,X
      */
-    zpg_x_opc: ($) =>
+    zp_x_addr_inst: ($) =>
       choice(
         ...[
           $.adc_opc,
@@ -291,7 +367,7 @@ module.exports = grammar({
     /*
      * OPC $LL,Y
      */
-    zpg_y_opc: ($) =>
+    zp_y_addr_inst: ($) =>
       choice(
         ...[$.ldx_opc, $.stx_opc].map((op) => seq(op, $.num_8, ",", $.y_reg)),
       ),
