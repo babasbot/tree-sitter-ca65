@@ -161,7 +161,7 @@ module.exports = grammar({
           $.lsr_opcode,
           $.ora_opcode,
           $.sbc_opcode,
-        ].map((opcode) => seq(opcode, $.imm_prefix, $.num_8)),
+        ].map((opcode) => seq(opcode, $.imm_prefix, $.operand_8)),
       ),
 
     /**
@@ -194,7 +194,7 @@ module.exports = grammar({
           $.sta_opcode,
           $.stx_opcode,
           $.sty_opcode,
-        ].map((opcode) => seq(opcode, choice($.num_16, $.symbol))),
+        ].map((opcode) => seq(opcode, choice($.operand_16, $.symbol))),
       ),
 
     /**
@@ -225,7 +225,7 @@ module.exports = grammar({
           $.sta_opcode,
           $.stx_opcode,
           $.sty_opcode,
-        ].map((opcode) => seq(opcode, $.num_8)),
+        ].map((opcode) => seq(opcode, $.operand_8)),
       ),
 
     /**
@@ -250,7 +250,7 @@ module.exports = grammar({
           $.ror_opcode,
           $.sbc_opcode,
           $.sta_opcode,
-        ].map((opcode) => seq(opcode, $.num_16, ",", $.x_reg)),
+        ].map((opcode) => seq(opcode, $.operand_16, ",", $.x_reg)),
       ),
 
     /**
@@ -269,7 +269,7 @@ module.exports = grammar({
           $.ora_opcode,
           $.sbc_opcode,
           $.sta_opcode,
-        ].map((opcode) => seq(opcode, $.num_16, ",", $.y_reg)),
+        ].map((opcode) => seq(opcode, $.operand_16, ",", $.y_reg)),
       ),
 
     /**
@@ -295,7 +295,7 @@ module.exports = grammar({
           $.sbc_opcode,
           $.sta_opcode,
           $.sty_opcode,
-        ].map((opcode) => seq(opcode, $.num_8, ",", $.x_reg)),
+        ].map((opcode) => seq(opcode, $.operand_8, ",", $.x_reg)),
       ),
 
     /**
@@ -305,7 +305,7 @@ module.exports = grammar({
     zp_y_addr_inst: ($) =>
       choice(
         ...[$.ldx_opcode, $.stx_opcode].map((opcode) =>
-          seq(opcode, $.num_8, ",", $.y_reg),
+          seq(opcode, $.operand_8, ",", $.y_reg),
         ),
       ),
 
@@ -315,7 +315,7 @@ module.exports = grammar({
      */
     ind_addr_inst: ($) =>
       choice(
-        ...[$.jmp_opcode].map((opcode) => seq(opcode, "(", $.num_16, ")")),
+        ...[$.jmp_opcode].map((opcode) => seq(opcode, "(", $.operand_16, ")")),
       ),
 
     /**
@@ -333,7 +333,7 @@ module.exports = grammar({
           $.ora_opcode,
           $.sbc_opcode,
           $.sta_opcode,
-        ].map((opcode) => seq(opcode, "(", $.num_8, ",", $.x_reg, ")")),
+        ].map((opcode) => seq(opcode, "(", $.operand_8, ",", $.x_reg, ")")),
       ),
 
     /**
@@ -351,7 +351,7 @@ module.exports = grammar({
           $.ora_opcode,
           $.sbc_opcode,
           $.sta_opcode,
-        ].map((opcode) => seq(opcode, "(", $.num_8, ")", ",", $.y_reg)),
+        ].map((opcode) => seq(opcode, "(", $.operand_8, ")", ",", $.y_reg)),
       ),
 
     /**
@@ -369,7 +369,7 @@ module.exports = grammar({
           $.bpl_opcode,
           $.bvc_opcode,
           $.bvs_opcode,
-        ].map((opcode) => seq(opcode, $.num_16)),
+        ].map((opcode) => seq(opcode, $.operand_16)),
       ),
 
     /**
@@ -433,20 +433,47 @@ module.exports = grammar({
     tcs_opcode: ($) => /[Tt][Cc][Ss]/,
     tya_opcode: ($) => /[Tt][Yy][Aa]/,
 
-    num_8: ($) => choice($.hex_num_8, $.dec_num_8, $.bin_num_8),
+    /**
+     * Operand with an 8-bit value.
+     */
+    operand_8: ($) => choice($.bin_8, $.dec_8, $.hex_8),
 
-    hex_num_8: ($) =>
+    /**
+     * 8-bit binary length number.
+     */
+    bin_8: ($) => seq("%", /0*[01]{1,8}/),
+
+    /**
+     * 8-bit decimal length number.
+     */
+    dec_8: ($) => /0*(25[0-5]|2[0-4][0-9]|[01]?[0-9]{1,2})/,
+
+    /**
+     * 8-bit hexadecimal length number.
+     */
+    hex_8: ($) =>
       choice(seq("$", /0*[0-9a-fA-F]{1,2}/), seq(/0*[0-9a-fA-F]{1,2}h/)),
 
-    dec_num_8: ($) => /0*(25[0-5]|2[0-4][0-9]|[01]?[0-9]{1,2})/,
-    bin_num_8: ($) => seq("%", /0*[01]{1,8}/),
+    /**
+     * Operand with a 16-bit length value.
+     */
+    operand_16: ($) => choice($.bin_16, $.dec_16, $.hex_16),
 
-    num_16: ($) => choice($.hex_num_16, $.dec_num_16, $.bin_num_16),
+    /**
+     * 16-bit length binary number.
+     */
+    bin_16: ($) => seq("%", /0*[01]{9,16}/),
 
-    hex_num_16: ($) => seq("$", /0*[0-9a-fA-F]{3,4}/),
-    dec_num_16: ($) =>
+    /**
+     * 16-bit length decimal number.
+     */
+    dec_16: ($) =>
       /0*(6553[0-5]|655[0-2]\d|65[0-4]\d{2}|6[0-4]\d{3}|[1-5]?\d{1,4})/,
-    bin_num_16: ($) => seq("%", /0*[01]{9,16}/),
+
+    /**
+     * 16-bit length hexadecimal number.
+     */
+    hex_16: ($) => seq("$", /0*[0-9a-fA-F]{3,4}/),
 
     /*
      * REGISTERS
