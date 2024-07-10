@@ -137,7 +137,7 @@ module.exports = grammar({
       prec.left(
         choice(
           ...[$.asl_opcode, $.rol_opcode, $.ror_opcode].map((opcode) =>
-            seq(opcode, $.a_reg),
+            seq(opcode, $.acc_register),
           ),
         ),
       ),
@@ -250,7 +250,7 @@ module.exports = grammar({
           $.ror_opcode,
           $.sbc_opcode,
           $.sta_opcode,
-        ].map((opcode) => seq(opcode, $.operand_16, ",", $.x_reg)),
+        ].map((opcode) => seq(opcode, $.operand_16, ",", $.x_register)),
       ),
 
     /**
@@ -269,7 +269,7 @@ module.exports = grammar({
           $.ora_opcode,
           $.sbc_opcode,
           $.sta_opcode,
-        ].map((opcode) => seq(opcode, $.operand_16, ",", $.y_reg)),
+        ].map((opcode) => seq(opcode, $.operand_16, ",", $.y_register)),
       ),
 
     /**
@@ -295,7 +295,7 @@ module.exports = grammar({
           $.sbc_opcode,
           $.sta_opcode,
           $.sty_opcode,
-        ].map((opcode) => seq(opcode, $.operand_8, ",", $.x_reg)),
+        ].map((opcode) => seq(opcode, $.operand_8, ",", $.x_register)),
       ),
 
     /**
@@ -305,7 +305,7 @@ module.exports = grammar({
     zp_y_addr_inst: ($) =>
       choice(
         ...[$.ldx_opcode, $.stx_opcode].map((opcode) =>
-          seq(opcode, $.operand_8, ",", $.y_reg),
+          seq(opcode, $.operand_8, ",", $.y_register),
         ),
       ),
 
@@ -333,7 +333,9 @@ module.exports = grammar({
           $.ora_opcode,
           $.sbc_opcode,
           $.sta_opcode,
-        ].map((opcode) => seq(opcode, "(", $.operand_8, ",", $.x_reg, ")")),
+        ].map((opcode) =>
+          seq(opcode, "(", $.operand_8, ",", $.x_register, ")"),
+        ),
       ),
 
     /**
@@ -351,7 +353,9 @@ module.exports = grammar({
           $.ora_opcode,
           $.sbc_opcode,
           $.sta_opcode,
-        ].map((opcode) => seq(opcode, "(", $.operand_8, ")", ",", $.y_reg)),
+        ].map((opcode) =>
+          seq(opcode, "(", $.operand_8, ")", ",", $.y_register),
+        ),
       ),
 
     /**
@@ -475,13 +479,24 @@ module.exports = grammar({
      */
     hex_16: ($) => seq("$", /0*[0-9a-fA-F]{3,4}/),
 
-    /*
-     * REGISTERS
+    /**
+     * Registers.
      */
 
-    a_reg: ($) => /[aA]/,
-    x_reg: ($) => /[xX]/,
-    y_reg: ($) => /[yY]/,
+    /**
+     * Accumulator.
+     */
+    acc_register: ($) => /[aA]/,
+
+    /**
+     * The X register.
+     */
+    x_register: ($) => /[xX]/,
+
+    /**
+     * The Y register.
+     */
+    y_register: ($) => /[yY]/,
 
     imm_prefix: ($) => "#",
 
