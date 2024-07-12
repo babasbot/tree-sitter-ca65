@@ -1,0 +1,199 @@
+==========================
+OPC A ... accumulator
+==========================
+
+asl a
+
+---
+
+(ca65
+  (inst
+    (acc_addr_inst
+      (asl_opcode)
+      (acc_register))))
+
+==========================
+OPC $LLHH ... absolute
+==========================
+
+bit $ffff
+
+---
+
+(ca65
+  (inst
+    (abs_addr_inst
+      (bit_opcode)
+      (operand_16
+        (hex_16)))))
+
+==========================
+OPC $LLHH,X ... absolute, x-indexed
+==========================
+
+cmp $ffff,x
+
+---
+
+(ca65
+  (inst
+    (abs_x_addr_inst
+      (cmp_opcode)
+        (operand_16
+          (hex_16))
+        (x_register))))
+
+==========================
+OPC $LLHH,Y ... absolute, y-indexed
+==========================
+
+cmp $ffff,y
+
+---
+
+(ca65
+  (inst
+    (abs_y_addr_inst
+      (cmp_opcode)
+        (operand_16
+          (hex_16))
+        (y_register))))
+
+==========================
+OPC #$BB ... immediate
+==========================
+
+adc #$ff
+
+---
+
+(ca65
+  (inst
+    (imm_addr_inst
+      (adc_opcode)
+      (imm_prefix)
+      (operand_8
+        (hex_8)))))
+
+==========================
+OPC ... implied
+==========================
+
+nop
+
+---
+
+(ca65
+  (inst
+    (impl_addr_inst
+      (nop_opcode))))
+
+==========================
+OPC ($LLHH) ... indirect
+==========================
+
+jmp ($ffff)
+
+---
+
+(ca65
+  (inst
+    (ind_addr_inst
+      (jmp_opcode)
+        (operand_16
+          (hex_16)))))
+
+==========================
+OPC ($LL,X) ... x-indexed, indirect
+==========================
+
+sbc ($ff,x)
+
+---
+
+(ca65
+  (inst
+    (ind_x_addr_inst
+      (sbc_opcode)
+        (operand_8
+          (hex_8))
+        (x_register))))
+
+==========================
+OPC ($LL),Y ... indirect, y-indexed
+==========================
+
+sbc ($ff),y
+
+---
+
+(ca65
+  (inst
+    (ind_y_addr_inst
+      (sbc_opcode)
+      (operand_8
+        (hex_8))
+      (y_register))))
+
+==========================
+OPC $BB ... relative
+==========================
+
+bcc $ffff
+
+---
+
+(ca65
+  (inst
+    (rel_addr_inst
+      (bcc_opcode)
+      (operand_16
+        (hex_16)))))
+
+==========================
+OPC $LL ... zeropage
+==========================
+
+lsr $ff
+
+---
+
+(ca65
+  (inst
+    (zp_addr_inst
+      (lsr_opcode)
+        (operand_8
+          (hex_8)))))
+
+==========================
+OPC $LL,X ... x-indexed
+==========================
+
+cmp $ff,x
+
+---
+
+(ca65
+  (inst
+    (zp_x_addr_inst
+      (cmp_opcode)
+      (operand_8
+        (hex_8))
+      (x_register))))
+
+==========================
+OPC $LL,Y ... y-indexed
+==========================
+
+ldx $ff,y
+
+---
+
+(ca65
+  (inst
+    (zp_y_addr_inst
+      (ldx_opcode)
+        (operand_8
+          (hex_8))
+        (y_register))))
+
