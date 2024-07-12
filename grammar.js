@@ -456,7 +456,10 @@ module.exports = grammar({
      * 8-bit hexadecimal length number.
      */
     hex_8: ($) =>
-      choice(seq("$", /0*[0-9a-fA-F]{1,2}/), seq(/0*[0-9a-fA-F]{1,2}h/)),
+      choice(
+        seq(choice("$", "h"), /0*[0-9a-fA-F]{1,2}/),
+        seq(/0*[0-9a-fA-F]{1,2}h/),
+      ),
 
     /**
      * Operand with a 16-bit length value.
@@ -477,7 +480,7 @@ module.exports = grammar({
     /**
      * 16-bit length hexadecimal number.
      */
-    hex_16: ($) => seq("$", /0*[0-9a-fA-F]{3,4}/),
+    hex_16: ($) => seq(choice("$", "h"), /0*[0-9a-fA-F]{3,4}/),
 
     /**
      * Registers.
@@ -500,104 +503,186 @@ module.exports = grammar({
 
     imm_prefix: ($) => "#",
 
-    /*
+    /**
      * EXPRESSIONS
      */
 
-    exp: ($) =>
+    prec_1_exp: ($) =>
       choice(
-        $.add_op,
-        $.bankbyte_op,
-        $.bit_and_op,
-        $.bit_or_op,
-        $.bit_xor_op,
-        $.bitnot_op,
-        $.bool_and_op,
-        $.bool_not_op,
-        $.bool_or_op,
-        $.bool_xor_op,
-        $.div_op,
-        $.eql_op,
-        $.gt_op,
-        $.gte_op,
-        $.hibyte_op,
-        $.symbol,
-        $.lobyte_op,
-        $.lt_op,
-        $.lte_op,
-        $.mod_op,
-        $.mult_op,
-        $.not_eql_op,
-        $.num_32,
-        $.pseudo_var,
-        $.shift_left_op,
-        $.shift_right_op,
-        $.sub_op,
-        $.unary_neg_op,
-        $.unary_pos_op,
+        $.terminal,
+        $.unary_pos_exp,
+        $.unary_neg_exp,
+        $.unary_not_exp,
+        $.unary_lobyte_exp,
+        $.unary_hibyte_exp,
+        $.unary_bankbyte_exp,
         seq("(", $.exp, ")"),
       ),
 
-    unary_pos_op: ($) => prec.right(1, seq("+", $.exp)),
-
-    unary_neg_op: ($) => prec.right(1, seq("-", $.exp)),
-
-    bitnot_op: ($) => prec.left(1, seq(choice(".BITNOT", "~"), $.exp)),
-
-    lobyte_op: ($) => prec.left(2, seq(choice(".LOBYTE", "<"), $.exp)),
-
-    hibyte_op: ($) => prec.left(1, seq(choice(".HIBYTE", ">"), $.exp)),
-
-    bankbyte_op: ($) => prec.right(1, seq(choice(".BANKBYTE", "^"), $.exp)),
-
-    mult_op: ($) => prec.left(2, seq($.exp, "*", $.exp)),
-
-    div_op: ($) => prec.left(2, seq($.exp, "/", $.exp)),
-
-    mod_op: ($) => prec.left(2, seq($.exp, ".MOD", $.exp)),
-
-    bit_and_op: ($) => prec.left(2, seq($.exp, choice(".BITAND", "&"), $.exp)),
-
-    bit_xor_op: ($) => prec.left(2, seq($.exp, choice(".BITXOR", "^"), $.exp)),
-
-    shift_left_op: ($) => prec.left(2, seq($.exp, choice(".SHL", "<<"), $.exp)),
-
-    shift_right_op: ($) =>
-      prec.left(2, seq($.exp, choice(".SHR", ">>"), $.exp)),
-
-    add_op: ($) => prec.left(3, seq($.exp, "+", $.exp)),
-
-    sub_op: ($) => prec.left(3, seq($.exp, "-", $.exp)),
-
-    bit_or_op: ($) => prec.left(3, seq($.exp, choice(".BITOR", "|"), $.exp)),
-
-    eql_op: ($) => prec.left(4, seq($.exp, "=", $.exp)),
-
-    not_eql_op: ($) => prec.left(4, seq($.exp, "<>", $.exp)),
-
-    lt_op: ($) => prec.left(4, seq($.exp, "<", $.exp)),
-
-    gt_op: ($) => prec.left(4, seq($.exp, ">", $.exp)),
-
-    lte_op: ($) => prec.left(4, seq($.exp, "<=", $.exp)),
-
-    gte_op: ($) => prec.left(4, seq($.exp, ">=", $.exp)),
-
-    bool_and_op: ($) => prec.left(5, seq($.exp, choice(".AND", "&&"), $.exp)),
-
-    bool_xor_op: ($) => prec.left(5, seq($.exp, ".XOR", $.exp)),
-
-    bool_or_op: ($) => prec.left(6, seq($.exp, choice(".OR", "||"), $.exp)),
-
-    bool_not_op: ($) => prec.right(7, seq(choice(".NOT", "!"), $.exp)),
-
-    num_32: ($) =>
+    prec_2_exp: ($) =>
       choice(
-        /\d+/, // decimal
-        seq("$", /[0-9a-fA-F]+/), // hex $ notation
-        seq(/[0-9a-fA-F]+/, "h"), // hex h notation
-        seq("%", /[0-1]+/), // binary
+        $.prec_1_exp,
+        $.mult_exp,
+        $.div_exp,
+        $.mod_exp,
+        $.bit_and_exp,
+        $.bit_xor_exp,
+        $.shift_l_exp,
+        $.shift_r_exp,
       ),
+
+    prec_3_exp: ($) => seq($.prec_2_exp, $.add_exp, $.sub_exp, $.bit_or_exp),
+
+    prec_4_exp: ($) =>
+      seq(
+        $.prec_3_exp,
+        $.eq_cmp,
+        $.neq_cmp,
+        $.lt_cmp,
+        $.gt_cmp,
+        $.lte_cmp,
+        $.gte_cmp,
+      ),
+
+    prec_5_exp: ($) => seq($.prec_4_exp, $.bool_and_exp, $.bool_xor_exp),
+
+    prec_6_exp: ($) => seq($.prec_5_exp, $.bool_or_exp),
+
+    prec_7_exp: ($) => seq($.prec_6_exp, $.bool_not_exp),
+
+    exp: ($) => seq($.prec_7_exp),
+
+    terminal: ($) => choice($.operand_8, $.operand_16, seq("(", $.exp, ")")),
+
+    /**
+     * Unary positive
+     */
+    unary_pos_exp: ($) => seq("+", $.prec_1_exp),
+
+    /**
+     * Unary negative
+     */
+    unary_neg_exp: ($) => seq("-", $.prec_1_exp),
+
+    /**
+     * Unary bitwise not operator.
+     */
+    unary_not_exp: ($) => seq(choice(".BITNOT", "~"), $.prec_1_exp),
+
+    /**
+     * Unary low-byte operator.
+     */
+    unary_lobyte_exp: ($) => seq(choice(".LOBYTE", "<"), $.prec_1_exp),
+
+    /**
+     * Unary high-byte operator.
+     */
+    unary_hibyte_exp: ($) => seq(choice(".HIBYTE", ">"), $.prec_1_exp),
+
+    /**
+     * Unary bank-byte operator.
+     */
+    unary_bankbyte_exp: ($) => seq(choice(".BANKBYTE", "^"), $.prec_1_exp),
+
+    /**
+     * Multiplication term.
+     */
+    mult_exp: ($) => seq($.prec_2_exp, "*", $.prec_1_exp),
+
+    /**
+     * Division term.
+     */
+    div_exp: ($) => seq($.prec_2_exp, "/", $.prec_1_exp),
+
+    /**
+     * Modulo term.
+     */
+    mod_exp: ($) => seq($.prec_2_exp, ".MOD", $.prec_1_exp),
+
+    /**
+     * Bitwise and term.
+     */
+    bit_and_exp: ($) => seq($.prec_2_exp, choice(".BITAND", "&"), $.prec_1_exp),
+
+    /**
+     * Bitwise xor term.
+     */
+    bit_xor_exp: ($) => seq($.prec_2_exp, choice(".BITXOR", "^"), $.prec_1_exp),
+
+    /**
+     * Shift-left term.
+     */
+    shift_l_exp: ($) => seq($.prec_2_exp, choice(".SHL", "<<"), $.prec_1_exp),
+
+    /**
+     * Shift-left term.
+     */
+    shift_r_exp: ($) => seq($.prec_2_exp, choice(".SHR", ">>"), $.prec_1_exp),
+
+    /**
+     * Binary addition expression.
+     */
+    add_exp: ($) => seq($.prec_3_exp, "+", $.prec_2_exp),
+
+    /**
+     * Binary substraction expression.
+     */
+    sub_exp: ($) => seq($.prec_3_exp, "-", $.prec_2_exp),
+
+    /**
+     * Bitwise or expression.
+     */
+    bit_or_exp: ($) => seq($.prec_3_exp, choice(".BITOR", "|"), $.prec_2_exp),
+
+    /**
+     * Equal comparison.
+     */
+    eq_cmp: ($) => seq($.prec_4_exp, "=", $.prec_3_exp),
+
+    /**
+     * Not Equal comparison.
+     */
+    neq_cmp: ($) => seq($.prec_4_exp, "<>", $.prec_3_exp),
+
+    /**
+     * Less than comparison.
+     */
+    lt_cmp: ($) => seq($.prec_4_exp, "<", $.prec_3_exp),
+
+    /**
+     * Greater than comparison.
+     */
+    gt_cmp: ($) => seq($.prec_4_exp, ">", $.prec_3_exp),
+
+    /**
+     * Less than equal comparison.
+     */
+    lte_cmp: ($) => seq($.prec_4_exp, "<=", $.prec_3_exp),
+
+    /**
+     * Greater than equal comparison.
+     */
+    gte_cmp: ($) => seq($.prec_4_exp, ">=", $.prec_3_exp),
+
+    /**
+     * Boolean AND
+     */
+    bool_and_exp: ($) => seq($.prec_5_exp, choice(".AND", "&&"), $.prec_4_exp),
+
+    /**
+     * Boolean XOR
+     */
+    bool_xor_exp: ($) => seq($.prec_5_exp, ".XOR", $.prec_4_exp),
+
+    /**
+     * Boolean OR
+     */
+    bool_or_exp: ($) => seq($.prec_6_exp, choice(".OR", "||"), $.prec_5_exp),
+
+    /**
+     * Boolean not.
+     */
+    bool_not_exp: ($) => seq(choice(".NOT", "!"), $.prec_7_exp),
 
     /*
      * PSEUDO VARIABLES
