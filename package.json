@@ -5,7 +5,8 @@
   "main": "bindings/node",
   "types": "bindings/node",
   "scripts": {
-    "generate": "npx tree-sitter generate",
+    "ts:generate": "npx tree-sitter generate",
+    "ts:parse": "npx tree-sitter parse",
     "test": "npx tree-sitter test",
     "prepare": "husky",
     "lint": "npx eslint",
