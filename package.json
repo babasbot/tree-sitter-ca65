@@ -1,7 +1,7 @@
 {
-  "name": "tree-sitter-a6502",
+  "name": "tree-sitter-ca65",
   "version": "1.0.0",
-  "description": "6502 assembly grammar for tree-sitter.",
+  "description": "ca65 macro assembler grammar for tree-sitter.",
   "main": "bindings/node",
   "types": "bindings/node",
   "scripts": {
@@ -18,7 +18,8 @@
   },
   "keywords": [
     "tree-sitter",
-    "6502"
+    "6502",
+    "ca65"
   ],
   "files": [
     "grammar.js",
@@ -58,9 +59,11 @@
   },
   "tree-sitter": [
     {
-      "scope": "source.asm6502",
+      "scope": "source.ca65",
       "file-types": [
         "asm",
+        "s",
+        "a65",
         "inc"
       ]
     }

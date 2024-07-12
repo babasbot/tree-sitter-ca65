@@ -1,12 +1,10 @@
 module.exports = grammar({
-  name: "asm6502",
+  name: "ca65",
 
   extras: ($) => [$.comment, /\s/],
 
   rules: {
-    asm: ($) => repeat($._asm_factor),
-
-    _asm_factor: ($) => choice($.inst),
+    ca65: ($) => repeat(choice($.inst)),
 
     comment: ($) => token(seq(";", /.*/)),
 
