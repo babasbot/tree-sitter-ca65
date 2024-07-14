@@ -10,10 +10,11 @@ pyproject.toml
 setup.py
 Package.swift
 
-*.gyp
-*.so
-*.dylib
-*.dll
-*.dSYM
-*.a
-*.pc
+**/*.gyp
+**/*.so
+**/*.dylib
+**/*.dll
+**/*.dSYM
+**/*.a
+**/*.o
+**/*.pc

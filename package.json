@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/babasbot/tree-sitter-asm6502.git"
+    "url": "git+https://github.com/babasbot/tree-sitter-ca65.git"
   },
   "keywords": [
     "tree-sitter",
@@ -33,9 +33,9 @@
   "author": "Luis Alfredo Lorenzo",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/babasbot/tree-sitter-asm6502/issues"
+    "url": "https://github.com/babasbot/tree-sitter-ca65/issues"
   },
-  "homepage": "https://github.com/babasbot/tree-sitter-asm6502#readme",
+  "homepage": "https://github.com/babasbot/tree-sitter-ca65#readme",
   "dependencies": {
     "node-addon-api": "^7.1.0",
     "node-gyp-build": "^4.8.0"

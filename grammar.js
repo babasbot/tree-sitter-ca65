@@ -4,9 +4,11 @@ module.exports = grammar({
   extras: ($) => [$.comment, /\s/],
 
   rules: {
-    ca65: ($) => repeat(choice($.inst)),
+    ca65: ($) => repeat(choice($.label, $.inst)),
 
     comment: ($) => token(seq(";", /.*/)),
+
+    label: ($) => /[a-zA-Z]\w*:/,
 
     /**
      * Instructions
