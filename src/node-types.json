@@ -1,0 +1,2102 @@
+[
+  {
+    "type": "abs_addr_inst",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "adc_opcode",
+          "named": true
+        },
+        {
+          "type": "and_opcode",
+          "named": true
+        },
+        {
+          "type": "asl_opcode",
+          "named": true
+        },
+        {
+          "type": "bit_opcode",
+          "named": true
+        },
+        {
+          "type": "cmp_opcode",
+          "named": true
+        },
+        {
+          "type": "cpx_opcode",
+          "named": true
+        },
+        {
+          "type": "cpy_opcode",
+          "named": true
+        },
+        {
+          "type": "dec_opcode",
+          "named": true
+        },
+        {
+          "type": "eor_opcode",
+          "named": true
+        },
+        {
+          "type": "inc_opcode",
+          "named": true
+        },
+        {
+          "type": "jmp_opcode",
+          "named": true
+        },
+        {
+          "type": "jsr_opcode",
+          "named": true
+        },
+        {
+          "type": "lda_opcode",
+          "named": true
+        },
+        {
+          "type": "ldx_opcode",
+          "named": true
+        },
+        {
+          "type": "ldy_opcode",
+          "named": true
+        },
+        {
+          "type": "lsr_opcode",
+          "named": true
+        },
+        {
+          "type": "operand_16",
+          "named": true
+        },
+        {
+          "type": "ora_opcode",
+          "named": true
+        },
+        {
+          "type": "rol_opcode",
+          "named": true
+        },
+        {
+          "type": "ror_opcode",
+          "named": true
+        },
+        {
+          "type": "sbc_opcode",
+          "named": true
+        },
+        {
+          "type": "sta_opcode",
+          "named": true
+        },
+        {
+          "type": "stx_opcode",
+          "named": true
+        },
+        {
+          "type": "sty_opcode",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "abs_x_addr_inst",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "adc_opcode",
+          "named": true
+        },
+        {
+          "type": "and_opcode",
+          "named": true
+        },
+        {
+          "type": "asl_opcode",
+          "named": true
+        },
+        {
+          "type": "cmp_opcode",
+          "named": true
+        },
+        {
+          "type": "dec_opcode",
+          "named": true
+        },
+        {
+          "type": "eor_opcode",
+          "named": true
+        },
+        {
+          "type": "inc_opcode",
+          "named": true
+        },
+        {
+          "type": "lda_opcode",
+          "named": true
+        },
+        {
+          "type": "ldy_opcode",
+          "named": true
+        },
+        {
+          "type": "lsr_opcode",
+          "named": true
+        },
+        {
+          "type": "operand_16",
+          "named": true
+        },
+        {
+          "type": "ora_opcode",
+          "named": true
+        },
+        {
+          "type": "rol_opcode",
+          "named": true
+        },
+        {
+          "type": "ror_opcode",
+          "named": true
+        },
+        {
+          "type": "sbc_opcode",
+          "named": true
+        },
+        {
+          "type": "sta_opcode",
+          "named": true
+        },
+        {
+          "type": "x_register",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "abs_y_addr_inst",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "adc_opcode",
+          "named": true
+        },
+        {
+          "type": "and_opcode",
+          "named": true
+        },
+        {
+          "type": "cmp_opcode",
+          "named": true
+        },
+        {
+          "type": "eor_opcode",
+          "named": true
+        },
+        {
+          "type": "lda_opcode",
+          "named": true
+        },
+        {
+          "type": "ldx_opcode",
+          "named": true
+        },
+        {
+          "type": "operand_16",
+          "named": true
+        },
+        {
+          "type": "ora_opcode",
+          "named": true
+        },
+        {
+          "type": "sbc_opcode",
+          "named": true
+        },
+        {
+          "type": "sta_opcode",
+          "named": true
+        },
+        {
+          "type": "y_register",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "acc_addr_inst",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "acc_register",
+          "named": true
+        },
+        {
+          "type": "asl_opcode",
+          "named": true
+        },
+        {
+          "type": "rol_opcode",
+          "named": true
+        },
+        {
+          "type": "ror_opcode",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "add_exp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "prec_2_exp",
+          "named": true
+        },
+        {
+          "type": "prec_3_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "bin_16",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "bin_8",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "bit_and_exp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "prec_1_exp",
+          "named": true
+        },
+        {
+          "type": "prec_2_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "bit_or_exp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "prec_2_exp",
+          "named": true
+        },
+        {
+          "type": "prec_3_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "bit_xor_exp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "prec_1_exp",
+          "named": true
+        },
+        {
+          "type": "prec_2_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "bool_and_exp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "prec_4_exp",
+          "named": true
+        },
+        {
+          "type": "prec_5_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "bool_not_exp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "prec_7_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "bool_or_exp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "prec_5_exp",
+          "named": true
+        },
+        {
+          "type": "prec_6_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "bool_xor_exp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "prec_4_exp",
+          "named": true
+        },
+        {
+          "type": "prec_5_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ca65",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "inst",
+          "named": true
+        },
+        {
+          "type": "label",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "div_exp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "prec_1_exp",
+          "named": true
+        },
+        {
+          "type": "prec_2_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "eq_cmp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "prec_3_exp",
+          "named": true
+        },
+        {
+          "type": "prec_4_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "exp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "prec_7_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "gt_cmp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "prec_3_exp",
+          "named": true
+        },
+        {
+          "type": "prec_4_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "gte_cmp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "prec_3_exp",
+          "named": true
+        },
+        {
+          "type": "prec_4_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "hex_16",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "hex_8",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "imm_addr_inst",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "adc_opcode",
+          "named": true
+        },
+        {
+          "type": "and_opcode",
+          "named": true
+        },
+        {
+          "type": "cmp_opcode",
+          "named": true
+        },
+        {
+          "type": "cpx_opcode",
+          "named": true
+        },
+        {
+          "type": "cpy_opcode",
+          "named": true
+        },
+        {
+          "type": "eor_opcode",
+          "named": true
+        },
+        {
+          "type": "imm_prefix",
+          "named": true
+        },
+        {
+          "type": "lda_opcode",
+          "named": true
+        },
+        {
+          "type": "ldx_opcode",
+          "named": true
+        },
+        {
+          "type": "ldy_opcode",
+          "named": true
+        },
+        {
+          "type": "lsr_opcode",
+          "named": true
+        },
+        {
+          "type": "operand_8",
+          "named": true
+        },
+        {
+          "type": "ora_opcode",
+          "named": true
+        },
+        {
+          "type": "sbc_opcode",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "impl_addr_inst",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "brk_opcode",
+          "named": true
+        },
+        {
+          "type": "clc_opcode",
+          "named": true
+        },
+        {
+          "type": "cld_opcode",
+          "named": true
+        },
+        {
+          "type": "cli_opcode",
+          "named": true
+        },
+        {
+          "type": "clv_opcode",
+          "named": true
+        },
+        {
+          "type": "dex_opcode",
+          "named": true
+        },
+        {
+          "type": "dey_opcode",
+          "named": true
+        },
+        {
+          "type": "inx_opcode",
+          "named": true
+        },
+        {
+          "type": "iny_opcode",
+          "named": true
+        },
+        {
+          "type": "nop_opcode",
+          "named": true
+        },
+        {
+          "type": "pha_opcode",
+          "named": true
+        },
+        {
+          "type": "php_opcode",
+          "named": true
+        },
+        {
+          "type": "pla_opcode",
+          "named": true
+        },
+        {
+          "type": "plp_opcode",
+          "named": true
+        },
+        {
+          "type": "rti_opcode",
+          "named": true
+        },
+        {
+          "type": "rts_opcode",
+          "named": true
+        },
+        {
+          "type": "sec_opcode",
+          "named": true
+        },
+        {
+          "type": "sed_opcode",
+          "named": true
+        },
+        {
+          "type": "sei_opcode",
+          "named": true
+        },
+        {
+          "type": "tax_opcode",
+          "named": true
+        },
+        {
+          "type": "tay_opcode",
+          "named": true
+        },
+        {
+          "type": "tcs_opcode",
+          "named": true
+        },
+        {
+          "type": "tsx_opcode",
+          "named": true
+        },
+        {
+          "type": "txa_opcode",
+          "named": true
+        },
+        {
+          "type": "tya_opcode",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ind_addr_inst",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "jmp_opcode",
+          "named": true
+        },
+        {
+          "type": "operand_16",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ind_x_addr_inst",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "adc_opcode",
+          "named": true
+        },
+        {
+          "type": "and_opcode",
+          "named": true
+        },
+        {
+          "type": "cmp_opcode",
+          "named": true
+        },
+        {
+          "type": "eor_opcode",
+          "named": true
+        },
+        {
+          "type": "lda_opcode",
+          "named": true
+        },
+        {
+          "type": "operand_8",
+          "named": true
+        },
+        {
+          "type": "ora_opcode",
+          "named": true
+        },
+        {
+          "type": "sbc_opcode",
+          "named": true
+        },
+        {
+          "type": "sta_opcode",
+          "named": true
+        },
+        {
+          "type": "x_register",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ind_y_addr_inst",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "adc_opcode",
+          "named": true
+        },
+        {
+          "type": "and_opcode",
+          "named": true
+        },
+        {
+          "type": "cmp_opcode",
+          "named": true
+        },
+        {
+          "type": "eor_opcode",
+          "named": true
+        },
+        {
+          "type": "lda_opcode",
+          "named": true
+        },
+        {
+          "type": "operand_8",
+          "named": true
+        },
+        {
+          "type": "ora_opcode",
+          "named": true
+        },
+        {
+          "type": "sbc_opcode",
+          "named": true
+        },
+        {
+          "type": "sta_opcode",
+          "named": true
+        },
+        {
+          "type": "y_register",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "inst",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "abs_addr_inst",
+          "named": true
+        },
+        {
+          "type": "abs_x_addr_inst",
+          "named": true
+        },
+        {
+          "type": "abs_y_addr_inst",
+          "named": true
+        },
+        {
+          "type": "acc_addr_inst",
+          "named": true
+        },
+        {
+          "type": "imm_addr_inst",
+          "named": true
+        },
+        {
+          "type": "impl_addr_inst",
+          "named": true
+        },
+        {
+          "type": "ind_addr_inst",
+          "named": true
+        },
+        {
+          "type": "ind_x_addr_inst",
+          "named": true
+        },
+        {
+          "type": "ind_y_addr_inst",
+          "named": true
+        },
+        {
+          "type": "rel_addr_inst",
+          "named": true
+        },
+        {
+          "type": "zp_addr_inst",
+          "named": true
+        },
+        {
+          "type": "zp_x_addr_inst",
+          "named": true
+        },
+        {
+          "type": "zp_y_addr_inst",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "lt_cmp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "prec_3_exp",
+          "named": true
+        },
+        {
+          "type": "prec_4_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "lte_cmp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "prec_3_exp",
+          "named": true
+        },
+        {
+          "type": "prec_4_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "mod_exp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "prec_1_exp",
+          "named": true
+        },
+        {
+          "type": "prec_2_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "mult_exp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "prec_1_exp",
+          "named": true
+        },
+        {
+          "type": "prec_2_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "neq_cmp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "prec_3_exp",
+          "named": true
+        },
+        {
+          "type": "prec_4_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "operand_16",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "bin_16",
+          "named": true
+        },
+        {
+          "type": "dec_16",
+          "named": true
+        },
+        {
+          "type": "hex_16",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "operand_8",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "bin_8",
+          "named": true
+        },
+        {
+          "type": "dec_8",
+          "named": true
+        },
+        {
+          "type": "hex_8",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "prec_1_exp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "exp",
+          "named": true
+        },
+        {
+          "type": "terminal",
+          "named": true
+        },
+        {
+          "type": "unary_bankbyte_exp",
+          "named": true
+        },
+        {
+          "type": "unary_hibyte_exp",
+          "named": true
+        },
+        {
+          "type": "unary_lobyte_exp",
+          "named": true
+        },
+        {
+          "type": "unary_neg_exp",
+          "named": true
+        },
+        {
+          "type": "unary_not_exp",
+          "named": true
+        },
+        {
+          "type": "unary_pos_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "prec_2_exp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "bit_and_exp",
+          "named": true
+        },
+        {
+          "type": "bit_xor_exp",
+          "named": true
+        },
+        {
+          "type": "div_exp",
+          "named": true
+        },
+        {
+          "type": "mod_exp",
+          "named": true
+        },
+        {
+          "type": "mult_exp",
+          "named": true
+        },
+        {
+          "type": "prec_1_exp",
+          "named": true
+        },
+        {
+          "type": "shift_l_exp",
+          "named": true
+        },
+        {
+          "type": "shift_r_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "prec_3_exp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "add_exp",
+          "named": true
+        },
+        {
+          "type": "bit_or_exp",
+          "named": true
+        },
+        {
+          "type": "prec_2_exp",
+          "named": true
+        },
+        {
+          "type": "sub_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "prec_4_exp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "eq_cmp",
+          "named": true
+        },
+        {
+          "type": "gt_cmp",
+          "named": true
+        },
+        {
+          "type": "gte_cmp",
+          "named": true
+        },
+        {
+          "type": "lt_cmp",
+          "named": true
+        },
+        {
+          "type": "lte_cmp",
+          "named": true
+        },
+        {
+          "type": "neq_cmp",
+          "named": true
+        },
+        {
+          "type": "prec_3_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "prec_5_exp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "bool_and_exp",
+          "named": true
+        },
+        {
+          "type": "bool_xor_exp",
+          "named": true
+        },
+        {
+          "type": "prec_4_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "prec_6_exp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "bool_or_exp",
+          "named": true
+        },
+        {
+          "type": "prec_5_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "prec_7_exp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "bool_not_exp",
+          "named": true
+        },
+        {
+          "type": "prec_6_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "rel_addr_inst",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "bcc_opcode",
+          "named": true
+        },
+        {
+          "type": "bcs_opcode",
+          "named": true
+        },
+        {
+          "type": "beq_opcode",
+          "named": true
+        },
+        {
+          "type": "bmi_opcode",
+          "named": true
+        },
+        {
+          "type": "bne_opcode",
+          "named": true
+        },
+        {
+          "type": "bpl_opcode",
+          "named": true
+        },
+        {
+          "type": "bvc_opcode",
+          "named": true
+        },
+        {
+          "type": "bvs_opcode",
+          "named": true
+        },
+        {
+          "type": "operand_16",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "shift_l_exp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "prec_1_exp",
+          "named": true
+        },
+        {
+          "type": "prec_2_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "shift_r_exp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "prec_1_exp",
+          "named": true
+        },
+        {
+          "type": "prec_2_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sub_exp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "prec_2_exp",
+          "named": true
+        },
+        {
+          "type": "prec_3_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "terminal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "exp",
+          "named": true
+        },
+        {
+          "type": "operand_16",
+          "named": true
+        },
+        {
+          "type": "operand_8",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "unary_bankbyte_exp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "prec_1_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "unary_hibyte_exp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "prec_1_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "unary_lobyte_exp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "prec_1_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "unary_neg_exp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "prec_1_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "unary_not_exp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "prec_1_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "unary_pos_exp",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "prec_1_exp",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "zp_addr_inst",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "adc_opcode",
+          "named": true
+        },
+        {
+          "type": "and_opcode",
+          "named": true
+        },
+        {
+          "type": "asl_opcode",
+          "named": true
+        },
+        {
+          "type": "bit_opcode",
+          "named": true
+        },
+        {
+          "type": "cmp_opcode",
+          "named": true
+        },
+        {
+          "type": "cpx_opcode",
+          "named": true
+        },
+        {
+          "type": "cpy_opcode",
+          "named": true
+        },
+        {
+          "type": "dec_opcode",
+          "named": true
+        },
+        {
+          "type": "eor_opcode",
+          "named": true
+        },
+        {
+          "type": "inc_opcode",
+          "named": true
+        },
+        {
+          "type": "lda_opcode",
+          "named": true
+        },
+        {
+          "type": "ldx_opcode",
+          "named": true
+        },
+        {
+          "type": "ldy_opcode",
+          "named": true
+        },
+        {
+          "type": "lsr_opcode",
+          "named": true
+        },
+        {
+          "type": "operand_8",
+          "named": true
+        },
+        {
+          "type": "ora_opcode",
+          "named": true
+        },
+        {
+          "type": "rol_opcode",
+          "named": true
+        },
+        {
+          "type": "ror_opcode",
+          "named": true
+        },
+        {
+          "type": "sbc_opcode",
+          "named": true
+        },
+        {
+          "type": "sta_opcode",
+          "named": true
+        },
+        {
+          "type": "stx_opcode",
+          "named": true
+        },
+        {
+          "type": "sty_opcode",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "zp_x_addr_inst",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "adc_opcode",
+          "named": true
+        },
+        {
+          "type": "and_opcode",
+          "named": true
+        },
+        {
+          "type": "asl_opcode",
+          "named": true
+        },
+        {
+          "type": "cmp_opcode",
+          "named": true
+        },
+        {
+          "type": "dec_opcode",
+          "named": true
+        },
+        {
+          "type": "eor_opcode",
+          "named": true
+        },
+        {
+          "type": "inc_opcode",
+          "named": true
+        },
+        {
+          "type": "lda_opcode",
+          "named": true
+        },
+        {
+          "type": "ldy_opcode",
+          "named": true
+        },
+        {
+          "type": "lsr_opcode",
+          "named": true
+        },
+        {
+          "type": "operand_8",
+          "named": true
+        },
+        {
+          "type": "ora_opcode",
+          "named": true
+        },
+        {
+          "type": "rol_opcode",
+          "named": true
+        },
+        {
+          "type": "ror_opcode",
+          "named": true
+        },
+        {
+          "type": "sbc_opcode",
+          "named": true
+        },
+        {
+          "type": "sta_opcode",
+          "named": true
+        },
+        {
+          "type": "sty_opcode",
+          "named": true
+        },
+        {
+          "type": "x_register",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "zp_y_addr_inst",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ldx_opcode",
+          "named": true
+        },
+        {
+          "type": "operand_8",
+          "named": true
+        },
+        {
+          "type": "stx_opcode",
+          "named": true
+        },
+        {
+          "type": "y_register",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "!",
+    "named": false
+  },
+  {
+    "type": "$",
+    "named": false
+  },
+  {
+    "type": "%",
+    "named": false
+  },
+  {
+    "type": "&",
+    "named": false
+  },
+  {
+    "type": "&&",
+    "named": false
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": "*",
+    "named": false
+  },
+  {
+    "type": "+",
+    "named": false
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": "-",
+    "named": false
+  },
+  {
+    "type": ".AND",
+    "named": false
+  },
+  {
+    "type": ".BANKBYTE",
+    "named": false
+  },
+  {
+    "type": ".BITAND",
+    "named": false
+  },
+  {
+    "type": ".BITNOT",
+    "named": false
+  },
+  {
+    "type": ".BITOR",
+    "named": false
+  },
+  {
+    "type": ".BITXOR",
+    "named": false
+  },
+  {
+    "type": ".HIBYTE",
+    "named": false
+  },
+  {
+    "type": ".LOBYTE",
+    "named": false
+  },
+  {
+    "type": ".MOD",
+    "named": false
+  },
+  {
+    "type": ".NOT",
+    "named": false
+  },
+  {
+    "type": ".OR",
+    "named": false
+  },
+  {
+    "type": ".SHL",
+    "named": false
+  },
+  {
+    "type": ".SHR",
+    "named": false
+  },
+  {
+    "type": ".XOR",
+    "named": false
+  },
+  {
+    "type": "/",
+    "named": false
+  },
+  {
+    "type": "<",
+    "named": false
+  },
+  {
+    "type": "<<",
+    "named": false
+  },
+  {
+    "type": "<=",
+    "named": false
+  },
+  {
+    "type": "<>",
+    "named": false
+  },
+  {
+    "type": "=",
+    "named": false
+  },
+  {
+    "type": ">",
+    "named": false
+  },
+  {
+    "type": ">=",
+    "named": false
+  },
+  {
+    "type": ">>",
+    "named": false
+  },
+  {
+    "type": "^",
+    "named": false
+  },
+  {
+    "type": "acc_register",
+    "named": true
+  },
+  {
+    "type": "adc_opcode",
+    "named": true
+  },
+  {
+    "type": "and_opcode",
+    "named": true
+  },
+  {
+    "type": "asl_opcode",
+    "named": true
+  },
+  {
+    "type": "bcc_opcode",
+    "named": true
+  },
+  {
+    "type": "bcs_opcode",
+    "named": true
+  },
+  {
+    "type": "beq_opcode",
+    "named": true
+  },
+  {
+    "type": "bit_opcode",
+    "named": true
+  },
+  {
+    "type": "bmi_opcode",
+    "named": true
+  },
+  {
+    "type": "bne_opcode",
+    "named": true
+  },
+  {
+    "type": "bpl_opcode",
+    "named": true
+  },
+  {
+    "type": "brk_opcode",
+    "named": true
+  },
+  {
+    "type": "bvc_opcode",
+    "named": true
+  },
+  {
+    "type": "bvs_opcode",
+    "named": true
+  },
+  {
+    "type": "clc_opcode",
+    "named": true
+  },
+  {
+    "type": "cld_opcode",
+    "named": true
+  },
+  {
+    "type": "cli_opcode",
+    "named": true
+  },
+  {
+    "type": "clv_opcode",
+    "named": true
+  },
+  {
+    "type": "cmp_opcode",
+    "named": true
+  },
+  {
+    "type": "comment",
+    "named": true
+  },
+  {
+    "type": "cpx_opcode",
+    "named": true
+  },
+  {
+    "type": "cpy_opcode",
+    "named": true
+  },
+  {
+    "type": "dec_16",
+    "named": true
+  },
+  {
+    "type": "dec_8",
+    "named": true
+  },
+  {
+    "type": "dec_opcode",
+    "named": true
+  },
+  {
+    "type": "dex_opcode",
+    "named": true
+  },
+  {
+    "type": "dey_opcode",
+    "named": true
+  },
+  {
+    "type": "eor_opcode",
+    "named": true
+  },
+  {
+    "type": "h",
+    "named": false
+  },
+  {
+    "type": "imm_prefix",
+    "named": true
+  },
+  {
+    "type": "inc_opcode",
+    "named": true
+  },
+  {
+    "type": "inx_opcode",
+    "named": true
+  },
+  {
+    "type": "iny_opcode",
+    "named": true
+  },
+  {
+    "type": "jmp_opcode",
+    "named": true
+  },
+  {
+    "type": "jsr_opcode",
+    "named": true
+  },
+  {
+    "type": "label",
+    "named": true
+  },
+  {
+    "type": "lda_opcode",
+    "named": true
+  },
+  {
+    "type": "ldx_opcode",
+    "named": true
+  },
+  {
+    "type": "ldy_opcode",
+    "named": true
+  },
+  {
+    "type": "lsr_opcode",
+    "named": true
+  },
+  {
+    "type": "nop_opcode",
+    "named": true
+  },
+  {
+    "type": "ora_opcode",
+    "named": true
+  },
+  {
+    "type": "pha_opcode",
+    "named": true
+  },
+  {
+    "type": "php_opcode",
+    "named": true
+  },
+  {
+    "type": "pla_opcode",
+    "named": true
+  },
+  {
+    "type": "plp_opcode",
+    "named": true
+  },
+  {
+    "type": "rol_opcode",
+    "named": true
+  },
+  {
+    "type": "ror_opcode",
+    "named": true
+  },
+  {
+    "type": "rti_opcode",
+    "named": true
+  },
+  {
+    "type": "rts_opcode",
+    "named": true
+  },
+  {
+    "type": "sbc_opcode",
+    "named": true
+  },
+  {
+    "type": "sec_opcode",
+    "named": true
+  },
+  {
+    "type": "sed_opcode",
+    "named": true
+  },
+  {
+    "type": "sei_opcode",
+    "named": true
+  },
+  {
+    "type": "sta_opcode",
+    "named": true
+  },
+  {
+    "type": "stx_opcode",
+    "named": true
+  },
+  {
+    "type": "sty_opcode",
+    "named": true
+  },
+  {
+    "type": "tax_opcode",
+    "named": true
+  },
+  {
+    "type": "tay_opcode",
+    "named": true
+  },
+  {
+    "type": "tcs_opcode",
+    "named": true
+  },
+  {
+    "type": "tsx_opcode",
+    "named": true
+  },
+  {
+    "type": "txa_opcode",
+    "named": true
+  },
+  {
+    "type": "tya_opcode",
+    "named": true
+  },
+  {
+    "type": "x_register",
+    "named": true
+  },
+  {
+    "type": "y_register",
+    "named": true
+  },
+  {
+    "type": "|",
+    "named": false
+  },
+  {
+    "type": "||",
+    "named": false
+  },
+  {
+    "type": "~",
+    "named": false
+  }
+]
