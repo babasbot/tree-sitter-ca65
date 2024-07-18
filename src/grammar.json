@@ -37,6 +37,10 @@
       "type": "PATTERN",
       "value": "[A-Za-z_@][A-Za-z0-9_]*:"
     },
+    "symbol": {
+      "type": "PATTERN",
+      "value": "[A-Za-z_@][A-Za-z0-9_]*"
+    },
     "inst": {
       "type": "CHOICE",
       "members": [
@@ -2902,6 +2906,10 @@
         {
           "type": "SYMBOL",
           "name": "hex_8"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "symbol"
         }
       ]
     },
@@ -2972,6 +2980,10 @@
         {
           "type": "SYMBOL",
           "name": "hex_16"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "symbol"
         }
       ]
     },
@@ -3786,7 +3798,7 @@
       "value": "\\s"
     }
   ],
-  "conflicts": [],
+  "conflicts": [["operand_8", "operand_16"]],
   "precedences": [],
   "externals": [],
   "inline": [],

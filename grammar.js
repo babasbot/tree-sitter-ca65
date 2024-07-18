@@ -3,12 +3,16 @@ module.exports = grammar({
 
   extras: ($) => [$.comment, /\s/],
 
+  conflicts: ($) => [[$.operand_8, $.operand_16]],
+
   rules: {
     ca65: ($) => repeat(choice($.label, $.inst)),
 
     comment: ($) => token(seq(";", /.*/)),
 
     label: ($) => /[A-Za-z_@][A-Za-z0-9_]*:/,
+
+    symbol: ($) => /[A-Za-z_@][A-Za-z0-9_]*/,
 
     /**
      * Instructions
@@ -438,7 +442,7 @@ module.exports = grammar({
     /**
      * Operand with an 8-bit value.
      */
-    operand_8: ($) => choice($.bin_8, $.dec_8, $.hex_8),
+    operand_8: ($) => choice($.bin_8, $.dec_8, $.hex_8, $.symbol),
 
     /**
      * 8-bit binary length number.
@@ -462,7 +466,7 @@ module.exports = grammar({
     /**
      * Operand with a 16-bit length value.
      */
-    operand_16: ($) => choice($.bin_16, $.dec_16, $.hex_16),
+    operand_16: ($) => choice($.bin_16, $.dec_16, $.hex_16, $.symbol),
 
     /**
      * 16-bit length binary number.

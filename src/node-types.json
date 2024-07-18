@@ -1021,6 +1021,10 @@
         {
           "type": "hex_16",
           "named": true
+        },
+        {
+          "type": "symbol",
+          "named": true
         }
       ]
     }
@@ -1043,6 +1047,10 @@
         },
         {
           "type": "hex_8",
+          "named": true
+        },
+        {
+          "type": "symbol",
           "named": true
         }
       ]
@@ -2053,6 +2061,10 @@
   },
   {
     "type": "sty_opcode",
+    "named": true
+  },
+  {
+    "type": "symbol",
     "named": true
   },
   {

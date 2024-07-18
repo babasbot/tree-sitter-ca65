@@ -60,7 +60,7 @@
   },
   "tree-sitter": [
     {
-      "scope": "source.ca65",
+      "scope": "source.asm",
       "file-types": [
         "asm",
         "s",
