@@ -8,7 +8,43 @@ syntax highlighting, code navigation, and other code analysis features.
 
 ## Project Status
 
-Please note that this code is a work in progress and is subject to change.
+This project is a work in progress and is subject to change. The parser is currently
+under development and has not been submitted to be included in the official nvim-treesitter
+list. Therefore, it needs to be manually configured and installed.
+
+## Installation
+
+To install the trunk version of the tree-sitter-ca65 grammar in Neovim, you need to
+configure nvim-treesitter by adding the following configuration to your init.lua file:
+
+```lua
+local parsers = require("nvim-treesitter.parsers").get_parser_configs()
+
+parsers.ca65 = {
+  install_info = {
+    url = "https://github.com/babasbot/tree-sitter-ca65",
+    files = {
+      "src/parser.c",
+    },
+    branch = "main",
+  },
+  filetype = "asm",
+  maintainers = {
+    "@babasbot",
+  },
+}
+```
+
+Start `nvim` and run `:TSInstall ca65`.
+
+By default, the `:TSInstall` command does not copy query files from the grammar repository. You must
+manually add the query files to your local nvim-treesitter configuration.
+
+Copy the contents of the [`queries/ca65`](queries/ca65) directory into your local Neovim configuration directory:
+
+```
+~/.config/nvim/queries/ca65
+```
 
 ## References
 
