@@ -85,6 +85,8 @@
 
 (imm_prefix) @symbol
 
+(label) @label
+
 ; registers
 
 [

@@ -2338,7 +2338,8 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       );
       if (('\t' <= lookahead && lookahead <= '\r') ||
           lookahead == ' ') SKIP(192);
-      if (('F' <= lookahead && lookahead <= 'Z') ||
+      if (('@' <= lookahead && lookahead <= 'Z') ||
+          lookahead == '_' ||
           ('f' <= lookahead && lookahead <= 'z')) ADVANCE(67);
       END_STATE();
     case 193:

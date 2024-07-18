@@ -35,7 +35,7 @@
     },
     "label": {
       "type": "PATTERN",
-      "value": "[a-zA-Z]\\w*:"
+      "value": "[A-Za-z_@][A-Za-z0-9_]*:"
     },
     "inst": {
       "type": "CHOICE",

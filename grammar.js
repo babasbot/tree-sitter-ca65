@@ -8,7 +8,7 @@ module.exports = grammar({
 
     comment: ($) => token(seq(";", /.*/)),
 
-    label: ($) => /[a-zA-Z]\w*:/,
+    label: ($) => /[A-Za-z_@][A-Za-z0-9_]*:/,
 
     /**
      * Instructions
