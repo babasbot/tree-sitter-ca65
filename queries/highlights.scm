@@ -87,6 +87,8 @@
 
 (label) @label
 
+(symbol) @variable
+
 ; registers
 
 [
