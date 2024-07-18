@@ -60,15 +60,14 @@
   },
   "tree-sitter": [
     {
-      "scope": "source.asm",
+      "scope": "source.ca65",
       "file-types": [
         "asm",
         "s",
-        "a65",
         "inc"
       ],
       "highlights": [
-        "queries/highlights.scm"
+        "queries/ca65/highlights.scm"
       ]
     }
   ],

@@ -95,5 +95,5 @@
   (acc_register)
   (x_register)
   (y_register)
-] @symbol
+] @constant.builtin
 
