@@ -66,6 +66,9 @@
         "s",
         "a65",
         "inc"
+      ],
+      "highlights": [
+        "queries/highlights.scm"
       ]
     }
   ],

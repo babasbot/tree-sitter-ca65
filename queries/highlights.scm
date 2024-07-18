@@ -59,35 +59,6 @@
   (tya_opc)
 ] @keyword
 
-[
-  "addrsize"
-  "at_in_identifiers"
-  "author"
-  "bracket_as_indirect"
-  "c_comments"
-  "comment"
-  "compiler"
-  "constructor"
-  "destructor"
-  "dollar_in_identifiers"
-  "dollar_is_pc"
-  "error"
-  "force_range"
-  "labels_without_colons"
-  "lderror"
-  "ldwarning"
-  "leading_dot_in_identifiers"
-  "loose_char_term"
-  "loose_string_term"
-  "missing_char_term"
-  "org_per_seg"
-  "pc_assignment"
-  "string_escapes"
-  "ubiquitous_idents"
-  "underline_in_numbers"
-  "warning"
-] @keyword
-
 ; numbers
 
 [
@@ -97,7 +68,6 @@
   (bin_16)
   (dec_16)
   (hex_16)
-
 ] @number
 
 (comment) @comment
