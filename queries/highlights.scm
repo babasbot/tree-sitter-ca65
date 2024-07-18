@@ -83,7 +83,7 @@
   ","
 ] @punctuation.delimiter
 
-(imm_prefix) @symbol
+(imm_prefix) @character.special
 
 (label) @label
 
