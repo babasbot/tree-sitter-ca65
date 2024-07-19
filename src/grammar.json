@@ -39,7 +39,7 @@
     },
     "symbol": {
       "type": "PATTERN",
-      "value": "[A-Za-z_@][A-Za-z0-9_]*"
+      "value": "(?!x$)(?!y$)(?!a$)[A-Za-z_][A-Za-z0-9_]*"
     },
     "inst": {
       "type": "CHOICE",

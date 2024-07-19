@@ -12,7 +12,7 @@ module.exports = grammar({
 
     label: ($) => /[A-Za-z_@][A-Za-z0-9_]*:/,
 
-    symbol: ($) => /[A-Za-z_@][A-Za-z0-9_]*/,
+    symbol: ($) => /(?!x$)(?!y$)(?!a$)[A-Za-z_][A-Za-z0-9_]*/,
 
     /**
      * Instructions

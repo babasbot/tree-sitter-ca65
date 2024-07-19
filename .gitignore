@@ -3,14 +3,6 @@ node_modules/
 build/
 bindings/
 
-Makefile
-
-Cargo.toml
-pyproject.toml
-setup.py
-Package.swift
-
-**/*.gyp
 **/*.so
 **/*.dylib
 **/*.dll
