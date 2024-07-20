@@ -459,6 +459,10 @@
         {
           "type": "a16_ctrl_cmd",
           "named": true
+        },
+        {
+          "type": "a8_ctrl_cmd",
+          "named": true
         }
       ]
     }
@@ -1856,6 +1860,10 @@
   },
   {
     "type": "a16_ctrl_cmd",
+    "named": true
+  },
+  {
+    "type": "a8_ctrl_cmd",
     "named": true
   },
   {

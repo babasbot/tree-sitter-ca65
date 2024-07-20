@@ -688,8 +688,16 @@ module.exports = grammar({
      * Control commands
      */
 
-    ctrl_cmd: ($) => choice($.a16_ctrl_cmd),
+    ctrl_cmd: ($) => choice($.a16_ctrl_cmd, $.a8_ctrl_cmd),
 
+    /**
+     * .a16
+     */
     a16_ctrl_cmd: ($) => /\.[aA]16/,
+
+    /**
+     * .a8
+     */
+    a8_ctrl_cmd: ($) => /\.[aA]8/,
   },
 });

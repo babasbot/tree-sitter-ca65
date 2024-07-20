@@ -3793,12 +3793,20 @@
         {
           "type": "SYMBOL",
           "name": "a16_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "a8_ctrl_cmd"
         }
       ]
     },
     "a16_ctrl_cmd": {
       "type": "PATTERN",
       "value": "\\.[aA]16"
+    },
+    "a8_ctrl_cmd": {
+      "type": "PATTERN",
+      "value": "\\.[aA]8"
     }
   },
   "extras": [
