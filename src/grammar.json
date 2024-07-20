@@ -34,12 +34,21 @@
       }
     },
     "label": {
-      "type": "PATTERN",
-      "value": "[A-Za-z_@][A-Za-z0-9_]*:"
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "symbol"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        }
+      ]
     },
     "symbol": {
       "type": "PATTERN",
-      "value": "(?!x$)(?!y$)(?!a$)[A-Za-z_][A-Za-z0-9_]*"
+      "value": "[A-Za-z_@][A-Za-z0-9_]*"
     },
     "inst": {
       "type": "CHOICE",
@@ -204,52 +213,48 @@
       ]
     },
     "acc_addr_inst": {
-      "type": "PREC_LEFT",
-      "value": 0,
-      "content": {
-        "type": "CHOICE",
-        "members": [
-          {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "asl_opcode"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "acc_register"
-              }
-            ]
-          },
-          {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "rol_opcode"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "acc_register"
-              }
-            ]
-          },
-          {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "ror_opcode"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "acc_register"
-              }
-            ]
-          }
-        ]
-      }
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "asl_opcode"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "acc_register"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "rol_opcode"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "acc_register"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "ror_opcode"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "acc_register"
+            }
+          ]
+        }
+      ]
     },
     "imm_addr_inst": {
       "type": "CHOICE",
@@ -3798,7 +3803,12 @@
       "value": "\\s"
     }
   ],
-  "conflicts": [["operand_8", "operand_16"]],
+  "conflicts": [
+    [
+      "operand_8",
+      "operand_16"
+    ]
+  ],
   "precedences": [],
   "externals": [],
   "inline": [],

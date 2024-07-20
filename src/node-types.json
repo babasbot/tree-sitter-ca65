@@ -908,6 +908,21 @@
     }
   },
   {
+    "type": "label",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "symbol",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "lt_cmp",
     "named": true,
     "fields": {},
@@ -1800,6 +1815,10 @@
     "named": false
   },
   {
+    "type": ":",
+    "named": false
+  },
+  {
     "type": "<",
     "named": false
   },
@@ -1973,10 +1992,6 @@
   },
   {
     "type": "jsr_opcode",
-    "named": true
-  },
-  {
-    "type": "label",
     "named": true
   },
   {

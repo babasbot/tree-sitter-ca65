@@ -10,9 +10,9 @@ module.exports = grammar({
 
     comment: ($) => token(seq(";", /.*/)),
 
-    label: ($) => /[A-Za-z_@][A-Za-z0-9_]*:/,
+    label: ($) => seq($.symbol, ":"),
 
-    symbol: ($) => /(?!x$)(?!y$)(?!a$)[A-Za-z_][A-Za-z0-9_]*/,
+    symbol: ($) => /[A-Za-z_@][A-Za-z0-9_]*/,
 
     /**
      * Instructions
@@ -136,11 +136,9 @@ module.exports = grammar({
      * Example: OPC A
      */
     acc_addr_inst: ($) =>
-      prec.left(
-        choice(
-          ...[$.asl_opcode, $.rol_opcode, $.ror_opcode].map((opcode) =>
-            seq(opcode, $.acc_register),
-          ),
+      choice(
+        ...[$.asl_opcode, $.rol_opcode, $.ror_opcode].map((opcode) =>
+          seq(opcode, $.acc_register),
         ),
       ),
 
