@@ -3801,6 +3801,10 @@
         {
           "type": "SYMBOL",
           "name": "addr_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "align_ctrl_cmd"
         }
       ]
     },
@@ -3838,6 +3842,58 @@
               }
             ]
           }
+        }
+      ]
+    },
+    "align_ctrl_cmd": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\.[aA][lL][iI][gG][nN]"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "operand_8"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "operand_16"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ","
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "operand_8"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "operand_16"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     }

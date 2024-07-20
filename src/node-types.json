@@ -302,6 +302,25 @@
     }
   },
   {
+    "type": "align_ctrl_cmd",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "operand_16",
+          "named": true
+        },
+        {
+          "type": "operand_8",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "bin_16",
     "named": true,
     "fields": {}
@@ -481,6 +500,10 @@
         },
         {
           "type": "addr_ctrl_cmd",
+          "named": true
+        },
+        {
+          "type": "align_ctrl_cmd",
           "named": true
         }
       ]

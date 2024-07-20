@@ -43,3 +43,24 @@
       (operand_16
         (hex_16)))))
 
+==========================
+.align
+==========================
+
+.align $ff
+.align $ff, $ff
+
+---
+
+(ca65
+  (ctrl_cmd
+    (align_ctrl_cmd
+      (operand_8
+        (hex_8))))
+  (ctrl_cmd
+    (align_ctrl_cmd
+      (operand_8
+        (hex_8))
+        (operand_8
+          (hex_8)))))
+
