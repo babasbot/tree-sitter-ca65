@@ -34,17 +34,8 @@
       }
     },
     "label": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "symbol"
-        },
-        {
-          "type": "STRING",
-          "value": ":"
-        }
-      ]
+      "type": "PATTERN",
+      "value": "[A-Za-z_@][A-Za-z0-9_]*:"
     },
     "symbol": {
       "type": "PATTERN",
@@ -3803,12 +3794,7 @@
       "value": "\\s"
     }
   ],
-  "conflicts": [
-    [
-      "operand_8",
-      "operand_16"
-    ]
-  ],
+  "conflicts": [["operand_8", "operand_16"]],
   "precedences": [],
   "externals": [],
   "inline": [],

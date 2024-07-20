@@ -10,7 +10,7 @@ module.exports = grammar({
 
     comment: ($) => token(seq(";", /.*/)),
 
-    label: ($) => seq($.symbol, ":"),
+    label: ($) => /[A-Za-z_@][A-Za-z0-9_]*:/,
 
     symbol: ($) => /[A-Za-z_@][A-Za-z0-9_]*/,
 
