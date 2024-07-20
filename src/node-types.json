@@ -287,6 +287,21 @@
     }
   },
   {
+    "type": "addr_ctrl_cmd",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "operand_16",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "bin_16",
     "named": true,
     "fields": {}
@@ -462,6 +477,10 @@
         },
         {
           "type": "a8_ctrl_cmd",
+          "named": true
+        },
+        {
+          "type": "addr_ctrl_cmd",
           "named": true
         }
       ]

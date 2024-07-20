@@ -688,7 +688,7 @@ module.exports = grammar({
      * Control commands
      */
 
-    ctrl_cmd: ($) => choice($.a16_ctrl_cmd, $.a8_ctrl_cmd),
+    ctrl_cmd: ($) => choice($.a16_ctrl_cmd, $.a8_ctrl_cmd, $.addr_ctrl_cmd),
 
     /**
      * .a16
@@ -699,5 +699,11 @@ module.exports = grammar({
      * .a8
      */
     a8_ctrl_cmd: ($) => /\.[aA]8/,
+
+    /**
+     * .addr
+     */
+    addr_ctrl_cmd: ($) =>
+      seq(/\.[aA][dD][dD][rR]/, $.operand_16, repeat(seq(",", $.operand_16))),
   },
 });

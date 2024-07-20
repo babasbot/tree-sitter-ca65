@@ -22,4 +22,24 @@
   (ctrl_cmd
     (a8_ctrl_cmd)))
 
+==========================
+.addr
+==========================
+
+.addr $ffff
+.addr $ffff, $ffff
+
+---
+
+(ca65
+  (ctrl_cmd
+    (addr_ctrl_cmd
+      (operand_16
+        (hex_16))))
+  (ctrl_cmd
+    (addr_ctrl_cmd
+      (operand_16
+        (hex_16))
+      (operand_16
+        (hex_16)))))
 

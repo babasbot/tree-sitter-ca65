@@ -3797,6 +3797,10 @@
         {
           "type": "SYMBOL",
           "name": "a8_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "addr_ctrl_cmd"
         }
       ]
     },
@@ -3807,6 +3811,35 @@
     "a8_ctrl_cmd": {
       "type": "PATTERN",
       "value": "\\.[aA]8"
+    },
+    "addr_ctrl_cmd": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\.[aA][dD][dD][rR]"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "operand_16"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "SYMBOL",
+                "name": "operand_16"
+              }
+            ]
+          }
+        }
+      ]
     }
   },
   "extras": [
