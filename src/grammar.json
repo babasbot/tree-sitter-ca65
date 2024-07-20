@@ -33,13 +33,25 @@
         ]
       }
     },
+    "acc_register": {
+      "type": "PATTERN",
+      "value": "[aA]"
+    },
+    "x_register": {
+      "type": "PATTERN",
+      "value": "[xX]"
+    },
+    "y_register": {
+      "type": "PATTERN",
+      "value": "[yY]"
+    },
     "label": {
       "type": "PATTERN",
       "value": "[A-Za-z_@][A-Za-z0-9_]*:"
     },
     "symbol": {
       "type": "PATTERN",
-      "value": "[A-Za-z_@][A-Za-z0-9_]*"
+      "value": "[A-Za-z_@][A-Za-z2-9_]*"
     },
     "inst": {
       "type": "CHOICE",
@@ -3021,18 +3033,6 @@
           "value": "0*[0-9a-fA-F]{3,4}"
         }
       ]
-    },
-    "acc_register": {
-      "type": "PATTERN",
-      "value": "[aA]"
-    },
-    "x_register": {
-      "type": "PATTERN",
-      "value": "[xX]"
-    },
-    "y_register": {
-      "type": "PATTERN",
-      "value": "[yY]"
     },
     "imm_prefix": {
       "type": "STRING",

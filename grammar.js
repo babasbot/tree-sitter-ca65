@@ -10,9 +10,28 @@ module.exports = grammar({
 
     comment: ($) => token(seq(";", /.*/)),
 
+    /**
+     * Registers.
+     */
+
+    /**
+     * Accumulator.
+     */
+    acc_register: ($) => /[aA]/,
+
+    /**
+     * The X register.
+     */
+    x_register: ($) => /[xX]/,
+
+    /**
+     * The Y register.
+     */
+    y_register: ($) => /[yY]/,
+
     label: ($) => /[A-Za-z_@][A-Za-z0-9_]*:/,
 
-    symbol: ($) => /[A-Za-z_@][A-Za-z0-9_]*/,
+    symbol: ($) => /[A-Za-z_@][A-Za-z2-9_]*/,
 
     /**
      * Instructions
@@ -481,25 +500,6 @@ module.exports = grammar({
      * 16-bit length hexadecimal number.
      */
     hex_16: ($) => seq(choice("$", "h"), /0*[0-9a-fA-F]{3,4}/),
-
-    /**
-     * Registers.
-     */
-
-    /**
-     * Accumulator.
-     */
-    acc_register: ($) => /[aA]/,
-
-    /**
-     * The X register.
-     */
-    x_register: ($) => /[xX]/,
-
-    /**
-     * The Y register.
-     */
-    y_register: ($) => /[yY]/,
 
     imm_prefix: ($) => "#",
 
