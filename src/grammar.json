@@ -37,6 +37,19 @@
         ]
       }
     },
+    "string": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\"[^\"]*\""
+        },
+        {
+          "type": "PATTERN",
+          "value": "'[^']*'"
+        }
+      ]
+    },
     "acc_register": {
       "type": "PATTERN",
       "value": "[aA]"
@@ -3805,6 +3818,10 @@
         {
           "type": "SYMBOL",
           "name": "align_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "asciiz_ctrl_cmd"
         }
       ]
     },
@@ -3889,6 +3906,43 @@
                   ]
                 }
               ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "asciiz_ctrl_cmd": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\.[aA][sS][cC][iI][iI][zZ]"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "string"
+                  }
+                ]
+              }
             },
             {
               "type": "BLANK"

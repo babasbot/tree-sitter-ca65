@@ -321,6 +321,21 @@
     }
   },
   {
+    "type": "asciiz_ctrl_cmd",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "bin_16",
     "named": true,
     "fields": {}
@@ -504,6 +519,10 @@
         },
         {
           "type": "align_ctrl_cmd",
+          "named": true
+        },
+        {
+          "type": "asciiz_ctrl_cmd",
           "named": true
         }
       ]
@@ -1418,6 +1437,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "string",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "sub_exp",

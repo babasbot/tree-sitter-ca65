@@ -64,3 +64,21 @@
         (operand_8
           (hex_8)))))
 
+==========================
+.asciiz
+==========================
+
+.asciiz "omg"
+.asciiz "omg", "omg"
+
+---
+
+(ca65
+  (ctrl_cmd
+    (asciiz_ctrl_cmd
+      (string)))
+  (ctrl_cmd
+    (asciiz_ctrl_cmd
+      (string)
+      (string))))
+

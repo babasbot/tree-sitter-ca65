@@ -10,6 +10,8 @@ module.exports = grammar({
 
     comment: ($) => token(seq(";", /.*/)),
 
+    string: ($) => choice(/"[^"]*"/, /'[^']*'/),
+
     /**
      * Registers.
      */
@@ -689,7 +691,13 @@ module.exports = grammar({
      */
 
     ctrl_cmd: ($) =>
-      choice($.a16_ctrl_cmd, $.a8_ctrl_cmd, $.addr_ctrl_cmd, $.align_ctrl_cmd),
+      choice(
+        $.a16_ctrl_cmd,
+        $.a8_ctrl_cmd,
+        $.addr_ctrl_cmd,
+        $.align_ctrl_cmd,
+        $.asciiz_ctrl_cmd,
+      ),
 
     /**
      * .a16
@@ -715,6 +723,16 @@ module.exports = grammar({
         /\.[aA][lL][iI][gG][nN]/,
         choice($.operand_8, $.operand_16),
         optional(seq(",", choice($.operand_8, $.operand_16))),
+      ),
+
+    /**
+     * .asciiz
+     */
+    asciiz_ctrl_cmd: ($) =>
+      seq(
+        /\.[aA][sS][cC][iI][iI][zZ]/,
+        $.string,
+        optional(repeat(seq(",", $.string))),
       ),
   },
 });
