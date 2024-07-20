@@ -13,6 +13,10 @@
           {
             "type": "SYMBOL",
             "name": "inst"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "ctrl_cmd"
           }
         ]
       }
@@ -3782,6 +3786,19 @@
           "name": "prec_7_exp"
         }
       ]
+    },
+    "ctrl_cmd": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "a16_ctrl_cmd"
+        }
+      ]
+    },
+    "a16_ctrl_cmd": {
+      "type": "PATTERN",
+      "value": "\\.[aA]16"
     }
   },
   "extras": [

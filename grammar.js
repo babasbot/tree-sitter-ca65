@@ -6,7 +6,7 @@ module.exports = grammar({
   conflicts: ($) => [[$.operand_8, $.operand_16]],
 
   rules: {
-    ca65: ($) => repeat(choice($.label, $.inst)),
+    ca65: ($) => repeat(choice($.label, $.inst, $.ctrl_cmd)),
 
     comment: ($) => token(seq(";", /.*/)),
 
@@ -683,5 +683,13 @@ module.exports = grammar({
      * Boolean not.
      */
     bool_not_exp: ($) => seq(choice(".NOT", "!"), $.prec_7_exp),
+
+    /**
+     * Control commands
+     */
+
+    ctrl_cmd: ($) => choice($.a16_ctrl_cmd),
+
+    a16_ctrl_cmd: ($) => /\.[aA]16/,
   },
 });

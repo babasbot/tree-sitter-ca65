@@ -434,11 +434,30 @@
       "required": false,
       "types": [
         {
+          "type": "ctrl_cmd",
+          "named": true
+        },
+        {
           "type": "inst",
           "named": true
         },
         {
           "type": "label",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ctrl_cmd",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "a16_ctrl_cmd",
           "named": true
         }
       ]
@@ -1834,6 +1853,10 @@
   {
     "type": "^",
     "named": false
+  },
+  {
+    "type": "a16_ctrl_cmd",
+    "named": true
   },
   {
     "type": "acc_register",
