@@ -276,11 +276,7 @@
       "required": true,
       "types": [
         {
-          "type": "prec_2_exp",
-          "named": true
-        },
-        {
-          "type": "prec_3_exp",
+          "type": "expression",
           "named": true
         }
       ]
@@ -336,6 +332,41 @@
     }
   },
   {
+    "type": "assert_ctrl_cmd",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "error_keyword",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "lderror_keyword",
+          "named": true
+        },
+        {
+          "type": "ldwarning_keyword",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "warning_keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "bin_16",
     "named": true,
     "fields": {}
@@ -354,11 +385,7 @@
       "required": true,
       "types": [
         {
-          "type": "prec_1_exp",
-          "named": true
-        },
-        {
-          "type": "prec_2_exp",
+          "type": "expression",
           "named": true
         }
       ]
@@ -373,11 +400,7 @@
       "required": true,
       "types": [
         {
-          "type": "prec_2_exp",
-          "named": true
-        },
-        {
-          "type": "prec_3_exp",
+          "type": "expression",
           "named": true
         }
       ]
@@ -392,11 +415,7 @@
       "required": true,
       "types": [
         {
-          "type": "prec_1_exp",
-          "named": true
-        },
-        {
-          "type": "prec_2_exp",
+          "type": "expression",
           "named": true
         }
       ]
@@ -411,11 +430,7 @@
       "required": true,
       "types": [
         {
-          "type": "prec_4_exp",
-          "named": true
-        },
-        {
-          "type": "prec_5_exp",
+          "type": "expression",
           "named": true
         }
       ]
@@ -430,7 +445,7 @@
       "required": true,
       "types": [
         {
-          "type": "prec_7_exp",
+          "type": "expression",
           "named": true
         }
       ]
@@ -445,11 +460,7 @@
       "required": true,
       "types": [
         {
-          "type": "prec_5_exp",
-          "named": true
-        },
-        {
-          "type": "prec_6_exp",
+          "type": "expression",
           "named": true
         }
       ]
@@ -464,11 +475,7 @@
       "required": true,
       "types": [
         {
-          "type": "prec_4_exp",
-          "named": true
-        },
-        {
-          "type": "prec_5_exp",
+          "type": "expression",
           "named": true
         }
       ]
@@ -524,6 +531,10 @@
         {
           "type": "asciiz_ctrl_cmd",
           "named": true
+        },
+        {
+          "type": "assert_ctrl_cmd",
+          "named": true
         }
       ]
     }
@@ -537,11 +548,7 @@
       "required": true,
       "types": [
         {
-          "type": "prec_1_exp",
-          "named": true
-        },
-        {
-          "type": "prec_2_exp",
+          "type": "expression",
           "named": true
         }
       ]
@@ -556,18 +563,14 @@
       "required": true,
       "types": [
         {
-          "type": "prec_3_exp",
-          "named": true
-        },
-        {
-          "type": "prec_4_exp",
+          "type": "expression",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "exp",
+    "type": "expression",
     "named": true,
     "fields": {},
     "children": {
@@ -575,7 +578,119 @@
       "required": true,
       "types": [
         {
-          "type": "prec_7_exp",
+          "type": "add_exp",
+          "named": true
+        },
+        {
+          "type": "bit_and_exp",
+          "named": true
+        },
+        {
+          "type": "bit_or_exp",
+          "named": true
+        },
+        {
+          "type": "bit_xor_exp",
+          "named": true
+        },
+        {
+          "type": "bool_and_exp",
+          "named": true
+        },
+        {
+          "type": "bool_not_exp",
+          "named": true
+        },
+        {
+          "type": "bool_or_exp",
+          "named": true
+        },
+        {
+          "type": "bool_xor_exp",
+          "named": true
+        },
+        {
+          "type": "div_exp",
+          "named": true
+        },
+        {
+          "type": "eq_cmp",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "gt_cmp",
+          "named": true
+        },
+        {
+          "type": "gte_cmp",
+          "named": true
+        },
+        {
+          "type": "lt_cmp",
+          "named": true
+        },
+        {
+          "type": "lte_cmp",
+          "named": true
+        },
+        {
+          "type": "mod_exp",
+          "named": true
+        },
+        {
+          "type": "mult_exp",
+          "named": true
+        },
+        {
+          "type": "neq_cmp",
+          "named": true
+        },
+        {
+          "type": "operand_16",
+          "named": true
+        },
+        {
+          "type": "operand_8",
+          "named": true
+        },
+        {
+          "type": "shift_l_exp",
+          "named": true
+        },
+        {
+          "type": "shift_r_exp",
+          "named": true
+        },
+        {
+          "type": "sub_exp",
+          "named": true
+        },
+        {
+          "type": "unary_bankbyte_exp",
+          "named": true
+        },
+        {
+          "type": "unary_hibyte_exp",
+          "named": true
+        },
+        {
+          "type": "unary_lobyte_exp",
+          "named": true
+        },
+        {
+          "type": "unary_neg_exp",
+          "named": true
+        },
+        {
+          "type": "unary_not_exp",
+          "named": true
+        },
+        {
+          "type": "unary_pos_exp",
           "named": true
         }
       ]
@@ -590,11 +705,7 @@
       "required": true,
       "types": [
         {
-          "type": "prec_3_exp",
-          "named": true
-        },
-        {
-          "type": "prec_4_exp",
+          "type": "expression",
           "named": true
         }
       ]
@@ -609,11 +720,7 @@
       "required": true,
       "types": [
         {
-          "type": "prec_3_exp",
-          "named": true
-        },
-        {
-          "type": "prec_4_exp",
+          "type": "expression",
           "named": true
         }
       ]
@@ -1000,11 +1107,7 @@
       "required": true,
       "types": [
         {
-          "type": "prec_3_exp",
-          "named": true
-        },
-        {
-          "type": "prec_4_exp",
+          "type": "expression",
           "named": true
         }
       ]
@@ -1019,11 +1122,7 @@
       "required": true,
       "types": [
         {
-          "type": "prec_3_exp",
-          "named": true
-        },
-        {
-          "type": "prec_4_exp",
+          "type": "expression",
           "named": true
         }
       ]
@@ -1038,11 +1137,7 @@
       "required": true,
       "types": [
         {
-          "type": "prec_1_exp",
-          "named": true
-        },
-        {
-          "type": "prec_2_exp",
+          "type": "expression",
           "named": true
         }
       ]
@@ -1057,11 +1152,7 @@
       "required": true,
       "types": [
         {
-          "type": "prec_1_exp",
-          "named": true
-        },
-        {
-          "type": "prec_2_exp",
+          "type": "expression",
           "named": true
         }
       ]
@@ -1076,11 +1167,7 @@
       "required": true,
       "types": [
         {
-          "type": "prec_3_exp",
-          "named": true
-        },
-        {
-          "type": "prec_4_exp",
+          "type": "expression",
           "named": true
         }
       ]
@@ -1135,219 +1222,6 @@
         },
         {
           "type": "symbol",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "prec_1_exp",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "exp",
-          "named": true
-        },
-        {
-          "type": "terminal",
-          "named": true
-        },
-        {
-          "type": "unary_bankbyte_exp",
-          "named": true
-        },
-        {
-          "type": "unary_hibyte_exp",
-          "named": true
-        },
-        {
-          "type": "unary_lobyte_exp",
-          "named": true
-        },
-        {
-          "type": "unary_neg_exp",
-          "named": true
-        },
-        {
-          "type": "unary_not_exp",
-          "named": true
-        },
-        {
-          "type": "unary_pos_exp",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "prec_2_exp",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "bit_and_exp",
-          "named": true
-        },
-        {
-          "type": "bit_xor_exp",
-          "named": true
-        },
-        {
-          "type": "div_exp",
-          "named": true
-        },
-        {
-          "type": "mod_exp",
-          "named": true
-        },
-        {
-          "type": "mult_exp",
-          "named": true
-        },
-        {
-          "type": "prec_1_exp",
-          "named": true
-        },
-        {
-          "type": "shift_l_exp",
-          "named": true
-        },
-        {
-          "type": "shift_r_exp",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "prec_3_exp",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "add_exp",
-          "named": true
-        },
-        {
-          "type": "bit_or_exp",
-          "named": true
-        },
-        {
-          "type": "prec_2_exp",
-          "named": true
-        },
-        {
-          "type": "sub_exp",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "prec_4_exp",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "eq_cmp",
-          "named": true
-        },
-        {
-          "type": "gt_cmp",
-          "named": true
-        },
-        {
-          "type": "gte_cmp",
-          "named": true
-        },
-        {
-          "type": "lt_cmp",
-          "named": true
-        },
-        {
-          "type": "lte_cmp",
-          "named": true
-        },
-        {
-          "type": "neq_cmp",
-          "named": true
-        },
-        {
-          "type": "prec_3_exp",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "prec_5_exp",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "bool_and_exp",
-          "named": true
-        },
-        {
-          "type": "bool_xor_exp",
-          "named": true
-        },
-        {
-          "type": "prec_4_exp",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "prec_6_exp",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "bool_or_exp",
-          "named": true
-        },
-        {
-          "type": "prec_5_exp",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "prec_7_exp",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "bool_not_exp",
-          "named": true
-        },
-        {
-          "type": "prec_6_exp",
           "named": true
         }
       ]
@@ -1409,11 +1283,7 @@
       "required": true,
       "types": [
         {
-          "type": "prec_1_exp",
-          "named": true
-        },
-        {
-          "type": "prec_2_exp",
+          "type": "expression",
           "named": true
         }
       ]
@@ -1428,11 +1298,7 @@
       "required": true,
       "types": [
         {
-          "type": "prec_1_exp",
-          "named": true
-        },
-        {
-          "type": "prec_2_exp",
+          "type": "expression",
           "named": true
         }
       ]
@@ -1452,34 +1318,7 @@
       "required": true,
       "types": [
         {
-          "type": "prec_2_exp",
-          "named": true
-        },
-        {
-          "type": "prec_3_exp",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "terminal",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "exp",
-          "named": true
-        },
-        {
-          "type": "operand_16",
-          "named": true
-        },
-        {
-          "type": "operand_8",
+          "type": "expression",
           "named": true
         }
       ]
@@ -1494,7 +1333,7 @@
       "required": true,
       "types": [
         {
-          "type": "prec_1_exp",
+          "type": "expression",
           "named": true
         }
       ]
@@ -1509,7 +1348,7 @@
       "required": true,
       "types": [
         {
-          "type": "prec_1_exp",
+          "type": "expression",
           "named": true
         }
       ]
@@ -1524,7 +1363,7 @@
       "required": true,
       "types": [
         {
-          "type": "prec_1_exp",
+          "type": "expression",
           "named": true
         }
       ]
@@ -1539,7 +1378,7 @@
       "required": true,
       "types": [
         {
-          "type": "prec_1_exp",
+          "type": "expression",
           "named": true
         }
       ]
@@ -1554,7 +1393,7 @@
       "required": true,
       "types": [
         {
-          "type": "prec_1_exp",
+          "type": "expression",
           "named": true
         }
       ]
@@ -1569,7 +1408,7 @@
       "required": true,
       "types": [
         {
-          "type": "prec_1_exp",
+          "type": "expression",
           "named": true
         }
       ]
@@ -2045,6 +1884,10 @@
     "named": true
   },
   {
+    "type": "error_keyword",
+    "named": true
+  },
+  {
     "type": "h",
     "named": false
   },
@@ -2078,6 +1921,14 @@
   },
   {
     "type": "lda_opcode",
+    "named": true
+  },
+  {
+    "type": "lderror_keyword",
+    "named": true
+  },
+  {
+    "type": "ldwarning_keyword",
     "named": true
   },
   {
@@ -2186,6 +2037,10 @@
   },
   {
     "type": "tya_opcode",
+    "named": true
+  },
+  {
+    "type": "warning_keyword",
     "named": true
   },
   {

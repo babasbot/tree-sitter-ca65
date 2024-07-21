@@ -97,3 +97,9 @@
   (y_register)
 ] @constant.builtin
 
+[
+  (warning_keyword)
+  (error_keyword)
+  (ldwarning_keyword)
+  (lderror_keyword)
+] @keyword

@@ -82,3 +82,64 @@
       (string)
       (string))))
 
+==========================
+.assert
+==========================
+
+.assert 1 <> 1, warning, "omg"
+.assert 1 = 1, error, "foo"
+.assert 1 > 1, ldwarning, "bar"
+.assert 1 < 1, lderror, "yolo"
+
+---
+
+(ca65
+  (ctrl_cmd
+    (assert_ctrl_cmd
+      (expression
+        (neq_cmp
+          (expression
+            (operand_8
+              (dec_8)))
+          (expression
+            (operand_8
+              (dec_8)))))
+      (warning_keyword)
+      (string)))
+  (ctrl_cmd
+    (assert_ctrl_cmd
+      (expression
+        (eq_cmp
+          (expression
+            (operand_8
+              (dec_8)))
+          (expression
+            (operand_8
+              (dec_8)))))
+      (error_keyword)
+      (string)))
+  (ctrl_cmd
+    (assert_ctrl_cmd
+      (expression
+        (gt_cmp
+          (expression
+            (operand_8
+              (dec_8)))
+          (expression
+            (operand_8
+              (dec_8)))))
+      (ldwarning_keyword)
+      (string)))
+  (ctrl_cmd
+    (assert_ctrl_cmd
+      (expression
+        (lt_cmp
+          (expression
+            (operand_8
+              (dec_8)))
+          (expression
+            (operand_8
+              (dec_8)))))
+      (lderror_keyword)
+      (string))))
+

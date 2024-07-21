@@ -508,22 +508,17 @@ module.exports = grammar({
     /**
      * EXPRESSIONS
      */
-
-    prec_1_exp: ($) =>
+    expression: ($) =>
       choice(
-        $.terminal,
+        prec.left(8, seq("(", $.expression, ")")),
+        $.operand_16,
+        $.operand_8,
         $.unary_pos_exp,
         $.unary_neg_exp,
         $.unary_not_exp,
         $.unary_lobyte_exp,
         $.unary_hibyte_exp,
         $.unary_bankbyte_exp,
-        seq("(", $.exp, ")"),
-      ),
-
-    prec_2_exp: ($) =>
-      choice(
-        $.prec_1_exp,
         $.mult_exp,
         $.div_exp,
         $.mod_exp,
@@ -531,160 +526,161 @@ module.exports = grammar({
         $.bit_xor_exp,
         $.shift_l_exp,
         $.shift_r_exp,
-      ),
-
-    prec_3_exp: ($) => seq($.prec_2_exp, $.add_exp, $.sub_exp, $.bit_or_exp),
-
-    prec_4_exp: ($) =>
-      seq(
-        $.prec_3_exp,
+        $.add_exp,
+        $.sub_exp,
+        $.bit_or_exp,
         $.eq_cmp,
         $.neq_cmp,
         $.lt_cmp,
         $.gt_cmp,
         $.lte_cmp,
         $.gte_cmp,
+        $.bool_and_exp,
+        $.bool_xor_exp,
+        $.bool_or_exp,
+        $.bool_not_exp,
       ),
-
-    prec_5_exp: ($) => seq($.prec_4_exp, $.bool_and_exp, $.bool_xor_exp),
-
-    prec_6_exp: ($) => seq($.prec_5_exp, $.bool_or_exp),
-
-    prec_7_exp: ($) => seq($.prec_6_exp, $.bool_not_exp),
-
-    exp: ($) => seq($.prec_7_exp),
-
-    terminal: ($) => choice($.operand_8, $.operand_16, seq("(", $.exp, ")")),
 
     /**
      * Unary positive
      */
-    unary_pos_exp: ($) => seq("+", $.prec_1_exp),
+    unary_pos_exp: ($) => prec.left(7, seq("+", $.expression)),
 
     /**
      * Unary negative
      */
-    unary_neg_exp: ($) => seq("-", $.prec_1_exp),
+    unary_neg_exp: ($) => prec.left(7, seq("-", $.expression)),
 
     /**
      * Unary bitwise not operator.
      */
-    unary_not_exp: ($) => seq(choice(".BITNOT", "~"), $.prec_1_exp),
+    unary_not_exp: ($) =>
+      prec.left(7, seq(choice(".BITNOT", "~"), $.expression)),
 
     /**
      * Unary low-byte operator.
      */
-    unary_lobyte_exp: ($) => seq(choice(".LOBYTE", "<"), $.prec_1_exp),
+    unary_lobyte_exp: ($) =>
+      prec.left(7, seq(choice(".LOBYTE", "<"), $.expression)),
 
     /**
      * Unary high-byte operator.
      */
-    unary_hibyte_exp: ($) => seq(choice(".HIBYTE", ">"), $.prec_1_exp),
+    unary_hibyte_exp: ($) =>
+      prec.left(7, seq(choice(".HIBYTE", ">"), $.expression)),
 
     /**
      * Unary bank-byte operator.
      */
-    unary_bankbyte_exp: ($) => seq(choice(".BANKBYTE", "^"), $.prec_1_exp),
+    unary_bankbyte_exp: ($) =>
+      prec.left(7, seq(choice(".BANKBYTE", "^"), $.expression)),
 
     /**
      * Multiplication term.
      */
-    mult_exp: ($) => seq($.prec_2_exp, "*", $.prec_1_exp),
+    mult_exp: ($) => prec.left(6, seq($.expression, "*", $.expression)),
 
     /**
      * Division term.
      */
-    div_exp: ($) => seq($.prec_2_exp, "/", $.prec_1_exp),
+    div_exp: ($) => prec.left(6, seq($.expression, "/", $.expression)),
 
     /**
      * Modulo term.
      */
-    mod_exp: ($) => seq($.prec_2_exp, ".MOD", $.prec_1_exp),
+    mod_exp: ($) => prec.left(6, seq($.expression, ".MOD", $.expression)),
 
     /**
      * Bitwise and term.
      */
-    bit_and_exp: ($) => seq($.prec_2_exp, choice(".BITAND", "&"), $.prec_1_exp),
+    bit_and_exp: ($) =>
+      prec.left(6, seq($.expression, choice(".BITAND", "&"), $.expression)),
 
     /**
      * Bitwise xor term.
      */
-    bit_xor_exp: ($) => seq($.prec_2_exp, choice(".BITXOR", "^"), $.prec_1_exp),
+    bit_xor_exp: ($) =>
+      prec.left(6, seq($.expression, choice(".BITXOR", "^"), $.expression)),
 
     /**
      * Shift-left term.
      */
-    shift_l_exp: ($) => seq($.prec_2_exp, choice(".SHL", "<<"), $.prec_1_exp),
+    shift_l_exp: ($) =>
+      prec.left(6, seq($.expression, choice(".SHL", "<<"), $.expression)),
 
     /**
      * Shift-left term.
      */
-    shift_r_exp: ($) => seq($.prec_2_exp, choice(".SHR", ">>"), $.prec_1_exp),
+    shift_r_exp: ($) =>
+      prec.left(6, seq($.expression, choice(".SHR", ">>"), $.expression)),
 
     /**
      * Binary addition expression.
      */
-    add_exp: ($) => seq($.prec_3_exp, "+", $.prec_2_exp),
+    add_exp: ($) => prec.left(5, seq($.expression, "+", $.expression)),
 
     /**
      * Binary substraction expression.
      */
-    sub_exp: ($) => seq($.prec_3_exp, "-", $.prec_2_exp),
+    sub_exp: ($) => prec.left(5, seq($.expression, "-", $.expression)),
 
     /**
      * Bitwise or expression.
      */
-    bit_or_exp: ($) => seq($.prec_3_exp, choice(".BITOR", "|"), $.prec_2_exp),
+    bit_or_exp: ($) =>
+      prec.left(5, seq($.expression, choice(".BITOR", "|"), $.expression)),
 
     /**
      * Equal comparison.
      */
-    eq_cmp: ($) => seq($.prec_4_exp, "=", $.prec_3_exp),
+    eq_cmp: ($) => prec.left(4, seq($.expression, "=", $.expression)),
 
     /**
      * Not Equal comparison.
      */
-    neq_cmp: ($) => seq($.prec_4_exp, "<>", $.prec_3_exp),
+    neq_cmp: ($) => prec.left(4, seq($.expression, "<>", $.expression)),
 
     /**
      * Less than comparison.
      */
-    lt_cmp: ($) => seq($.prec_4_exp, "<", $.prec_3_exp),
+    lt_cmp: ($) => prec.left(4, seq($.expression, "<", $.expression)),
 
     /**
      * Greater than comparison.
      */
-    gt_cmp: ($) => seq($.prec_4_exp, ">", $.prec_3_exp),
+    gt_cmp: ($) => prec.left(4, seq($.expression, ">", $.expression)),
 
     /**
      * Less than equal comparison.
      */
-    lte_cmp: ($) => seq($.prec_4_exp, "<=", $.prec_3_exp),
+    lte_cmp: ($) => prec.left(4, seq($.expression, "<=", $.expression)),
 
     /**
      * Greater than equal comparison.
      */
-    gte_cmp: ($) => seq($.prec_4_exp, ">=", $.prec_3_exp),
+    gte_cmp: ($) => prec.left(4, seq($.expression, ">=", $.expression)),
 
     /**
      * Boolean AND
      */
-    bool_and_exp: ($) => seq($.prec_5_exp, choice(".AND", "&&"), $.prec_4_exp),
+    bool_and_exp: ($) =>
+      prec.left(3, seq($.expression, choice(".AND", "&&"), $.expression)),
 
     /**
      * Boolean XOR
      */
-    bool_xor_exp: ($) => seq($.prec_5_exp, ".XOR", $.prec_4_exp),
+    bool_xor_exp: ($) => prec.left(3, seq($.expression, ".XOR", $.expression)),
 
     /**
      * Boolean OR
      */
-    bool_or_exp: ($) => seq($.prec_6_exp, choice(".OR", "||"), $.prec_5_exp),
+    bool_or_exp: ($) =>
+      prec.left(2, seq($.expression, choice(".OR", "||"), $.expression)),
 
     /**
      * Boolean not.
      */
-    bool_not_exp: ($) => seq(choice(".NOT", "!"), $.prec_7_exp),
+    bool_not_exp: ($) => prec.left(1, seq(choice(".NOT", "!"), $.expression)),
 
     /**
      * Control commands
@@ -697,6 +693,7 @@ module.exports = grammar({
         $.addr_ctrl_cmd,
         $.align_ctrl_cmd,
         $.asciiz_ctrl_cmd,
+        $.assert_ctrl_cmd,
       ),
 
     /**
@@ -734,5 +731,25 @@ module.exports = grammar({
         $.string,
         optional(repeat(seq(",", $.string))),
       ),
+
+    assert_ctrl_cmd: ($) =>
+      seq(
+        /\.[aA][sS][sS][eE][rR][tT]/,
+        $.expression,
+        ",",
+        choice(
+          $.warning_keyword,
+          $.error_keyword,
+          $.ldwarning_keyword,
+          $.lderror_keyword,
+        ),
+        ",",
+        $.string,
+      ),
+
+    warning_keyword: ($) => "warning",
+    error_keyword: ($) => "error",
+    ldwarning_keyword: ($) => "ldwarning",
+    lderror_keyword: ($) => "lderror",
   },
 });
