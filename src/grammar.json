@@ -4020,6 +4020,28 @@
         }
       ]
     },
+    "autoimport_ctrl_cmd": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\.[aA][uU][tT][oO][iI][mM][pP][oO][rR][tT]"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "plus_symbol"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "sub_symbol"
+            }
+          ]
+        }
+      ]
+    },
     "warning_keyword": {
       "type": "STRING",
       "value": "warning"
@@ -4035,6 +4057,14 @@
     "lderror_keyword": {
       "type": "STRING",
       "value": "lderror"
+    },
+    "plus_symbol": {
+      "type": "STRING",
+      "value": "+"
+    },
+    "sub_symbol": {
+      "type": "STRING",
+      "value": "-"
     }
   },
   "extras": [

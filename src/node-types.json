@@ -1228,6 +1228,11 @@
     }
   },
   {
+    "type": "plus_symbol",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "rel_addr_inst",
     "named": true,
     "fields": {},
@@ -1323,6 +1328,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "sub_symbol",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "unary_bankbyte_exp",

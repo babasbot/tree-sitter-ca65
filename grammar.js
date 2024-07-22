@@ -732,6 +732,11 @@ module.exports = grammar({
         optional(repeat(seq(",", $.string))),
       ),
 
+    /**
+     * .assert
+     *
+     * https://cc65.github.io/doc/ca65.html#ss11.6
+     */
     assert_ctrl_cmd: ($) =>
       seq(
         /\.[aA][sS][sS][eE][rR][tT]/,
@@ -747,9 +752,23 @@ module.exports = grammar({
         $.string,
       ),
 
+    /**
+     * .AUTOIMPORT
+     *
+     * @see {@link https://cc65.github.io/doc/ca65.html#ss11.7}
+     */
+    autoimport_ctrl_cmd: ($) =>
+      seq(
+        /\.[aA][uU][tT][oO][iI][mM][pP][oO][rR][tT]/,
+        choice($.plus_symbol, $.sub_symbol),
+      ),
+
     warning_keyword: ($) => "warning",
     error_keyword: ($) => "error",
     ldwarning_keyword: ($) => "ldwarning",
     lderror_keyword: ($) => "lderror",
+
+    plus_symbol: ($) => "+",
+    sub_symbol: ($) => "-",
   },
 });
