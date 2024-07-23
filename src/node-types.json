@@ -516,6 +516,21 @@
     }
   },
   {
+    "type": "byte_ctrl_cmd",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "ca65",
     "named": true,
     "fields": {},
@@ -576,6 +591,14 @@
         },
         {
           "type": "bankbytes_ctrl_cmd",
+          "named": true
+        },
+        {
+          "type": "bss_ctrl_cmd",
+          "named": true
+        },
+        {
+          "type": "byte_ctrl_cmd",
           "named": true
         }
       ]
@@ -705,6 +728,10 @@
         },
         {
           "type": "shift_r_exp",
+          "named": true
+        },
+        {
+          "type": "string",
           "named": true
         },
         {
@@ -1869,6 +1896,10 @@
   },
   {
     "type": "brk_opcode",
+    "named": true
+  },
+  {
+    "type": "bss_ctrl_cmd",
     "named": true
   },
   {

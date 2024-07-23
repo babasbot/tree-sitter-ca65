@@ -513,6 +513,7 @@ module.exports = grammar({
         prec.left(8, seq("(", $.expression, ")")),
         $.operand_16,
         $.operand_8,
+        $.string,
         $.unary_pos_exp,
         $.unary_neg_exp,
         $.unary_not_exp,
@@ -696,6 +697,8 @@ module.exports = grammar({
         $.assert_ctrl_cmd,
         $.autoimport_ctrl_cmd,
         $.bankbytes_ctrl_cmd,
+        $.bss_ctrl_cmd,
+        $.byte_ctrl_cmd,
       ),
 
     /**
@@ -773,6 +776,25 @@ module.exports = grammar({
     bankbytes_ctrl_cmd: ($) =>
       seq(
         /\.[bB][aA][nN][kK][bB][yY][tT][eE][sS]/,
+        $.expression,
+        optional(repeat(seq(",", $.expression))),
+      ),
+
+    /**
+     * .BSS
+     *
+     * @see {@link https://cc65.github.io/doc/ca65.html#ss11.9}
+     */
+    bss_ctrl_cmd: ($) => /\.[bB][sS][sS]/,
+
+    /**
+     * .BYTE, .BYT
+     *
+     * @see {@link https://cc65.github.io/doc/ca65.html#ss11.10}
+     */
+    byte_ctrl_cmd: ($) =>
+      seq(
+        /\.[bB][yY][tT][eE]?/,
         $.expression,
         optional(repeat(seq(",", $.expression))),
       ),

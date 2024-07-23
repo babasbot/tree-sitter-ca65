@@ -3089,6 +3089,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "string"
+        },
+        {
+          "type": "SYMBOL",
           "name": "unary_pos_exp"
         },
         {
@@ -3853,6 +3857,14 @@
         {
           "type": "SYMBOL",
           "name": "bankbytes_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "bss_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "byte_ctrl_cmd"
         }
       ]
     },
@@ -4056,6 +4068,47 @@
         {
           "type": "PATTERN",
           "value": "\\.[bB][aA][nN][kK][bB][yY][tT][eE][sS]"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "expression"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "bss_ctrl_cmd": {
+      "type": "PATTERN",
+      "value": "\\.[bB][sS][sS]"
+    },
+    "byte_ctrl_cmd": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\.[bB][yY][tT][eE]?"
         },
         {
           "type": "SYMBOL",

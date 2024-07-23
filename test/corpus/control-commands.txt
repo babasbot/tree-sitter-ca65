@@ -176,3 +176,28 @@ table: .bankbytes table
         (operand_8
           (symbol))))))
 
+==========================
+.BYTE/.BYT
+==========================
+
+.byte "Hello "
+.byt  "world", $0D, $00
+
+---
+
+(ca65
+  (ctrl_cmd
+    (byte_ctrl_cmd
+      (expression
+        (string))))
+  (ctrl_cmd
+    (byte_ctrl_cmd
+      (expression
+        (string))
+      (expression
+        (operand_8
+          (hex_8)))
+      (expression
+        (operand_8
+          (hex_8))))))
+
