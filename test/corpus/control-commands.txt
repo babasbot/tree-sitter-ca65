@@ -150,3 +150,29 @@
 .autoimport +
 .autoimport -
 
+---
+
+(ca65
+  (ctrl_cmd
+    (autoimport_ctrl_cmd
+      (plus_symbol)))
+  (ctrl_cmd
+    (autoimport_ctrl_cmd
+      (sub_symbol))))
+
+==========================
+.BANKBYTES
+==========================
+
+table: .bankbytes table
+
+---
+
+(ca65
+  (label)
+  (ctrl_cmd
+    (bankbytes_ctrl_cmd
+      (expression
+        (operand_8
+          (symbol))))))
+

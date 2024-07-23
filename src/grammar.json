@@ -3845,6 +3845,14 @@
         {
           "type": "SYMBOL",
           "name": "assert_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "autoimport_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "bankbytes_ctrl_cmd"
         }
       ]
     },
@@ -4037,6 +4045,43 @@
             {
               "type": "SYMBOL",
               "name": "sub_symbol"
+            }
+          ]
+        }
+      ]
+    },
+    "bankbytes_ctrl_cmd": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\.[bB][aA][nN][kK][bB][yY][tT][eE][sS]"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "expression"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "BLANK"
             }
           ]
         }

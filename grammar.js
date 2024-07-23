@@ -694,6 +694,8 @@ module.exports = grammar({
         $.align_ctrl_cmd,
         $.asciiz_ctrl_cmd,
         $.assert_ctrl_cmd,
+        $.autoimport_ctrl_cmd,
+        $.bankbytes_ctrl_cmd,
       ),
 
     /**
@@ -761,6 +763,18 @@ module.exports = grammar({
       seq(
         /\.[aA][uU][tT][oO][iI][mM][pP][oO][rR][tT]/,
         choice($.plus_symbol, $.sub_symbol),
+      ),
+
+    /**
+     * .BANKBYTES
+     *
+     * @see {@link https://cc65.github.io/doc/ca65.html#ss11.8}
+     */
+    bankbytes_ctrl_cmd: ($) =>
+      seq(
+        /\.[bB][aA][nN][kK][bB][yY][tT][eE][sS]/,
+        $.expression,
+        optional(repeat(seq(",", $.expression))),
       ),
 
     warning_keyword: ($) => "warning",
