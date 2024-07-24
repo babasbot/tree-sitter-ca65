@@ -642,6 +642,10 @@
         {
           "type": "charmap_ctrl_cmd",
           "named": true
+        },
+        {
+          "type": "code_ctrl_cmd",
+          "named": true
         }
       ]
     }
@@ -1970,6 +1974,10 @@
   },
   {
     "type": "cmp_opcode",
+    "named": true
+  },
+  {
+    "type": "code_ctrl_cmd",
     "named": true
   },
   {

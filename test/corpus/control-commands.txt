@@ -236,3 +236,15 @@ table: .bankbytes table
         (operand_8
           (hex_8))))))
 
+==========================
+.CODE
+==========================
+
+.code
+
+---
+
+(ca65
+  (ctrl_cmd
+    (code_ctrl_cmd)))
+

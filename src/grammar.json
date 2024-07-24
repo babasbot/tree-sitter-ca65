@@ -3932,6 +3932,10 @@
         {
           "type": "SYMBOL",
           "name": "charmap_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "code_ctrl_cmd"
         }
       ]
     },
@@ -4261,6 +4265,11 @@
           "name": "expression"
         }
       ]
+    },
+    "code_ctrl_cmd": {
+      "type": "PATTERN",
+      "value": "\\.code",
+      "flags": "i"
     },
     "warning_keyword": {
       "type": "PATTERN",

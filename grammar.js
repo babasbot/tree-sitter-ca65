@@ -701,6 +701,7 @@ module.exports = grammar({
         $.byte_ctrl_cmd,
         $.case_ctrl_cmd,
         $.charmap_ctrl_cmd,
+        $.code_ctrl_cmd,
       ),
 
     /**
@@ -813,6 +814,13 @@ module.exports = grammar({
      * @see {@link https://cc65.github.io/doc/ca65.html#ss11.12}
      */
     charmap_ctrl_cmd: ($) => seq(/\.charmap/i, $.expression, ",", $.expression),
+
+    /**
+     * .CODE
+     *
+     * @see {@link https://cc65.github.io/doc/ca65.html#ss11.13}
+     */
+    code_ctrl_cmd: ($) => /\.code/i,
 
     warning_keyword: ($) => /warning/i,
     error_keyword: ($) => /error/i,
