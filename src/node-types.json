@@ -588,6 +588,37 @@
     }
   },
   {
+    "type": "condes_ctrl_cmd",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "constructor_keyword",
+          "named": true
+        },
+        {
+          "type": "destructor_keyword",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "interruptor_keyword",
+          "named": true
+        },
+        {
+          "type": "symbol",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "ctrl_cmd",
     "named": true,
     "fields": {},
@@ -645,6 +676,10 @@
         },
         {
           "type": "code_ctrl_cmd",
+          "named": true
+        },
+        {
+          "type": "condes_ctrl_cmd",
           "named": true
         }
       ]
@@ -1985,6 +2020,10 @@
     "named": true
   },
   {
+    "type": "constructor_keyword",
+    "named": true
+  },
+  {
     "type": "cpx_opcode",
     "named": true
   },
@@ -2002,6 +2041,10 @@
   },
   {
     "type": "dec_opcode",
+    "named": true
+  },
+  {
+    "type": "destructor_keyword",
     "named": true
   },
   {
@@ -2030,6 +2073,10 @@
   },
   {
     "type": "inc_opcode",
+    "named": true
+  },
+  {
+    "type": "interruptor_keyword",
     "named": true
   },
   {

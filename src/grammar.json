@@ -50,6 +50,41 @@
         }
       ]
     },
+    "warning_keyword": {
+      "type": "PATTERN",
+      "value": "warning",
+      "flags": "i"
+    },
+    "error_keyword": {
+      "type": "PATTERN",
+      "value": "error",
+      "flags": "i"
+    },
+    "ldwarning_keyword": {
+      "type": "PATTERN",
+      "value": "ldwarning",
+      "flags": "i"
+    },
+    "lderror_keyword": {
+      "type": "PATTERN",
+      "value": "lderror",
+      "flags": "i"
+    },
+    "constructor_keyword": {
+      "type": "PATTERN",
+      "value": "constructor",
+      "flags": "i"
+    },
+    "destructor_keyword": {
+      "type": "PATTERN",
+      "value": "destructor",
+      "flags": "i"
+    },
+    "interruptor_keyword": {
+      "type": "PATTERN",
+      "value": "interruptor",
+      "flags": "i"
+    },
     "acc_register": {
       "type": "PATTERN",
       "value": "a",
@@ -3936,6 +3971,10 @@
         {
           "type": "SYMBOL",
           "name": "code_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "condes_ctrl_cmd"
         }
       ]
     },
@@ -4271,25 +4310,65 @@
       "value": "\\.code",
       "flags": "i"
     },
-    "warning_keyword": {
-      "type": "PATTERN",
-      "value": "warning",
-      "flags": "i"
-    },
-    "error_keyword": {
-      "type": "PATTERN",
-      "value": "error",
-      "flags": "i"
-    },
-    "ldwarning_keyword": {
-      "type": "PATTERN",
-      "value": "ldwarning",
-      "flags": "i"
-    },
-    "lderror_keyword": {
-      "type": "PATTERN",
-      "value": "lderror",
-      "flags": "i"
+    "condes_ctrl_cmd": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\.condes",
+          "flags": "i"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "symbol"
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "constructor_keyword"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "destructor_keyword"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "interruptor_keyword"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "expression"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ","
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "expression"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
     },
     "plus_symbol": {
       "type": "STRING",

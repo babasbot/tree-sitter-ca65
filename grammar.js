@@ -13,6 +13,18 @@ module.exports = grammar({
     string: ($) => choice(/"[^"]*"/, /'[^']*'/),
 
     /**
+     * Keywords
+     */
+
+    warning_keyword: ($) => /warning/i,
+    error_keyword: ($) => /error/i,
+    ldwarning_keyword: ($) => /ldwarning/i,
+    lderror_keyword: ($) => /lderror/i,
+    constructor_keyword: ($) => /constructor/i,
+    destructor_keyword: ($) => /destructor/i,
+    interruptor_keyword: ($) => /interruptor/i,
+
+    /**
      * Registers.
      */
 
@@ -702,6 +714,7 @@ module.exports = grammar({
         $.case_ctrl_cmd,
         $.charmap_ctrl_cmd,
         $.code_ctrl_cmd,
+        $.condes_ctrl_cmd,
       ),
 
     /**
@@ -822,10 +835,24 @@ module.exports = grammar({
      */
     code_ctrl_cmd: ($) => /\.code/i,
 
-    warning_keyword: ($) => /warning/i,
-    error_keyword: ($) => /error/i,
-    ldwarning_keyword: ($) => /ldwarning/i,
-    lderror_keyword: ($) => /lderror/i,
+    /**
+     * .CONDES
+     *
+     * @see {@link https://cc65.github.io/doc/ca65.html#ss11.14}
+     */
+    condes_ctrl_cmd: ($) =>
+      seq(
+        /\.condes/i,
+        $.symbol,
+        ",",
+        choice(
+          $.constructor_keyword,
+          $.destructor_keyword,
+          $.interruptor_keyword,
+          $.expression,
+        ),
+        optional(seq(",", $.expression)),
+      ),
 
     plus_symbol: ($) => "+",
     sub_symbol: ($) => "-",

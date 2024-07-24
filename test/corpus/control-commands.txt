@@ -248,3 +248,49 @@ table: .bankbytes table
   (ctrl_cmd
     (code_ctrl_cmd)))
 
+==========================
+.CONDES
+==========================
+
+.condes symbol, constructor
+.condes symbol, destructor
+.condes symbol, interruptor
+.condes symbol, 3 + 3
+.condes symbol, 6, 9000
+
+---
+
+(ca65
+  (ctrl_cmd
+    (condes_ctrl_cmd
+      (symbol)
+        (constructor_keyword)))
+  (ctrl_cmd
+    (condes_ctrl_cmd
+      (symbol)
+        (destructor_keyword)))
+  (ctrl_cmd
+    (condes_ctrl_cmd
+      (symbol)
+        (interruptor_keyword)))
+  (ctrl_cmd
+    (condes_ctrl_cmd
+      (symbol)
+        (expression
+          (add_exp
+            (expression
+              (operand_8
+                (dec_8)))
+            (expression
+              (operand_8
+                (dec_8)))))))
+  (ctrl_cmd
+    (condes_ctrl_cmd
+      (symbol)
+        (expression
+          (operand_8
+            (dec_8)))
+        (expression
+          (operand_16
+            (dec_16))))))
+
