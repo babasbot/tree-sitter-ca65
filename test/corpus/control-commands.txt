@@ -218,3 +218,21 @@ table: .bankbytes table
     (case_ctrl_cmd
       (sub_symbol))))
 
+==========================
+.CHARMAP
+==========================
+
+.charmap $41, $61
+
+---
+
+(ca65
+  (ctrl_cmd
+    (charmap_ctrl_cmd
+      (expression
+        (operand_8
+          (hex_8)))
+      (expression
+        (operand_8
+          (hex_8))))))
+

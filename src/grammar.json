@@ -3928,6 +3928,10 @@
         {
           "type": "SYMBOL",
           "name": "case_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "charmap_ctrl_cmd"
         }
       ]
     },
@@ -4233,6 +4237,28 @@
               "name": "sub_symbol"
             }
           ]
+        }
+      ]
+    },
+    "charmap_ctrl_cmd": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\.charmap",
+          "flags": "i"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "STRING",
+          "value": ","
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
         }
       ]
     },

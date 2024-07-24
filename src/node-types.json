@@ -573,6 +573,21 @@
     }
   },
   {
+    "type": "charmap_ctrl_cmd",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "ctrl_cmd",
     "named": true,
     "fields": {},
@@ -622,6 +637,10 @@
         },
         {
           "type": "case_ctrl_cmd",
+          "named": true
+        },
+        {
+          "type": "charmap_ctrl_cmd",
           "named": true
         }
       ]
