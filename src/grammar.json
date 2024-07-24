@@ -52,15 +52,18 @@
     },
     "acc_register": {
       "type": "PATTERN",
-      "value": "[aA]"
+      "value": "a",
+      "flags": "i"
     },
     "x_register": {
       "type": "PATTERN",
-      "value": "[xX]"
+      "value": "x",
+      "flags": "i"
     },
     "y_register": {
       "type": "PATTERN",
-      "value": "[yY]"
+      "value": "y",
+      "flags": "i"
     },
     "label": {
       "type": "PATTERN",
@@ -2695,227 +2698,283 @@
     },
     "adc_opcode": {
       "type": "PATTERN",
-      "value": "[Aa][Dd][Cc]"
+      "value": "adc",
+      "flags": "i"
     },
     "and_opcode": {
       "type": "PATTERN",
-      "value": "[Aa][Nn][Dd]"
+      "value": "and",
+      "flags": "i"
     },
     "asl_opcode": {
       "type": "PATTERN",
-      "value": "[Aa][Ss][Ll]"
+      "value": "asl",
+      "flags": "i"
     },
     "bcc_opcode": {
       "type": "PATTERN",
-      "value": "[Bb][Cc][Cc]"
+      "value": "bcc",
+      "flags": "i"
     },
     "bcs_opcode": {
       "type": "PATTERN",
-      "value": "[Bb][Cc][Ss]"
+      "value": "bcs",
+      "flags": "i"
     },
     "beq_opcode": {
       "type": "PATTERN",
-      "value": "[Bb][Ee][Qq]"
+      "value": "beq",
+      "flags": "i"
     },
     "bit_opcode": {
       "type": "PATTERN",
-      "value": "[Bb][Ii][Tt]"
+      "value": "bit",
+      "flags": "i"
     },
     "bmi_opcode": {
       "type": "PATTERN",
-      "value": "[Bb][Mm][Ii]"
+      "value": "bmi",
+      "flags": "i"
     },
     "bne_opcode": {
       "type": "PATTERN",
-      "value": "[Bb][Nn][Ee]"
+      "value": "bne",
+      "flags": "i"
     },
     "bpl_opcode": {
       "type": "PATTERN",
-      "value": "[Bb][Pp][Ll]"
+      "value": "bpl",
+      "flags": "i"
     },
     "brk_opcode": {
       "type": "PATTERN",
-      "value": "[Bb][Rr][Kk]"
+      "value": "brk",
+      "flags": "i"
     },
     "bvc_opcode": {
       "type": "PATTERN",
-      "value": "[Bb][Vv][Cc]"
+      "value": "bvc",
+      "flags": "i"
     },
     "bvs_opcode": {
       "type": "PATTERN",
-      "value": "[Bb][Vv][Ss]"
+      "value": "bvs",
+      "flags": "i"
     },
     "clc_opcode": {
       "type": "PATTERN",
-      "value": "[Cc][Ll][Cc]"
+      "value": "clc",
+      "flags": "i"
     },
     "cld_opcode": {
       "type": "PATTERN",
-      "value": "[Cc][Ll][Dd]"
+      "value": "cld",
+      "flags": "i"
     },
     "cli_opcode": {
       "type": "PATTERN",
-      "value": "[Cc][Ll][Ii]"
+      "value": "cli",
+      "flags": "i"
     },
     "clv_opcode": {
       "type": "PATTERN",
-      "value": "[Cc][Ll][Vv]"
+      "value": "clv",
+      "flags": "i"
     },
     "cmp_opcode": {
       "type": "PATTERN",
-      "value": "[Cc][Mm][Pp]"
+      "value": "cmp",
+      "flags": "i"
     },
     "cpx_opcode": {
       "type": "PATTERN",
-      "value": "[Cc][Pp][Xx]"
+      "value": "cpx",
+      "flags": "i"
     },
     "cpy_opcode": {
       "type": "PATTERN",
-      "value": "[Cc][Pp][Yy]"
+      "value": "cpy",
+      "flags": "i"
     },
     "dec_opcode": {
       "type": "PATTERN",
-      "value": "[Dd][Ee][Cc]"
+      "value": "dec",
+      "flags": "i"
     },
     "dex_opcode": {
       "type": "PATTERN",
-      "value": "[Dd][Ee][Xx]"
+      "value": "dex",
+      "flags": "i"
     },
     "dey_opcode": {
       "type": "PATTERN",
-      "value": "[Dd][Ee][Yy]"
+      "value": "dey",
+      "flags": "i"
     },
     "eor_opcode": {
       "type": "PATTERN",
-      "value": "[Ee][Oo][Rr]"
+      "value": "eor",
+      "flags": "i"
     },
     "inc_opcode": {
       "type": "PATTERN",
-      "value": "[Ii][Nn][Cc]"
+      "value": "inc",
+      "flags": "i"
     },
     "inx_opcode": {
       "type": "PATTERN",
-      "value": "[Ii][Nn][Xx]"
+      "value": "inx",
+      "flags": "i"
     },
     "iny_opcode": {
       "type": "PATTERN",
-      "value": "[Ii][Nn][Yy]"
+      "value": "iny",
+      "flags": "i"
     },
     "jmp_opcode": {
       "type": "PATTERN",
-      "value": "[Jj][Mm][Pp]"
+      "value": "jmp",
+      "flags": "i"
     },
     "jsr_opcode": {
       "type": "PATTERN",
-      "value": "[Jj][Ss][Rr]"
+      "value": "jsr",
+      "flags": "i"
     },
     "lda_opcode": {
       "type": "PATTERN",
-      "value": "[Ll][Dd][Aa]"
+      "value": "lda",
+      "flags": "i"
     },
     "ldx_opcode": {
       "type": "PATTERN",
-      "value": "[Ll][Dd][Xx]"
+      "value": "ldx",
+      "flags": "i"
     },
     "ldy_opcode": {
       "type": "PATTERN",
-      "value": "[Ll][Dd][Yy]"
+      "value": "ldy",
+      "flags": "i"
     },
     "lsr_opcode": {
       "type": "PATTERN",
-      "value": "[Ll][Ss][Rr]"
+      "value": "lsr",
+      "flags": "i"
     },
     "nop_opcode": {
       "type": "PATTERN",
-      "value": "[Nn][Oo][Pp]"
+      "value": "nop",
+      "flags": "i"
     },
     "ora_opcode": {
       "type": "PATTERN",
-      "value": "[Oo][Rr][Aa]"
+      "value": "ora",
+      "flags": "i"
     },
     "pha_opcode": {
       "type": "PATTERN",
-      "value": "[Pp][Hh][Aa]"
+      "value": "pha",
+      "flags": "i"
     },
     "php_opcode": {
       "type": "PATTERN",
-      "value": "[Pp][Hh][Pp]"
+      "value": "php",
+      "flags": "i"
     },
     "pla_opcode": {
       "type": "PATTERN",
-      "value": "[Pp][Ll][Aa]"
+      "value": "pla",
+      "flags": "i"
     },
     "plp_opcode": {
       "type": "PATTERN",
-      "value": "[Pp][Ll][Pp]"
+      "value": "plp",
+      "flags": "i"
     },
     "rol_opcode": {
       "type": "PATTERN",
-      "value": "[Rr][Oo][Ll]"
+      "value": "rol",
+      "flags": "i"
     },
     "ror_opcode": {
       "type": "PATTERN",
-      "value": "[Rr][Oo][Rr]"
+      "value": "ror",
+      "flags": "i"
     },
     "rti_opcode": {
       "type": "PATTERN",
-      "value": "[Rr][Tt][Ii]"
+      "value": "rti",
+      "flags": "i"
     },
     "rts_opcode": {
       "type": "PATTERN",
-      "value": "[Rr][Tt][Ss]"
+      "value": "rts",
+      "flags": "i"
     },
     "sbc_opcode": {
       "type": "PATTERN",
-      "value": "[Ss][Bb][Cc]"
+      "value": "sbc",
+      "flags": "i"
     },
     "sec_opcode": {
       "type": "PATTERN",
-      "value": "[Ss][Ee][Cc]"
+      "value": "sec",
+      "flags": "i"
     },
     "sed_opcode": {
       "type": "PATTERN",
-      "value": "[Ss][Ee][Dd]"
+      "value": "sed",
+      "flags": "i"
     },
     "sei_opcode": {
       "type": "PATTERN",
-      "value": "[Ss][Ee][Ii]"
+      "value": "sei",
+      "flags": "i"
     },
     "sta_opcode": {
       "type": "PATTERN",
-      "value": "[Ss][Tt][Aa]"
+      "value": "sta",
+      "flags": "i"
     },
     "stx_opcode": {
       "type": "PATTERN",
-      "value": "[Ss][Tt][Xx]"
+      "value": "stx",
+      "flags": "i"
     },
     "sty_opcode": {
       "type": "PATTERN",
-      "value": "[Ss][Tt][Yy]"
+      "value": "sty",
+      "flags": "i"
     },
     "tax_opcode": {
       "type": "PATTERN",
-      "value": "[Tt][Aa][Xx]"
+      "value": "tax",
+      "flags": "i"
     },
     "tay_opcode": {
       "type": "PATTERN",
-      "value": "[Tt][Aa][Yy]"
+      "value": "tay",
+      "flags": "i"
     },
     "tsx_opcode": {
       "type": "PATTERN",
-      "value": "[Tt][Ss][Xx]"
+      "value": "tsx",
+      "flags": "i"
     },
     "txa_opcode": {
       "type": "PATTERN",
-      "value": "[Tt][Xx][Aa]"
+      "value": "txa",
+      "flags": "i"
     },
     "tcs_opcode": {
       "type": "PATTERN",
-      "value": "[Tt][Cc][Ss]"
+      "value": "tcs",
+      "flags": "i"
     },
     "tya_opcode": {
       "type": "PATTERN",
-      "value": "[Tt][Yy][Aa]"
+      "value": "tya",
+      "flags": "i"
     },
     "operand_8": {
       "type": "CHOICE",
@@ -3874,18 +3933,21 @@
     },
     "a16_ctrl_cmd": {
       "type": "PATTERN",
-      "value": "\\.[aA]16"
+      "value": "\\.a16",
+      "flags": "i"
     },
     "a8_ctrl_cmd": {
       "type": "PATTERN",
-      "value": "\\.[aA]8"
+      "value": "\\.a8",
+      "flags": "i"
     },
     "addr_ctrl_cmd": {
       "type": "SEQ",
       "members": [
         {
           "type": "PATTERN",
-          "value": "\\.[aA][dD][dD][rR]"
+          "value": "\\.addr",
+          "flags": "i"
         },
         {
           "type": "SYMBOL",
@@ -3914,7 +3976,8 @@
       "members": [
         {
           "type": "PATTERN",
-          "value": "\\.[aA][lL][iI][gG][nN]"
+          "value": "\\.align",
+          "flags": "i"
         },
         {
           "type": "CHOICE",
@@ -3966,7 +4029,8 @@
       "members": [
         {
           "type": "PATTERN",
-          "value": "\\.[aA][sS][cC][iI][iI][zZ]"
+          "value": "\\.asciiz",
+          "flags": "i"
         },
         {
           "type": "SYMBOL",
@@ -4003,7 +4067,8 @@
       "members": [
         {
           "type": "PATTERN",
-          "value": "\\.[aA][sS][sS][eE][rR][tT]"
+          "value": "\\.assert",
+          "flags": "i"
         },
         {
           "type": "SYMBOL",
@@ -4049,7 +4114,8 @@
       "members": [
         {
           "type": "PATTERN",
-          "value": "\\.[aA][uU][tT][oO][iI][mM][pP][oO][rR][tT]"
+          "value": "\\.autoimport",
+          "flags": "i"
         },
         {
           "type": "CHOICE",
@@ -4071,7 +4137,8 @@
       "members": [
         {
           "type": "PATTERN",
-          "value": "\\.[bB][aA][nN][kK][bB][yY][tT][eE][sS]"
+          "value": "\\.bankbytes",
+          "flags": "i"
         },
         {
           "type": "SYMBOL",
@@ -4105,14 +4172,16 @@
     },
     "bss_ctrl_cmd": {
       "type": "PATTERN",
-      "value": "\\.[bB][sS][sS]"
+      "value": "\\.bss",
+      "flags": "i"
     },
     "byte_ctrl_cmd": {
       "type": "SEQ",
       "members": [
         {
           "type": "PATTERN",
-          "value": "\\.[bB][yY][tT][eE]?"
+          "value": "\\.byte?",
+          "flags": "i"
         },
         {
           "type": "SYMBOL",
@@ -4168,20 +4237,24 @@
       ]
     },
     "warning_keyword": {
-      "type": "STRING",
-      "value": "warning"
+      "type": "PATTERN",
+      "value": "warning",
+      "flags": "i"
     },
     "error_keyword": {
-      "type": "STRING",
-      "value": "error"
+      "type": "PATTERN",
+      "value": "error",
+      "flags": "i"
     },
     "ldwarning_keyword": {
-      "type": "STRING",
-      "value": "ldwarning"
+      "type": "PATTERN",
+      "value": "ldwarning",
+      "flags": "i"
     },
     "lderror_keyword": {
-      "type": "STRING",
-      "value": "lderror"
+      "type": "PATTERN",
+      "value": "lderror",
+      "flags": "i"
     },
     "plus_symbol": {
       "type": "STRING",

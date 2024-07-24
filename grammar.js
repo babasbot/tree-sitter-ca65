@@ -19,17 +19,17 @@ module.exports = grammar({
     /**
      * Accumulator.
      */
-    acc_register: ($) => /[aA]/,
+    acc_register: ($) => /a/i,
 
     /**
      * The X register.
      */
-    x_register: ($) => /[xX]/,
+    x_register: ($) => /x/i,
 
     /**
      * The Y register.
      */
-    y_register: ($) => /[yY]/,
+    y_register: ($) => /y/i,
 
     label: ($) => /[A-Za-z_@][A-Za-z0-9_]*:/,
 
@@ -401,62 +401,62 @@ module.exports = grammar({
      * Opcodes
      */
 
-    adc_opcode: ($) => /[Aa][Dd][Cc]/,
-    and_opcode: ($) => /[Aa][Nn][Dd]/,
-    asl_opcode: ($) => /[Aa][Ss][Ll]/,
-    bcc_opcode: ($) => /[Bb][Cc][Cc]/,
-    bcs_opcode: ($) => /[Bb][Cc][Ss]/,
-    beq_opcode: ($) => /[Bb][Ee][Qq]/,
-    bit_opcode: ($) => /[Bb][Ii][Tt]/,
-    bmi_opcode: ($) => /[Bb][Mm][Ii]/,
-    bne_opcode: ($) => /[Bb][Nn][Ee]/,
-    bpl_opcode: ($) => /[Bb][Pp][Ll]/,
-    brk_opcode: ($) => /[Bb][Rr][Kk]/,
-    bvc_opcode: ($) => /[Bb][Vv][Cc]/,
-    bvs_opcode: ($) => /[Bb][Vv][Ss]/,
-    clc_opcode: ($) => /[Cc][Ll][Cc]/,
-    cld_opcode: ($) => /[Cc][Ll][Dd]/,
-    cli_opcode: ($) => /[Cc][Ll][Ii]/,
-    clv_opcode: ($) => /[Cc][Ll][Vv]/,
-    cmp_opcode: ($) => /[Cc][Mm][Pp]/,
-    cpx_opcode: ($) => /[Cc][Pp][Xx]/,
-    cpy_opcode: ($) => /[Cc][Pp][Yy]/,
-    dec_opcode: ($) => /[Dd][Ee][Cc]/,
-    dex_opcode: ($) => /[Dd][Ee][Xx]/,
-    dey_opcode: ($) => /[Dd][Ee][Yy]/,
-    eor_opcode: ($) => /[Ee][Oo][Rr]/,
-    inc_opcode: ($) => /[Ii][Nn][Cc]/,
-    inx_opcode: ($) => /[Ii][Nn][Xx]/,
-    iny_opcode: ($) => /[Ii][Nn][Yy]/,
-    jmp_opcode: ($) => /[Jj][Mm][Pp]/,
-    jsr_opcode: ($) => /[Jj][Ss][Rr]/,
-    lda_opcode: ($) => /[Ll][Dd][Aa]/,
-    ldx_opcode: ($) => /[Ll][Dd][Xx]/,
-    ldy_opcode: ($) => /[Ll][Dd][Yy]/,
-    lsr_opcode: ($) => /[Ll][Ss][Rr]/,
-    nop_opcode: ($) => /[Nn][Oo][Pp]/,
-    ora_opcode: ($) => /[Oo][Rr][Aa]/,
-    pha_opcode: ($) => /[Pp][Hh][Aa]/,
-    php_opcode: ($) => /[Pp][Hh][Pp]/,
-    pla_opcode: ($) => /[Pp][Ll][Aa]/,
-    plp_opcode: ($) => /[Pp][Ll][Pp]/,
-    rol_opcode: ($) => /[Rr][Oo][Ll]/,
-    ror_opcode: ($) => /[Rr][Oo][Rr]/,
-    rti_opcode: ($) => /[Rr][Tt][Ii]/,
-    rts_opcode: ($) => /[Rr][Tt][Ss]/,
-    sbc_opcode: ($) => /[Ss][Bb][Cc]/,
-    sec_opcode: ($) => /[Ss][Ee][Cc]/,
-    sed_opcode: ($) => /[Ss][Ee][Dd]/,
-    sei_opcode: ($) => /[Ss][Ee][Ii]/,
-    sta_opcode: ($) => /[Ss][Tt][Aa]/,
-    stx_opcode: ($) => /[Ss][Tt][Xx]/,
-    sty_opcode: ($) => /[Ss][Tt][Yy]/,
-    tax_opcode: ($) => /[Tt][Aa][Xx]/,
-    tay_opcode: ($) => /[Tt][Aa][Yy]/,
-    tsx_opcode: ($) => /[Tt][Ss][Xx]/,
-    txa_opcode: ($) => /[Tt][Xx][Aa]/,
-    tcs_opcode: ($) => /[Tt][Cc][Ss]/,
-    tya_opcode: ($) => /[Tt][Yy][Aa]/,
+    adc_opcode: ($) => /adc/i,
+    and_opcode: ($) => /and/i,
+    asl_opcode: ($) => /asl/i,
+    bcc_opcode: ($) => /bcc/i,
+    bcs_opcode: ($) => /bcs/i,
+    beq_opcode: ($) => /beq/i,
+    bit_opcode: ($) => /bit/i,
+    bmi_opcode: ($) => /bmi/i,
+    bne_opcode: ($) => /bne/i,
+    bpl_opcode: ($) => /bpl/i,
+    brk_opcode: ($) => /brk/i,
+    bvc_opcode: ($) => /bvc/i,
+    bvs_opcode: ($) => /bvs/i,
+    clc_opcode: ($) => /clc/i,
+    cld_opcode: ($) => /cld/i,
+    cli_opcode: ($) => /cli/i,
+    clv_opcode: ($) => /clv/i,
+    cmp_opcode: ($) => /cmp/i,
+    cpx_opcode: ($) => /cpx/i,
+    cpy_opcode: ($) => /cpy/i,
+    dec_opcode: ($) => /dec/i,
+    dex_opcode: ($) => /dex/i,
+    dey_opcode: ($) => /dey/i,
+    eor_opcode: ($) => /eor/i,
+    inc_opcode: ($) => /inc/i,
+    inx_opcode: ($) => /inx/i,
+    iny_opcode: ($) => /iny/i,
+    jmp_opcode: ($) => /jmp/i,
+    jsr_opcode: ($) => /jsr/i,
+    lda_opcode: ($) => /lda/i,
+    ldx_opcode: ($) => /ldx/i,
+    ldy_opcode: ($) => /ldy/i,
+    lsr_opcode: ($) => /lsr/i,
+    nop_opcode: ($) => /nop/i,
+    ora_opcode: ($) => /ora/i,
+    pha_opcode: ($) => /pha/i,
+    php_opcode: ($) => /php/i,
+    pla_opcode: ($) => /pla/i,
+    plp_opcode: ($) => /plp/i,
+    rol_opcode: ($) => /rol/i,
+    ror_opcode: ($) => /ror/i,
+    rti_opcode: ($) => /rti/i,
+    rts_opcode: ($) => /rts/i,
+    sbc_opcode: ($) => /sbc/i,
+    sec_opcode: ($) => /sec/i,
+    sed_opcode: ($) => /sed/i,
+    sei_opcode: ($) => /sei/i,
+    sta_opcode: ($) => /sta/i,
+    stx_opcode: ($) => /stx/i,
+    sty_opcode: ($) => /sty/i,
+    tax_opcode: ($) => /tax/i,
+    tay_opcode: ($) => /tay/i,
+    tsx_opcode: ($) => /tsx/i,
+    txa_opcode: ($) => /txa/i,
+    tcs_opcode: ($) => /tcs/i,
+    tya_opcode: ($) => /tya/i,
 
     /**
      * Operand with an 8-bit value.
@@ -703,49 +703,55 @@ module.exports = grammar({
       ),
 
     /**
-     * .a16
+     * .A16
+     *
+     * @see {@link https://cc65.github.io/doc/ca65.html#ss11.1}
      */
-    a16_ctrl_cmd: ($) => /\.[aA]16/,
+    a16_ctrl_cmd: ($) => /\.a16/i,
 
     /**
      * .a8
+     *
+     * @see {@link https://cc65.github.io/doc/ca65.html#ss11.2}
      */
-    a8_ctrl_cmd: ($) => /\.[aA]8/,
+    a8_ctrl_cmd: ($) => /\.a8/i,
 
     /**
-     * .addr
+     * .ADDR
+     *
+     * @see {@link https://cc65.github.io/doc/ca65.html#ss11.3}
      */
     addr_ctrl_cmd: ($) =>
-      seq(/\.[aA][dD][dD][rR]/, $.operand_16, repeat(seq(",", $.operand_16))),
+      seq(/\.addr/i, $.operand_16, repeat(seq(",", $.operand_16))),
 
     /**
-     * .addr
+     * .ALIGN
+     *
+     * @see {@link https://cc65.github.io/doc/ca65.html#ss11.4}
      */
     align_ctrl_cmd: ($) =>
       seq(
-        /\.[aA][lL][iI][gG][nN]/,
+        /\.align/i,
         choice($.operand_8, $.operand_16),
         optional(seq(",", choice($.operand_8, $.operand_16))),
       ),
 
     /**
-     * .asciiz
+     * .ASCIIZ
+     *
+     * @see {@link https://cc65.github.io/doc/ca65.html#ss11.5}
      */
     asciiz_ctrl_cmd: ($) =>
-      seq(
-        /\.[aA][sS][cC][iI][iI][zZ]/,
-        $.string,
-        optional(repeat(seq(",", $.string))),
-      ),
+      seq(/\.asciiz/i, $.string, optional(repeat(seq(",", $.string)))),
 
     /**
-     * .assert
+     * .ASSERT
      *
-     * https://cc65.github.io/doc/ca65.html#ss11.6
+     * @see {@link https://cc65.github.io/doc/ca65.html#ss11.6}
      */
     assert_ctrl_cmd: ($) =>
       seq(
-        /\.[aA][sS][sS][eE][rR][tT]/,
+        /\.assert/i,
         $.expression,
         ",",
         choice(
@@ -764,10 +770,7 @@ module.exports = grammar({
      * @see {@link https://cc65.github.io/doc/ca65.html#ss11.7}
      */
     autoimport_ctrl_cmd: ($) =>
-      seq(
-        /\.[aA][uU][tT][oO][iI][mM][pP][oO][rR][tT]/,
-        choice($.plus_symbol, $.sub_symbol),
-      ),
+      seq(/\.autoimport/i, choice($.plus_symbol, $.sub_symbol)),
 
     /**
      * .BANKBYTES
@@ -776,7 +779,7 @@ module.exports = grammar({
      */
     bankbytes_ctrl_cmd: ($) =>
       seq(
-        /\.[bB][aA][nN][kK][bB][yY][tT][eE][sS]/,
+        /\.bankbytes/i,
         $.expression,
         optional(repeat(seq(",", $.expression))),
       ),
@@ -786,7 +789,7 @@ module.exports = grammar({
      *
      * @see {@link https://cc65.github.io/doc/ca65.html#ss11.9}
      */
-    bss_ctrl_cmd: ($) => /\.[bB][sS][sS]/,
+    bss_ctrl_cmd: ($) => /\.bss/i,
 
     /**
      * .BYTE, .BYT
@@ -794,11 +797,7 @@ module.exports = grammar({
      * @see {@link https://cc65.github.io/doc/ca65.html#ss11.10}
      */
     byte_ctrl_cmd: ($) =>
-      seq(
-        /\.[bB][yY][tT][eE]?/,
-        $.expression,
-        optional(repeat(seq(",", $.expression))),
-      ),
+      seq(/\.byte?/i, $.expression, optional(repeat(seq(",", $.expression)))),
 
     /**
      * .CASE
@@ -807,10 +806,10 @@ module.exports = grammar({
      */
     case_ctrl_cmd: ($) => seq(/\.case/i, choice($.plus_symbol, $.sub_symbol)),
 
-    warning_keyword: ($) => "warning",
-    error_keyword: ($) => "error",
-    ldwarning_keyword: ($) => "ldwarning",
-    lderror_keyword: ($) => "lderror",
+    warning_keyword: ($) => /warning/i,
+    error_keyword: ($) => /error/i,
+    ldwarning_keyword: ($) => /ldwarning/i,
+    lderror_keyword: ($) => /lderror/i,
 
     plus_symbol: ($) => "+",
     sub_symbol: ($) => "-",
