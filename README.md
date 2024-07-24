@@ -53,6 +53,19 @@ For more information on 6502 assembly, refer to the following resources:
 - [6502 Instruction Set](https://www.masswerk.at/6502/6502_instruction_set.html)
 - [ca65 Users Guide](https://cc65.github.io/doc/ca65.html)
 
+## Self-Promotion
+
+Did you find this helpful? Share some love by:
+
+- Starring the repository on **GitHub** :star:️.
+- Following [**@babasbot**][babasbot-github] on **GitHub** :octocat:.
+- Following [**@babasbot**][babasbot-twitter] on **Twitter** :bird:.
+- [**Sponsoring**][gh-sponsors] this project :moneybag:.
+
+[babasbot-github]: https://github.com/babasbot
+[babasbot-twitter]: https://twitter.com/babasbot
+[gh-sponsors]: https://github.com/sponsors/babasbot
+
 ## License
 
 Licensed under the MIT License. Check the [LICENSE](LICENSE.txt) file for details.
