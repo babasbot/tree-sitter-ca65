@@ -3865,6 +3865,10 @@
         {
           "type": "SYMBOL",
           "name": "byte_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "case_ctrl_cmd"
         }
       ]
     },
@@ -4135,6 +4139,29 @@
             },
             {
               "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "case_ctrl_cmd": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\.case",
+          "flags": "i"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "plus_symbol"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "sub_symbol"
             }
           ]
         }

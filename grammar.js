@@ -699,6 +699,7 @@ module.exports = grammar({
         $.bankbytes_ctrl_cmd,
         $.bss_ctrl_cmd,
         $.byte_ctrl_cmd,
+        $.case_ctrl_cmd,
       ),
 
     /**
@@ -798,6 +799,13 @@ module.exports = grammar({
         $.expression,
         optional(repeat(seq(",", $.expression))),
       ),
+
+    /**
+     * .CASE
+     *
+     * @see {@link https://cc65.github.io/doc/ca65.html#ss11.11}
+     */
+    case_ctrl_cmd: ($) => seq(/\.case/i, choice($.plus_symbol, $.sub_symbol)),
 
     warning_keyword: ($) => "warning",
     error_keyword: ($) => "error",

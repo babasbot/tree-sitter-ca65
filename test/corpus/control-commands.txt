@@ -201,3 +201,20 @@ table: .bankbytes table
         (operand_8
           (hex_8))))))
 
+==========================
+.CASE
+==========================
+
+.case +
+.case -
+
+---
+
+(ca65
+  (ctrl_cmd
+    (case_ctrl_cmd
+      (plus_symbol)))
+  (ctrl_cmd
+    (case_ctrl_cmd
+      (sub_symbol))))
+

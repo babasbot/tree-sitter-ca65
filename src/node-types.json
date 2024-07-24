@@ -554,6 +554,25 @@
     }
   },
   {
+    "type": "case_ctrl_cmd",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "plus_symbol",
+          "named": true
+        },
+        {
+          "type": "sub_symbol",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "ctrl_cmd",
     "named": true,
     "fields": {},
@@ -599,6 +618,10 @@
         },
         {
           "type": "byte_ctrl_cmd",
+          "named": true
+        },
+        {
+          "type": "case_ctrl_cmd",
           "named": true
         }
       ]
