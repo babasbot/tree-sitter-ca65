@@ -715,6 +715,7 @@ module.exports = grammar({
         $.charmap_ctrl_cmd,
         $.code_ctrl_cmd,
         $.condes_ctrl_cmd,
+        $.constructor_ctrl_cmd,
       ),
 
     /**
@@ -853,6 +854,14 @@ module.exports = grammar({
         ),
         optional(seq(",", $.expression)),
       ),
+
+    /**
+     * .CONSTRUCTOR
+     *
+     * @see {@link https://cc65.github.io/doc/ca65.html#ss11.15}
+     */
+    constructor_ctrl_cmd: ($) =>
+      seq(/\.constructor/, $.symbol, optional(seq(",", $.expression))),
 
     plus_symbol: ($) => "+",
     sub_symbol: ($) => "-",

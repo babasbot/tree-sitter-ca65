@@ -3975,6 +3975,10 @@
         {
           "type": "SYMBOL",
           "name": "condes_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "constructor_ctrl_cmd"
         }
       ]
     },
@@ -4346,6 +4350,40 @@
               "name": "expression"
             }
           ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ","
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "expression"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "constructor_ctrl_cmd": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\.constructor"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "symbol"
         },
         {
           "type": "CHOICE",

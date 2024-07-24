@@ -294,3 +294,23 @@ table: .bankbytes table
           (operand_16
             (dec_16))))))
 
+==========================
+.CONSTRUCTOR
+==========================
+
+.constructor symbol
+.constructor symbol, 16
+
+---
+
+(ca65
+  (ctrl_cmd
+    (constructor_ctrl_cmd
+      (symbol)))
+  (ctrl_cmd
+    (constructor_ctrl_cmd
+      (symbol)
+        (expression
+          (operand_8
+            (dec_8))))))
+
