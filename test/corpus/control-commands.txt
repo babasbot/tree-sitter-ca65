@@ -432,3 +432,28 @@ table: .bankbytes table
     (delmac_ctrl_cmd
       (symbol))))
 
+==========================
+.DESTRUCTOR
+==========================
+
+.destructor symbol
+.destructor symbol, 400+20
+
+---
+
+(ca65
+  (ctrl_cmd
+    (destructor_ctrl_cmd
+      (symbol)))
+  (ctrl_cmd
+    (destructor_ctrl_cmd
+      (symbol)
+      (expression
+        (add_exp
+          (expression
+            (operand_16
+              (dec_16)))
+          (expression
+            (operand_8
+              (dec_8))))))))
+

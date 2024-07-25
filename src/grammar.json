@@ -3999,6 +3999,10 @@
         {
           "type": "SYMBOL",
           "name": "delmac_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "destructor_ctrl_cmd"
         }
       ]
     },
@@ -4594,6 +4598,41 @@
         {
           "type": "SYMBOL",
           "name": "symbol"
+        }
+      ]
+    },
+    "destructor_ctrl_cmd": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\.destructor",
+          "flags": "i"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "symbol"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ","
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "expression"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },

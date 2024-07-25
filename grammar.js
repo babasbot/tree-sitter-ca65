@@ -724,6 +724,7 @@ module.exports = grammar({
         $.debuginfo_ctrl_cmd,
         $.define_ctrl_cmd,
         $.delmac_ctrl_cmd,
+        $.destructor_ctrl_cmd,
       ),
 
     /**
@@ -914,6 +915,14 @@ module.exports = grammar({
      * @see {@link https://cc65.github.io/doc/ca65.html#ss11.20}
      */
     delmac_ctrl_cmd: ($) => seq(choice(/\.delmac/i, /\.delmacro/), $.symbol),
+
+    /**
+     * .DESTRUCTOR
+     *
+     * @see {@link https://cc65.github.io/doc/ca65.html#ss11.21}
+     */
+    destructor_ctrl_cmd: ($) =>
+      seq(/\.destructor/i, $.symbol, optional(seq(",", $.expression))),
 
     plus_symbol: ($) => "+",
     sub_symbol: ($) => "-",

@@ -724,6 +724,10 @@
         {
           "type": "delmac_ctrl_cmd",
           "named": true
+        },
+        {
+          "type": "destructor_ctrl_cmd",
+          "named": true
         }
       ]
     }
@@ -789,6 +793,25 @@
       "multiple": false,
       "required": true,
       "types": [
+        {
+          "type": "symbol",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "destructor_ctrl_cmd",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
         {
           "type": "symbol",
           "named": true
