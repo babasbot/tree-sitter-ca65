@@ -3987,6 +3987,10 @@
         {
           "type": "SYMBOL",
           "name": "dbyt_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "debuginfo_ctrl_cmd"
         }
       ]
     },
@@ -4454,6 +4458,29 @@
             },
             {
               "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "debuginfo_ctrl_cmd": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\.debuginfo",
+          "flags": "i"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "plus_symbol"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "sub_symbol"
             }
           ]
         }

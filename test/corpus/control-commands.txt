@@ -353,3 +353,20 @@ table: .bankbytes table
         (operand_16
           (hex_16))))))
 
+==========================
+.DEBUGINFO
+==========================
+
+.debuginfo +
+.debuginfo -
+
+---
+
+(ca65
+  (ctrl_cmd
+    (debuginfo_ctrl_cmd
+      (plus_symbol)))
+  (ctrl_cmd
+    (debuginfo_ctrl_cmd
+      (sub_symbol))))
+

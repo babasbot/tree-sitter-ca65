@@ -718,6 +718,7 @@ module.exports = grammar({
         $.constructor_ctrl_cmd,
         $.data_ctrl_cmd,
         $.dbyt_ctrl_cmd,
+        $.debuginfo_ctrl_cmd,
       ),
 
     /**
@@ -879,6 +880,9 @@ module.exports = grammar({
      */
     dbyt_ctrl_cmd: ($) =>
       seq(/\.dbyt/i, $.expression, optional(repeat(seq(",", $.expression)))),
+
+    debuginfo_ctrl_cmd: ($) =>
+      seq(/\.debuginfo/i, choice($.plus_symbol, $.sub_symbol)),
 
     plus_symbol: ($) => "+",
     sub_symbol: ($) => "-",
