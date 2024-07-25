@@ -370,3 +370,49 @@ table: .bankbytes table
     (debuginfo_ctrl_cmd
       (sub_symbol))))
 
+==========================
+.DEFINE
+==========================
+
+.define VERSION "12.3a"
+.define COMBINE(ta, tb, tc) ta+tb*10+tc*100
+
+---
+
+(ca65
+  (ctrl_cmd
+    (define_ctrl_cmd
+      (symbol)
+        (expression
+          (string))))
+  (ctrl_cmd
+    (define_ctrl_cmd
+      (symbol)
+      (symbol)
+      (symbol)
+      (symbol)
+      (expression
+        (add_exp
+          (expression
+            (add_exp
+              (expression
+                (operand_8
+                  (symbol)))
+              (expression
+                (mult_exp
+                  (expression
+                    (operand_8
+                      (symbol)))
+                  (expression
+                    (operand_8
+                      (dec_8)))))))
+          (expression
+            (mult_exp
+              (expression
+                (operand_8
+                  (symbol)))
+              (expression
+                (operand_8
+                  (dec_8))))))))))
+
+

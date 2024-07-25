@@ -716,6 +716,10 @@
         {
           "type": "debuginfo_ctrl_cmd",
           "named": true
+        },
+        {
+          "type": "define_ctrl_cmd",
+          "named": true
         }
       ]
     }
@@ -749,6 +753,25 @@
         },
         {
           "type": "sub_symbol",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "define_ctrl_cmd",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "symbol",
           "named": true
         }
       ]

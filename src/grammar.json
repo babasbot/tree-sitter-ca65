@@ -3991,6 +3991,10 @@
         {
           "type": "SYMBOL",
           "name": "debuginfo_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "define_ctrl_cmd"
         }
       ]
     },
@@ -4486,6 +4490,86 @@
         }
       ]
     },
+    "define_ctrl_cmd": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\.define",
+          "flags": "i"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "symbol"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "("
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SEQ",
+                      "members": [
+                        {
+                          "type": "SYMBOL",
+                          "name": "symbol"
+                        },
+                        {
+                          "type": "CHOICE",
+                          "members": [
+                            {
+                              "type": "REPEAT",
+                              "content": {
+                                "type": "SEQ",
+                                "members": [
+                                  {
+                                    "type": "STRING",
+                                    "value": ","
+                                  },
+                                  {
+                                    "type": "SYMBOL",
+                                    "name": "symbol"
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "type": "BLANK"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                },
+                {
+                  "type": "STRING",
+                  "value": ")"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        }
+      ]
+    },
     "plus_symbol": {
       "type": "STRING",
       "value": "+"
@@ -4505,7 +4589,10 @@
       "value": "\\s"
     }
   ],
-  "conflicts": [["operand_8", "operand_16"]],
+  "conflicts": [
+    ["operand_8", "operand_16"],
+    ["operand_8", "operand_16", "define_ctrl_cmd"]
+  ],
   "precedences": [],
   "externals": [],
   "inline": [],

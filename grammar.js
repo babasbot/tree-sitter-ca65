@@ -3,7 +3,10 @@ module.exports = grammar({
 
   extras: ($) => [$.comment, /\s/],
 
-  conflicts: ($) => [[$.operand_8, $.operand_16]],
+  conflicts: ($) => [
+    [$.operand_8, $.operand_16],
+    [$.operand_8, $.operand_16, $.define_ctrl_cmd],
+  ],
 
   rules: {
     ca65: ($) => repeat(choice($.label, $.inst, $.ctrl_cmd)),
@@ -719,6 +722,7 @@ module.exports = grammar({
         $.data_ctrl_cmd,
         $.dbyt_ctrl_cmd,
         $.debuginfo_ctrl_cmd,
+        $.define_ctrl_cmd,
       ),
 
     /**
@@ -883,6 +887,25 @@ module.exports = grammar({
 
     debuginfo_ctrl_cmd: ($) =>
       seq(/\.debuginfo/i, choice($.plus_symbol, $.sub_symbol)),
+
+    /**
+     * .DEFINE
+     *
+     * @see {@link https://cc65.github.io/doc/ca65.html#ss11.19}
+     */
+    define_ctrl_cmd: ($) =>
+      seq(
+        /\.define/i,
+        $.symbol,
+        optional(
+          seq(
+            "(",
+            optional(seq($.symbol, optional(repeat(seq(",", $.symbol))))),
+            ")",
+          ),
+        ),
+        $.expression,
+      ),
 
     plus_symbol: ($) => "+",
     sub_symbol: ($) => "-",
