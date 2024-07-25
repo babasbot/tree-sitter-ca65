@@ -457,3 +457,30 @@ table: .bankbytes table
             (operand_8
               (dec_8))))))))
 
+==========================
+.DWORD
+==========================
+
+.dword $ffff
+.dword $ffff, $ffff, $ffff
+
+---
+
+(ca65
+  (ctrl_cmd
+    (dword_ctrl_cmd
+      (expression
+        (operand_16
+          (hex_16)))))
+  (ctrl_cmd
+    (dword_ctrl_cmd
+      (expression
+        (operand_16
+          (hex_16)))
+      (expression
+        (operand_16
+          (hex_16)))
+      (expression
+        (operand_16
+          (hex_16))))))
+

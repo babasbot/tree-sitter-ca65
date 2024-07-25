@@ -4003,6 +4003,10 @@
         {
           "type": "SYMBOL",
           "name": "destructor_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dword_ctrl_cmd"
         }
       ]
     },
@@ -4628,6 +4632,44 @@
                   "name": "expression"
                 }
               ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "dword_ctrl_cmd": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\.dword",
+          "flags": "i"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "expression"
+                  }
+                ]
+              }
             },
             {
               "type": "BLANK"
