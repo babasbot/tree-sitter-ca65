@@ -4007,6 +4007,10 @@
         {
           "type": "SYMBOL",
           "name": "dword_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "else_ctrl_cmd"
         }
       ]
     },
@@ -4677,6 +4681,11 @@
           ]
         }
       ]
+    },
+    "else_ctrl_cmd": {
+      "type": "PATTERN",
+      "value": "\\.else",
+      "flags": "i"
     },
     "plus_symbol": {
       "type": "STRING",

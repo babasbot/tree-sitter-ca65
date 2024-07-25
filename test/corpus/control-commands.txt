@@ -484,3 +484,15 @@ table: .bankbytes table
         (operand_16
           (hex_16))))))
 
+==========================
+.ELSE
+==========================
+
+.else
+
+---
+
+(ca65
+  (ctrl_cmd
+    (else_ctrl_cmd)))
+

@@ -732,6 +732,10 @@
         {
           "type": "dword_ctrl_cmd",
           "named": true
+        },
+        {
+          "type": "else_ctrl_cmd",
+          "named": true
         }
       ]
     }
@@ -2210,6 +2214,10 @@
   },
   {
     "type": "dey_opcode",
+    "named": true
+  },
+  {
+    "type": "else_ctrl_cmd",
     "named": true
   },
   {
