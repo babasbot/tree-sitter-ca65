@@ -3979,6 +3979,10 @@
         {
           "type": "SYMBOL",
           "name": "constructor_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "data_ctrl_cmd"
         }
       ]
     },
@@ -4407,6 +4411,11 @@
           ]
         }
       ]
+    },
+    "data_ctrl_cmd": {
+      "type": "PATTERN",
+      "value": "\\.data",
+      "flags": "i"
     },
     "plus_symbol": {
       "type": "STRING",

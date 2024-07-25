@@ -704,6 +704,10 @@
         {
           "type": "constructor_ctrl_cmd",
           "named": true
+        },
+        {
+          "type": "data_ctrl_cmd",
+          "named": true
         }
       ]
     }
@@ -2052,6 +2056,10 @@
   },
   {
     "type": "cpy_opcode",
+    "named": true
+  },
+  {
+    "type": "data_ctrl_cmd",
     "named": true
   },
   {

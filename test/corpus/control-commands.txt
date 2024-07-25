@@ -314,3 +314,15 @@ table: .bankbytes table
           (operand_8
             (dec_8))))))
 
+==========================
+.DATA
+==========================
+
+.data
+
+---
+
+(ca65
+  (ctrl_cmd
+    (data_ctrl_cmd)))
+
