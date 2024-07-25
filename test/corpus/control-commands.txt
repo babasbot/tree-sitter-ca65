@@ -415,4 +415,20 @@ table: .bankbytes table
                 (operand_8
                   (dec_8))))))))))
 
+==========================
+.DELMAC/.DELMACRO
+==========================
+
+.delmac   macro
+.delmacro macro
+
+---
+
+(ca65
+  (ctrl_cmd
+    (delmac_ctrl_cmd
+      (symbol)))
+  (ctrl_cmd
+    (delmac_ctrl_cmd
+      (symbol))))
 

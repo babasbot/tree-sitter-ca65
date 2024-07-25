@@ -723,6 +723,7 @@ module.exports = grammar({
         $.dbyt_ctrl_cmd,
         $.debuginfo_ctrl_cmd,
         $.define_ctrl_cmd,
+        $.delmac_ctrl_cmd,
       ),
 
     /**
@@ -906,6 +907,13 @@ module.exports = grammar({
         ),
         $.expression,
       ),
+
+    /**
+     * .DELMAC
+     *
+     * @see {@link https://cc65.github.io/doc/ca65.html#ss11.20}
+     */
+    delmac_ctrl_cmd: ($) => seq(choice(/\.delmac/i, /\.delmacro/), $.symbol),
 
     plus_symbol: ($) => "+",
     sub_symbol: ($) => "-",

@@ -720,6 +720,10 @@
         {
           "type": "define_ctrl_cmd",
           "named": true
+        },
+        {
+          "type": "delmac_ctrl_cmd",
+          "named": true
         }
       ]
     }
@@ -770,6 +774,21 @@
           "type": "expression",
           "named": true
         },
+        {
+          "type": "symbol",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "delmac_ctrl_cmd",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
         {
           "type": "symbol",
           "named": true

@@ -3995,6 +3995,10 @@
         {
           "type": "SYMBOL",
           "name": "define_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "delmac_ctrl_cmd"
         }
       ]
     },
@@ -4567,6 +4571,29 @@
         {
           "type": "SYMBOL",
           "name": "expression"
+        }
+      ]
+    },
+    "delmac_ctrl_cmd": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "\\.delmac",
+              "flags": "i"
+            },
+            {
+              "type": "PATTERN",
+              "value": "\\.delmacro"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "symbol"
         }
       ]
     },
