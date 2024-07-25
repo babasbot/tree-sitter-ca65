@@ -717,6 +717,7 @@ module.exports = grammar({
         $.condes_ctrl_cmd,
         $.constructor_ctrl_cmd,
         $.data_ctrl_cmd,
+        $.dbyt_ctrl_cmd,
       ),
 
     /**
@@ -870,6 +871,14 @@ module.exports = grammar({
      * @see {@link https://cc65.github.io/doc/ca65.html#ss11.16}
      */
     data_ctrl_cmd: ($) => /\.data/i,
+
+    /**
+     * .DBYT
+     *
+     * @see {@link https://cc65.github.io/doc/ca65.html#ss11.17}
+     */
+    dbyt_ctrl_cmd: ($) =>
+      seq(/\.dbyt/i, $.expression, optional(repeat(seq(",", $.expression)))),
 
     plus_symbol: ($) => "+",
     sub_symbol: ($) => "-",

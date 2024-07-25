@@ -326,3 +326,30 @@ table: .bankbytes table
   (ctrl_cmd
     (data_ctrl_cmd)))
 
+==========================
+.DBYT
+==========================
+
+.dbyt $1234
+.dbyt $1234, $4512, $ffff
+
+---
+
+(ca65
+  (ctrl_cmd
+    (dbyt_ctrl_cmd
+      (expression
+        (operand_16
+          (hex_16)))))
+  (ctrl_cmd
+    (dbyt_ctrl_cmd
+      (expression
+        (operand_16
+          (hex_16)))
+      (expression
+        (operand_16
+          (hex_16)))
+      (expression
+        (operand_16
+          (hex_16))))))
+

@@ -708,6 +708,25 @@
         {
           "type": "data_ctrl_cmd",
           "named": true
+        },
+        {
+          "type": "dbyt_ctrl_cmd",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "dbyt_ctrl_cmd",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
         }
       ]
     }
