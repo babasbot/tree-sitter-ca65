@@ -727,6 +727,7 @@ module.exports = grammar({
         $.destructor_ctrl_cmd,
         $.dword_ctrl_cmd,
         $.else_ctrl_cmd,
+        $.elseif_ctrl_cmd,
       ),
 
     /**
@@ -940,6 +941,13 @@ module.exports = grammar({
      * @see {@link https://cc65.github.io/doc/ca65.html#ss11.23}
      */
     else_ctrl_cmd: ($) => /\.else/i,
+
+    /**
+     * .ELSEIF
+     *
+     * @see {@link https://cc65.github.io/doc/ca65.html#ss11.24}
+     */
+    elseif_ctrl_cmd: ($) => seq(/\.elseif/i, $.expression),
 
     plus_symbol: ($) => "+",
     sub_symbol: ($) => "-",

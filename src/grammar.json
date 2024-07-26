@@ -4011,6 +4011,10 @@
         {
           "type": "SYMBOL",
           "name": "else_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "elseif_ctrl_cmd"
         }
       ]
     },
@@ -4686,6 +4690,20 @@
       "type": "PATTERN",
       "value": "\\.else",
       "flags": "i"
+    },
+    "elseif_ctrl_cmd": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\.elseif",
+          "flags": "i"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expression"
+        }
+      ]
     },
     "plus_symbol": {
       "type": "STRING",
