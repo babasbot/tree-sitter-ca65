@@ -530,18 +530,6 @@ table: .bankbytes table
     (end_ctrl_cmd)))
 
 ==========================
-.ENDENUM
-==========================
-
-.endenum
-
----
-
-(ca65
-  (ctrl_cmd
-    (endenum_ctrl_cmd)))
-
-==========================
 .ENDIF
 ==========================
 
@@ -618,4 +606,71 @@ table: .bankbytes table
 (ca65
   (ctrl_cmd
     (endunion_ctrl_cmd)))
+
+==========================
+.ENUM
+==========================
+
+.enum errorcodes
+  no_error = -1
+  file_error
+  parse_error
+.endenum
+
+.enum
+.endenum
+
+.enum
+  eunknown = -1
+  eok
+  efile
+  ebusy
+  eagain
+  ewouldblock = eagain
+.endenum
+
+---
+
+(ca65
+  (ctrl_cmd
+    (enum_ctrl_cmd
+      (enum_name
+        (symbol))
+      (enum_body
+        (enum_member
+          (symbol)
+          (expression
+            (unary_neg_exp
+              (expression
+                (operand_8
+                  (dec_8))))))
+        (enum_member
+          (symbol))
+        (enum_member
+          (symbol)))))
+  (ctrl_cmd
+    (enum_ctrl_cmd))
+  (ctrl_cmd
+    (enum_ctrl_cmd
+      (enum_body
+        (enum_member
+          (symbol)
+          (expression
+            (unary_neg_exp
+              (expression
+                (operand_8
+                  (dec_8))))))
+        (enum_member
+          (symbol))
+        (enum_member
+          (symbol))
+        (enum_member
+          (symbol))
+        (enum_member
+          (symbol))
+        (enum_member
+          (symbol)
+          (expression
+            (operand_8
+              (symbol))))))))
 

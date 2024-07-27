@@ -729,13 +729,13 @@ module.exports = grammar({
         $.else_ctrl_cmd,
         $.elseif_ctrl_cmd,
         $.end_ctrl_cmd,
-        $.endenum_ctrl_cmd,
         $.endif_ctrl_cmd,
         $.endmacro_ctrl_cmd,
         $.endrepeat_ctrl_cmd,
         $.endscope_ctrl_cmd,
         $.endstruct_ctrl_cmd,
         $.endunion_ctrl_cmd,
+        $.enum_ctrl_cmd,
       ),
 
     /**
@@ -965,13 +965,6 @@ module.exports = grammar({
     end_ctrl_cmd: ($) => /\.end/i,
 
     /**
-     * .ENDENUM
-     *
-     * @see {@link https://cc65.github.io/doc/ca65.html#ss11.26}
-     */
-    endenum_ctrl_cmd: ($) => /\.endenum/i,
-
-    /**
      * .ENDIF
      *
      * @see {@link https://cc65.github.io/doc/ca65.html#ss11.27}
@@ -1019,6 +1012,30 @@ module.exports = grammar({
      * @see {@link https://cc65.github.io/doc/ca65.html#ss11.33}
      */
     endunion_ctrl_cmd: ($) => /\.endunion/i,
+
+    /**
+     * .ENUM
+     *
+     * @see {@link https://cc65.github.io/doc/ca65.html#ss11.34}
+     */
+    enum_ctrl_cmd: ($) =>
+      seq(
+        /\.enum/i,
+        optional($.enum_name),
+        "\n",
+        optional($.enum_body),
+        /.endenum/i,
+      ),
+
+    enum_name: ($) => field("name", $.symbol),
+
+    enum_body: ($) => field("body", repeat1($.enum_member)),
+
+    enum_member: ($) =>
+      seq(
+        field("name", $.symbol),
+        optional(seq("=", field("value", $.expression))),
+      ),
 
     plus_symbol: ($) => "+",
     sub_symbol: ($) => "-",

@@ -4022,10 +4022,6 @@
         },
         {
           "type": "SYMBOL",
-          "name": "endenum_ctrl_cmd"
-        },
-        {
-          "type": "SYMBOL",
           "name": "endif_ctrl_cmd"
         },
         {
@@ -4047,6 +4043,10 @@
         {
           "type": "SYMBOL",
           "name": "endunion_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "enum_ctrl_cmd"
         }
       ]
     },
@@ -4742,11 +4742,6 @@
       "value": "\\.end",
       "flags": "i"
     },
-    "endenum_ctrl_cmd": {
-      "type": "PATTERN",
-      "value": "\\.endenum",
-      "flags": "i"
-    },
     "endif_ctrl_cmd": {
       "type": "PATTERN",
       "value": "\\.endif",
@@ -4801,6 +4796,106 @@
       "type": "PATTERN",
       "value": "\\.endunion",
       "flags": "i"
+    },
+    "enum_ctrl_cmd": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\.enum",
+          "flags": "i"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "enum_name"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "enum_body"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "PATTERN",
+          "value": ".endenum",
+          "flags": "i"
+        }
+      ]
+    },
+    "enum_name": {
+      "type": "FIELD",
+      "name": "name",
+      "content": {
+        "type": "SYMBOL",
+        "name": "symbol"
+      }
+    },
+    "enum_body": {
+      "type": "FIELD",
+      "name": "body",
+      "content": {
+        "type": "REPEAT1",
+        "content": {
+          "type": "SYMBOL",
+          "name": "enum_member"
+        }
+      }
+    },
+    "enum_member": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "symbol"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "="
+                },
+                {
+                  "type": "FIELD",
+                  "name": "value",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "expression"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
     },
     "plus_symbol": {
       "type": "STRING",

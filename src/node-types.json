@@ -746,10 +746,6 @@
           "named": true
         },
         {
-          "type": "endenum_ctrl_cmd",
-          "named": true
-        },
-        {
           "type": "endif_ctrl_cmd",
           "named": true
         },
@@ -771,6 +767,10 @@
         },
         {
           "type": "endunion_ctrl_cmd",
+          "named": true
+        },
+        {
+          "type": "enum_ctrl_cmd",
           "named": true
         }
       ]
@@ -917,6 +917,83 @@
     "type": "endrepeat_ctrl_cmd",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "enum_body",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "enum_member",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "enum_ctrl_cmd",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "enum_body",
+          "named": true
+        },
+        {
+          "type": "enum_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "enum_member",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "enum_name",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "symbol",
+            "named": true
+          }
+        ]
+      }
+    }
   },
   {
     "type": "eq_cmp",
@@ -2002,6 +2079,10 @@
     }
   },
   {
+    "type": "\n",
+    "named": false
+  },
+  {
     "type": "!",
     "named": false
   },
@@ -2283,10 +2364,6 @@
   },
   {
     "type": "end_ctrl_cmd",
-    "named": true
-  },
-  {
-    "type": "endenum_ctrl_cmd",
     "named": true
   },
   {
