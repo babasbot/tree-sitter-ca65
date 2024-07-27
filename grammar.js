@@ -737,6 +737,7 @@ module.exports = grammar({
         $.endunion_ctrl_cmd,
         $.enum_ctrl_cmd,
         $.error_ctrl_cmd,
+        $.exitmacro_ctrl_cmd,
       ),
 
     /**
@@ -1044,6 +1045,13 @@ module.exports = grammar({
      * @see {@link https://cc65.github.io/doc/ca65.html#ss11.35}
      */
     error_ctrl_cmd: ($) => seq(/\.error/i, field("error", $.string)),
+
+    /**
+     * .EXITMAC/.EXITMACRO
+     *
+     * @see {@link https://cc65.github.io/doc/ca65.html#ss11.36}
+     */
+    exitmacro_ctrl_cmd: ($) => choice(/\.exitmac/i, /\.exitmacro/i),
 
     plus_symbol: ($) => "+",
     sub_symbol: ($) => "-",

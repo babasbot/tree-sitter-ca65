@@ -4051,6 +4051,10 @@
         {
           "type": "SYMBOL",
           "name": "error_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "exitmacro_ctrl_cmd"
         }
       ]
     },
@@ -4916,6 +4920,21 @@
             "type": "SYMBOL",
             "name": "string"
           }
+        }
+      ]
+    },
+    "exitmacro_ctrl_cmd": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\.exitmac",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\.exitmacro",
+          "flags": "i"
         }
       ]
     },

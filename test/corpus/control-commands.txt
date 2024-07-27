@@ -687,3 +687,18 @@ table: .bankbytes table
     (error_ctrl_cmd
       (string))))
 
+==========================
+.EXITMAC/.EXITMACRO
+==========================
+
+.exitmac
+.exitmacro
+
+---
+
+(ca65
+  (ctrl_cmd
+    (exitmacro_ctrl_cmd))
+  (ctrl_cmd
+    (exitmacro_ctrl_cmd)))
+

@@ -776,6 +776,10 @@
         {
           "type": "error_ctrl_cmd",
           "named": true
+        },
+        {
+          "type": "exitmacro_ctrl_cmd",
+          "named": true
         }
       ]
     }
@@ -1029,6 +1033,11 @@
         ]
       }
     }
+  },
+  {
+    "type": "exitmacro_ctrl_cmd",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "expression",
