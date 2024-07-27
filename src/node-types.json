@@ -752,6 +752,10 @@
         {
           "type": "endif_ctrl_cmd",
           "named": true
+        },
+        {
+          "type": "endmacro_ctrl_cmd",
+          "named": true
         }
       ]
     }
@@ -887,6 +891,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "endmacro_ctrl_cmd",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "eq_cmp",

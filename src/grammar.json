@@ -4027,6 +4027,10 @@
         {
           "type": "SYMBOL",
           "name": "endif_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "endmacro_ctrl_cmd"
         }
       ]
     },
@@ -4731,6 +4735,21 @@
       "type": "PATTERN",
       "value": "\\.endif",
       "flags": "i"
+    },
+    "endmacro_ctrl_cmd": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\.endmacro",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\.endmac",
+          "flags": "i"
+        }
+      ]
     },
     "plus_symbol": {
       "type": "STRING",

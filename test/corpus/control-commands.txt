@@ -553,3 +553,18 @@ table: .bankbytes table
   (ctrl_cmd
     (endif_ctrl_cmd)))
 
+==========================
+.ENDMAC/.ENDMACRO
+==========================
+
+.endmac
+.endmacro
+
+---
+
+(ca65
+  (ctrl_cmd
+    (endmacro_ctrl_cmd))
+  (ctrl_cmd
+    (endmacro_ctrl_cmd)))
+

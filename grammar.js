@@ -731,6 +731,7 @@ module.exports = grammar({
         $.end_ctrl_cmd,
         $.endenum_ctrl_cmd,
         $.endif_ctrl_cmd,
+        $.endmacro_ctrl_cmd,
       ),
 
     /**
@@ -972,6 +973,13 @@ module.exports = grammar({
      * @see {@link https://cc65.github.io/doc/ca65.html#ss11.27}
      */
     endif_ctrl_cmd: ($) => /\.endif/i,
+
+    /**
+     * .ENDMACRO/.ENDMAC
+     *
+     * @see {@link https://cc65.github.io/doc/ca65.html#ss11.28}
+     */
+    endmacro_ctrl_cmd: ($) => choice(/\.endmacro/i, /\.endmac/i),
 
     plus_symbol: ($) => "+",
     sub_symbol: ($) => "-",
