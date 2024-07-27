@@ -740,6 +740,10 @@
         {
           "type": "elseif_ctrl_cmd",
           "named": true
+        },
+        {
+          "type": "end_ctrl_cmd",
+          "named": true
         }
       ]
     }
@@ -2237,6 +2241,10 @@
   },
   {
     "type": "else_ctrl_cmd",
+    "named": true
+  },
+  {
+    "type": "end_ctrl_cmd",
     "named": true
   },
   {

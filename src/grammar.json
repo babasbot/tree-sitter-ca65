@@ -4015,6 +4015,10 @@
         {
           "type": "SYMBOL",
           "name": "elseif_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "end_ctrl_cmd"
         }
       ]
     },
@@ -4704,6 +4708,11 @@
           "name": "expression"
         }
       ]
+    },
+    "end_ctrl_cmd": {
+      "type": "PATTERN",
+      "value": "\\.end",
+      "flags": "i"
     },
     "plus_symbol": {
       "type": "STRING",
