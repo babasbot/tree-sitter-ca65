@@ -4047,6 +4047,10 @@
         {
           "type": "SYMBOL",
           "name": "enum_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "error_ctrl_cmd"
         }
       ]
     },
@@ -4894,6 +4898,24 @@
               "type": "BLANK"
             }
           ]
+        }
+      ]
+    },
+    "error_ctrl_cmd": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\.error",
+          "flags": "i"
+        },
+        {
+          "type": "FIELD",
+          "name": "error",
+          "content": {
+            "type": "SYMBOL",
+            "name": "string"
+          }
         }
       ]
     },

@@ -736,6 +736,7 @@ module.exports = grammar({
         $.endstruct_ctrl_cmd,
         $.endunion_ctrl_cmd,
         $.enum_ctrl_cmd,
+        $.error_ctrl_cmd,
       ),
 
     /**
@@ -1036,6 +1037,13 @@ module.exports = grammar({
         field("name", $.symbol),
         optional(seq("=", field("value", $.expression))),
       ),
+
+    /**
+     * .ERROR
+     *
+     * @see {@link https://cc65.github.io/doc/ca65.html#ss11.35}
+     */
+    error_ctrl_cmd: ($) => seq(/\.error/i, field("error", $.string)),
 
     plus_symbol: ($) => "+",
     sub_symbol: ($) => "-",

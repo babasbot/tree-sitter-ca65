@@ -674,3 +674,16 @@ table: .bankbytes table
             (operand_8
               (symbol))))))))
 
+==========================
+.ERROR
+==========================
+
+.error "Do a barrel roll!"
+
+---
+
+(ca65
+  (ctrl_cmd
+    (error_ctrl_cmd
+      (string))))
+
