@@ -768,6 +768,10 @@
         {
           "type": "endstruct_ctrl_cmd",
           "named": true
+        },
+        {
+          "type": "endunion_ctrl_cmd",
+          "named": true
         }
       ]
     }
@@ -2295,6 +2299,10 @@
   },
   {
     "type": "endstruct_ctrl_cmd",
+    "named": true
+  },
+  {
+    "type": "endunion_ctrl_cmd",
     "named": true
   },
   {

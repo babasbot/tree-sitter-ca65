@@ -735,6 +735,7 @@ module.exports = grammar({
         $.endrepeat_ctrl_cmd,
         $.endscope_ctrl_cmd,
         $.endstruct_ctrl_cmd,
+        $.endunion_ctrl_cmd,
       ),
 
     /**
@@ -1011,6 +1012,13 @@ module.exports = grammar({
      * @see {@link https://cc65.github.io/doc/ca65.html#ss11.32}
      */
     endstruct_ctrl_cmd: ($) => /\.endstruct/i,
+
+    /**
+     * .ENDUNION
+     *
+     * @see {@link https://cc65.github.io/doc/ca65.html#ss11.33}
+     */
+    endunion_ctrl_cmd: ($) => /\.endunion/i,
 
     plus_symbol: ($) => "+",
     sub_symbol: ($) => "-",

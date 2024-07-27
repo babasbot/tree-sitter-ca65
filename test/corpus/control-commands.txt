@@ -607,3 +607,15 @@ table: .bankbytes table
   (ctrl_cmd
     (endstruct_ctrl_cmd)))
 
+==========================
+.ENDUION
+==========================
+
+.endunion
+
+---
+
+(ca65
+  (ctrl_cmd
+    (endunion_ctrl_cmd)))
+

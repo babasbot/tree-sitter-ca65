@@ -4043,6 +4043,10 @@
         {
           "type": "SYMBOL",
           "name": "endstruct_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "endunion_ctrl_cmd"
         }
       ]
     },
@@ -4791,6 +4795,11 @@
     "endstruct_ctrl_cmd": {
       "type": "PATTERN",
       "value": "\\.endstruct",
+      "flags": "i"
+    },
+    "endunion_ctrl_cmd": {
+      "type": "PATTERN",
+      "value": "\\.endunion",
       "flags": "i"
     },
     "plus_symbol": {
