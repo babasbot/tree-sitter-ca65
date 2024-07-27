@@ -595,3 +595,15 @@ table: .bankbytes table
   (ctrl_cmd
     (endscope_ctrl_cmd)))
 
+==========================
+.ENDSTRUCT
+==========================
+
+.endstruct
+
+---
+
+(ca65
+  (ctrl_cmd
+    (endstruct_ctrl_cmd)))
+

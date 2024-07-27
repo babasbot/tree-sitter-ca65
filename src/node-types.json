@@ -764,6 +764,10 @@
         {
           "type": "endscope_ctrl_cmd",
           "named": true
+        },
+        {
+          "type": "endstruct_ctrl_cmd",
+          "named": true
         }
       ]
     }
@@ -2287,6 +2291,10 @@
   },
   {
     "type": "endscope_ctrl_cmd",
+    "named": true
+  },
+  {
+    "type": "endstruct_ctrl_cmd",
     "named": true
   },
   {

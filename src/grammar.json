@@ -4039,6 +4039,10 @@
         {
           "type": "SYMBOL",
           "name": "endscope_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "endstruct_ctrl_cmd"
         }
       ]
     },
@@ -4782,6 +4786,11 @@
     "endscope_ctrl_cmd": {
       "type": "PATTERN",
       "value": "\\.endscope",
+      "flags": "i"
+    },
+    "endstruct_ctrl_cmd": {
+      "type": "PATTERN",
+      "value": "\\.endstruct",
       "flags": "i"
     },
     "plus_symbol": {
