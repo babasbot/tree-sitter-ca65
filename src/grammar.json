@@ -4019,6 +4019,10 @@
         {
           "type": "SYMBOL",
           "name": "end_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "endenum_ctrl_cmd"
         }
       ]
     },
@@ -4712,6 +4716,11 @@
     "end_ctrl_cmd": {
       "type": "PATTERN",
       "value": "\\.end",
+      "flags": "i"
+    },
+    "endenum_ctrl_cmd": {
+      "type": "PATTERN",
+      "value": "\\.endenum",
       "flags": "i"
     },
     "plus_symbol": {
