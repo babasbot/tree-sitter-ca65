@@ -4031,6 +4031,10 @@
         {
           "type": "SYMBOL",
           "name": "endmacro_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "endrepeat_ctrl_cmd"
         }
       ]
     },
@@ -4736,6 +4740,11 @@
       "value": "\\.endif",
       "flags": "i"
     },
+    "endproc_ctrl_cmd": {
+      "type": "PATTERN",
+      "value": "\\.endproc",
+      "flags": "i"
+    },
     "endmacro_ctrl_cmd": {
       "type": "CHOICE",
       "members": [
@@ -4747,6 +4756,21 @@
         {
           "type": "PATTERN",
           "value": "\\.endmac",
+          "flags": "i"
+        }
+      ]
+    },
+    "endrepeat_ctrl_cmd": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\.endrep",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\.endrepeat",
           "flags": "i"
         }
       ]

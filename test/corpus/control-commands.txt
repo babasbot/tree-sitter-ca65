@@ -568,3 +568,18 @@ table: .bankbytes table
   (ctrl_cmd
     (endmacro_ctrl_cmd)))
 
+==========================
+.ENDREP/.ENDREPEAT
+==========================
+
+.endrep
+.endrepeat
+
+---
+
+(ca65
+  (ctrl_cmd
+    (endrepeat_ctrl_cmd))
+  (ctrl_cmd
+    (endrepeat_ctrl_cmd)))
+

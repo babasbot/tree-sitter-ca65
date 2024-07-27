@@ -756,6 +756,10 @@
         {
           "type": "endmacro_ctrl_cmd",
           "named": true
+        },
+        {
+          "type": "endrepeat_ctrl_cmd",
+          "named": true
         }
       ]
     }
@@ -894,6 +898,11 @@
   },
   {
     "type": "endmacro_ctrl_cmd",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "endrepeat_ctrl_cmd",
     "named": true,
     "fields": {}
   },
