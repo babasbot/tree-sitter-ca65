@@ -541,3 +541,15 @@ table: .bankbytes table
   (ctrl_cmd
     (endenum_ctrl_cmd)))
 
+==========================
+.ENDIF
+==========================
+
+.endif
+
+---
+
+(ca65
+  (ctrl_cmd
+    (endif_ctrl_cmd)))
+

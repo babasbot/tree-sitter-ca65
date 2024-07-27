@@ -748,6 +748,10 @@
         {
           "type": "endenum_ctrl_cmd",
           "named": true
+        },
+        {
+          "type": "endif_ctrl_cmd",
+          "named": true
         }
       ]
     }
@@ -2253,6 +2257,10 @@
   },
   {
     "type": "endenum_ctrl_cmd",
+    "named": true
+  },
+  {
+    "type": "endif_ctrl_cmd",
     "named": true
   },
   {

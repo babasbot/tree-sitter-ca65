@@ -4023,6 +4023,10 @@
         {
           "type": "SYMBOL",
           "name": "endenum_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "endif_ctrl_cmd"
         }
       ]
     },
@@ -4721,6 +4725,11 @@
     "endenum_ctrl_cmd": {
       "type": "PATTERN",
       "value": "\\.endenum",
+      "flags": "i"
+    },
+    "endif_ctrl_cmd": {
+      "type": "PATTERN",
+      "value": "\\.endif",
       "flags": "i"
     },
     "plus_symbol": {
