@@ -4035,6 +4035,10 @@
         {
           "type": "SYMBOL",
           "name": "endrepeat_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "endscope_ctrl_cmd"
         }
       ]
     },
@@ -4774,6 +4778,11 @@
           "flags": "i"
         }
       ]
+    },
+    "endscope_ctrl_cmd": {
+      "type": "PATTERN",
+      "value": "\\.endscope",
+      "flags": "i"
     },
     "plus_symbol": {
       "type": "STRING",

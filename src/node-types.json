@@ -760,6 +760,10 @@
         {
           "type": "endrepeat_ctrl_cmd",
           "named": true
+        },
+        {
+          "type": "endscope_ctrl_cmd",
+          "named": true
         }
       ]
     }
@@ -2279,6 +2283,10 @@
   },
   {
     "type": "endif_ctrl_cmd",
+    "named": true
+  },
+  {
+    "type": "endscope_ctrl_cmd",
     "named": true
   },
   {

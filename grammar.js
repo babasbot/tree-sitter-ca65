@@ -733,6 +733,7 @@ module.exports = grammar({
         $.endif_ctrl_cmd,
         $.endmacro_ctrl_cmd,
         $.endrepeat_ctrl_cmd,
+        $.endscope_ctrl_cmd,
       ),
 
     /**
@@ -995,6 +996,13 @@ module.exports = grammar({
      * @see {@link https://cc65.github.io/doc/ca65.html#ss11.30}
      */
     endrepeat_ctrl_cmd: ($) => choice(/\.endrep/i, /\.endrepeat/i),
+
+    /**
+     * .ENDSCOPE
+     *
+     * @see {@link https://cc65.github.io/doc/ca65.html#ss11.31}
+     */
+    endscope_ctrl_cmd: ($) => /\.endscope/i,
 
     plus_symbol: ($) => "+",
     sub_symbol: ($) => "-",

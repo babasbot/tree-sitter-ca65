@@ -583,3 +583,15 @@ table: .bankbytes table
   (ctrl_cmd
     (endrepeat_ctrl_cmd)))
 
+==========================
+.ENDSCOPE
+==========================
+
+.endscope
+
+---
+
+(ca65
+  (ctrl_cmd
+    (endscope_ctrl_cmd)))
+
