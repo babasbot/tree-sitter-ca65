@@ -4059,6 +4059,10 @@
         {
           "type": "SYMBOL",
           "name": "export_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "exportzp_ctrl_cmd"
         }
       ]
     },
@@ -4948,6 +4952,49 @@
         {
           "type": "PATTERN",
           "value": "\\.export",
+          "flags": "i"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "exportee"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "exportee"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "exportzp_ctrl_cmd": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\.exportzp",
           "flags": "i"
         },
         {

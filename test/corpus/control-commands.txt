@@ -755,4 +755,27 @@ table: .bankbytes table
               (operand_8
                 (symbol)))))))))
 
+==========================
+.EXPORTZP
+==========================
+
+.exportzp foo, bar
+.exportzp baz := $02
+
+---
+
+(ca65
+  (ctrl_cmd
+    (exportzp_ctrl_cmd
+      (exportee
+        (symbol))
+      (exportee
+        (symbol))))
+  (ctrl_cmd
+    (exportzp_ctrl_cmd
+      (exportee
+        (symbol)
+        (expression
+          (operand_8
+            (hex_8)))))))
 

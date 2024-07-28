@@ -784,6 +784,10 @@
         {
           "type": "export_ctrl_cmd",
           "named": true
+        },
+        {
+          "type": "exportzp_ctrl_cmd",
+          "named": true
         }
       ]
     }
@@ -1076,6 +1080,21 @@
         },
         {
           "type": "symbol",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "exportzp_ctrl_cmd",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "exportee",
           "named": true
         }
       ]

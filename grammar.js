@@ -739,6 +739,7 @@ module.exports = grammar({
         $.error_ctrl_cmd,
         $.exitmacro_ctrl_cmd,
         $.export_ctrl_cmd,
+        $.exportzp_ctrl_cmd,
       ),
 
     /**
@@ -1061,6 +1062,18 @@ module.exports = grammar({
      */
     export_ctrl_cmd: ($) =>
       seq(/\.export/i, seq($.exportee), optional(repeat(seq(",", $.exportee)))),
+
+    /**
+     * .EXPORTZP
+     *
+     * @see {@link https://cc65.github.io/doc/ca65.html#ss11.37}
+     */
+    exportzp_ctrl_cmd: ($) =>
+      seq(
+        /\.exportzp/i,
+        seq($.exportee),
+        optional(repeat(seq(",", $.exportee))),
+      ),
 
     exportee: ($) =>
       choice(
