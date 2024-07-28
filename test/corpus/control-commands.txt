@@ -702,3 +702,57 @@ table: .bankbytes table
   (ctrl_cmd
     (exitmacro_ctrl_cmd)))
 
+==========================
+.EXPORT
+==========================
+
+.export foo
+.export bar: far
+.export foobar: far = foo * bar
+.export baz := foobar, zap: far = baz - bar
+
+---
+
+(ca65
+  (ctrl_cmd
+    (export_ctrl_cmd
+      (exportee
+        (symbol))))
+  (ctrl_cmd
+    (export_ctrl_cmd
+      (exportee
+        (label)
+        (symbol))))
+  (ctrl_cmd
+    (export_ctrl_cmd
+      (exportee
+        (label)
+        (symbol)
+        (expression
+          (mult_exp
+            (expression
+              (operand_8
+                (symbol)))
+            (expression
+              (operand_8
+                (symbol))))))))
+  (ctrl_cmd
+    (export_ctrl_cmd
+      (exportee
+        (symbol)
+        (expression
+          (operand_8
+            (symbol))))
+      (exportee
+        (label)
+        (symbol)
+        (expression
+          (sub_exp
+            (expression
+              (operand_8
+                (symbol)))
+            (expression
+              (operand_8
+                (symbol)))))))))
+
+

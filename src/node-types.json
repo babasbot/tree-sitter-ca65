@@ -780,6 +780,10 @@
         {
           "type": "exitmacro_ctrl_cmd",
           "named": true
+        },
+        {
+          "type": "export_ctrl_cmd",
+          "named": true
         }
       ]
     }
@@ -1038,6 +1042,44 @@
     "type": "exitmacro_ctrl_cmd",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "export_ctrl_cmd",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "exportee",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "exportee",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "label",
+          "named": true
+        },
+        {
+          "type": "symbol",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "expression",
@@ -2213,6 +2255,10 @@
   },
   {
     "type": "/",
+    "named": false
+  },
+  {
+    "type": ":=",
     "named": false
   },
   {
