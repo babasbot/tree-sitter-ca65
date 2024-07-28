@@ -740,6 +740,7 @@ module.exports = grammar({
         $.exitmacro_ctrl_cmd,
         $.export_ctrl_cmd,
         $.exportzp_ctrl_cmd,
+        $.faraddr_ctrl_cmd,
       ),
 
     /**
@@ -1066,7 +1067,7 @@ module.exports = grammar({
     /**
      * .EXPORTZP
      *
-     * @see {@link https://cc65.github.io/doc/ca65.html#ss11.37}
+     * @see {@link https://cc65.github.io/doc/ca65.html#ss11.38}
      */
     exportzp_ctrl_cmd: ($) =>
       seq(
@@ -1080,6 +1081,18 @@ module.exports = grammar({
         $.symbol,
         seq($.label, $.symbol, optional(seq("=", $.expression))),
         seq($.symbol, ":=", $.expression),
+      ),
+
+    /**
+     * .FARADDR
+     *
+     * @see {@link https://cc65.github.io/doc/ca65.html#ss11.39}
+     */
+    faraddr_ctrl_cmd: ($) =>
+      seq(
+        /\.faraddr/i,
+        seq($.expression),
+        optional(repeat(seq(",", $.expression))),
       ),
 
     plus_symbol: ($) => "+",

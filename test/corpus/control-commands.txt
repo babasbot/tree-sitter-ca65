@@ -779,3 +779,24 @@ table: .bankbytes table
           (operand_8
             (hex_8)))))))
 
+==========================
+.FARADDR
+==========================
+
+.faraddr DrawCircle, DrawRectangle, DrawHexagon
+
+---
+
+(ca65
+  (ctrl_cmd
+    (faraddr_ctrl_cmd
+      (expression
+        (operand_8
+          (symbol)))
+      (expression
+        (operand_8
+          (symbol)))
+      (expression
+        (operand_8
+          (symbol))))))
+

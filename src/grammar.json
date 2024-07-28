@@ -4063,6 +4063,10 @@
         {
           "type": "SYMBOL",
           "name": "exportzp_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "faraddr_ctrl_cmd"
         }
       ]
     },
@@ -5087,6 +5091,49 @@
             {
               "type": "SYMBOL",
               "name": "expression"
+            }
+          ]
+        }
+      ]
+    },
+    "faraddr_ctrl_cmd": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\.faraddr",
+          "flags": "i"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "expression"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "expression"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "BLANK"
             }
           ]
         }
