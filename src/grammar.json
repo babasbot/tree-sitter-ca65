@@ -4067,6 +4067,10 @@
         {
           "type": "SYMBOL",
           "name": "faraddr_ctrl_cmd"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "fatal_ctrl_cmd"
         }
       ]
     },
@@ -5136,6 +5140,24 @@
               "type": "BLANK"
             }
           ]
+        }
+      ]
+    },
+    "fatal_ctrl_cmd": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\.fatal",
+          "flags": "i"
+        },
+        {
+          "type": "FIELD",
+          "name": "error",
+          "content": {
+            "type": "SYMBOL",
+            "name": "string"
+          }
         }
       ]
     },

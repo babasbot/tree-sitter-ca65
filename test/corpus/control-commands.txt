@@ -800,3 +800,16 @@ table: .bankbytes table
         (operand_8
           (symbol))))))
 
+==========================
+.FATAL
+==========================
+
+.fatal "Do a barrel roll!"
+
+---
+
+(ca65
+  (ctrl_cmd
+    (fatal_ctrl_cmd
+      (string))))
+

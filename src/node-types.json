@@ -792,6 +792,10 @@
         {
           "type": "faraddr_ctrl_cmd",
           "named": true
+        },
+        {
+          "type": "fatal_ctrl_cmd",
+          "named": true
         }
       ]
     }
@@ -1248,6 +1252,22 @@
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "fatal_ctrl_cmd",
+    "named": true,
+    "fields": {
+      "error": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {

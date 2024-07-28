@@ -741,6 +741,7 @@ module.exports = grammar({
         $.export_ctrl_cmd,
         $.exportzp_ctrl_cmd,
         $.faraddr_ctrl_cmd,
+        $.fatal_ctrl_cmd,
       ),
 
     /**
@@ -1094,6 +1095,13 @@ module.exports = grammar({
         seq($.expression),
         optional(repeat(seq(",", $.expression))),
       ),
+
+    /**
+     * .FATAL
+     *
+     * @see {@link https://cc65.github.io/doc/ca65.html#ss11.40}
+     */
+    fatal_ctrl_cmd: ($) => seq(/\.fatal/i, field("error", $.string)),
 
     plus_symbol: ($) => "+",
     sub_symbol: ($) => "-",
